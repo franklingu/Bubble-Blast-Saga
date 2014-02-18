@@ -11,7 +11,8 @@
 #import "GameDesignViewController+ViewControllerExtension.h"
 
 @interface GameDesignViewController ()
-@property (nonatomic)         NSInteger numberOfRows;
+@property (nonatomic) NSInteger numberOfRows;
+@property (nonatomic) NSInteger currentFillingType;
 @end
 
 @implementation GameDesignViewController
@@ -21,12 +22,6 @@
     [super viewDidLoad];
     [self initializeAttributes];
     [self setUpMainViews];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    NSLog(@"receive memory warning");
 }
 
 - (IBAction)buttonPressed:(id)sender
@@ -48,19 +43,19 @@
 - (IBAction)colorSelectorPressed:(id)sender
 {
     UIButton* colorSelectorButton = (UIButton*)sender;
-    self.gameBubblesController.currentSelectedFillingType = [sender tag]%5;
     for (int i=1; i<=5; i++) {
         UIButton* button = (UIButton*)[self.palette viewWithTag:i];
         button.alpha = 0.5;
     }
     colorSelectorButton.alpha = 1;
+    self.currentFillingType = colorSelectorButton.tag % kNumberOfBubbleModelKinds;
 }
 
 - (void)initializeAttributes
 {
-    self.gameBubblesController = [[GameBubblesController alloc] initWithNibName:nil bundle:nil
-                                                                 bubbleGridArea:self.bubbleGridArea];
+    self.currentFillingType = 1;
     self.numberOfRows = 13;
+    self.bubbleModelsManager = [[BubbleModelsManager alloc] init];
 }
 
 - (void)setUpMainViews
@@ -96,31 +91,119 @@
 
 - (void)setUpCollectionView
 {
-    [self.bubbleGridArea registerClass:[BubbleCell class] forCellWithReuseIdentifier:@"bubbleCell"];
-    [self.bubbleGridArea setDataSource:self];
-    [self.bubbleGridArea setDelegate:self];
-    self.bubbleGridArea.layer.zPosition = 1;
+    [self.bubblesGridArea registerClass:[BubbleCell class] forCellWithReuseIdentifier:@"bubbleCell"];
+    [self.bubblesGridArea setDataSource:self];
+    [self.bubblesGridArea setDelegate:self];
+    self.bubblesGridArea.layer.zPosition = 1;
     [self createGesturesRecognizers];
 }
 
 - (void)createGesturesRecognizers
 {
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
-                                             initWithTarget:self.gameBubblesController action:@selector(handleTapGesture:)];
+                                             initWithTarget:self action:@selector(handleTapGesture:)];
     tapRecognizer.numberOfTapsRequired = 1;
-    [self.bubbleGridArea addGestureRecognizer:tapRecognizer];
+    [self.bubblesGridArea addGestureRecognizer:tapRecognizer];
     
     UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc]
-                                                         initWithTarget:self.gameBubblesController
+                                                         initWithTarget:self
                                                          action:@selector(handleLongPressGesture:)];
     longPressRecognizer.minimumPressDuration = 0.5f;
-    [self.bubbleGridArea addGestureRecognizer:longPressRecognizer];
+    [self.bubblesGridArea addGestureRecognizer:longPressRecognizer];
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]
-                                             initWithTarget:self.gameBubblesController action:@selector(handlePanGesture:)];
+                                             initWithTarget:self action:@selector(handlePanGesture:)];
     panRecognizer.minimumNumberOfTouches = 1;
     panRecognizer.maximumNumberOfTouches = 1;
-    [self.bubbleGridArea addGestureRecognizer:panRecognizer];
+    [self.bubblesGridArea addGestureRecognizer:panRecognizer];
+}
+
+- (void)handleTapGesture:(UIGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateEnded) {
+        CGPoint location = [gesture locationInView:self.bubblesGridArea];
+        NSIndexPath *indexPath = [self.bubblesGridArea indexPathForItemAtPoint:location];
+        NSInteger colorType = [self.bubbleModelsManager colorTypeForBubbleAtItem:indexPath.item];
+        if (colorType == kNoDisplayColorType) {
+            return ;
+        }
+        colorType = (colorType+1)%kNumberOfBubbleModelKinds;
+        if (colorType == kNoDisplayColorType) {
+            colorType++;
+        }
+        [self.bubbleModelsManager setColorType:colorType forBubbleModelAtItem:indexPath.item];
+        [self setColorType:colorType forCellAtItem:indexPath.item];
+    }
+}
+
+- (void)handleLongPressGesture:(UIGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateEnded) {
+        CGPoint location = [gesture locationInView:self.bubblesGridArea];
+        NSIndexPath *indexPath = [self.bubblesGridArea indexPathForItemAtPoint:location];
+        [self.bubbleModelsManager setColorType:kNoDisplayColorType forBubbleModelAtItem:indexPath.item];
+        [self setColorType:kNoDisplayColorType forCellAtItem:indexPath.item];
+    }
+}
+
+- (void)handlePanGesture:(UIGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateChanged
+        || gesture.state == UIGestureRecognizerStateEnded) {
+        CGPoint location = [gesture locationInView:self.bubblesGridArea];
+        NSIndexPath *indexPath = [self.bubblesGridArea indexPathForItemAtPoint:location];
+        [self.bubbleModelsManager setColorType:self.currentFillingType forBubbleModelAtItem:indexPath.item];
+        [self setColorType:self.currentFillingType forCellAtItem:indexPath.item];
+    }
+}
+
+- (UIImage *)imageWithColorType:(NSInteger)colorType
+{
+    UIImage *image;
+    switch ((int)colorType) {
+        case 0:
+            image = nil;
+            break;
+        case 1:
+            image = [UIImage imageNamed:kBlueImageName];
+            break;
+        case 2:
+            image = [UIImage imageNamed:kRedImageName];
+            break;
+        case 3:
+            image = [UIImage imageNamed:kOrangeImageName];
+            break;
+        case 4:
+            image = [UIImage imageNamed:kGreenImageName];
+            break;
+        default:
+            image = nil;
+            break;
+    }
+    
+    return image;
+}
+
+- (void)setColorType:(NSInteger)colorType forCellAtItem:(NSInteger)item
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
+    BubbleCell *cell = (BubbleCell *)[self.bubblesGridArea cellForItemAtIndexPath:indexPath];
+    UIImage *image = [self imageWithColorType:colorType];
+    if (image) {
+        [cell setBubbleImage:[[UIImageView alloc] initWithImage:image]];
+    } else {
+        [cell setBubbleImage:nil];
+    }
+}
+
+- (void)setColorType:(NSInteger)colorType forCell:(BubbleCell *)cell
+{
+    UIImage *image = [self imageWithColorType:colorType];
+    if (image) {
+        [cell setBubbleImage:[[UIImageView alloc] initWithImage:image]];
+    } else {
+        [cell setBubbleImage:nil];
+    }
 }
 
 - (NSArray*)filesInAppDocumentDirectory
@@ -158,7 +241,8 @@
     NSString *documentsPath = [paths objectAtIndex:0];
     NSString *fileWithExtension = [documentsPath stringByAppendingPathComponent:fileName];
     NSString *filePath = [fileWithExtension stringByAppendingString:plistExtension];
-    [self.gameBubblesController loadFromFile:filePath];
+    [self.bubbleModelsManager loadFromFilePath:filePath];
+    [self.bubblesGridArea reloadData];
 }
 
 - (void)deletedFileName:(NSString *)fileName
@@ -197,10 +281,14 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BubbleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"bubbleCell" forIndexPath:indexPath];
-    if (self.gameBubblesController.allModelDataFromFile) {
-        [self.gameBubblesController setColorTypeForCell:cell atIndexPath:indexPath];
+    
+    BubbleModel *bubble = [self.bubbleModelsManager bubbleAtItem:indexPath.item];
+    if (bubble) {
+        [self setColorType:bubble.colorType forCell:(BubbleCell *)cell];
     } else {
-        [self.gameBubblesController addGameBubbleAtIndexPathItem:indexPath andColorType:0];
+        UICollectionViewLayoutAttributes *attr = [self.bubblesGridArea.collectionViewLayout layoutAttributesForItemAtIndexPath:indexPath];
+        CGPoint center = CGPointMake(attr.center.x, attr.center.y+25);
+        [self.bubbleModelsManager addBubbleAtItem:indexPath.item colorType:kNoDisplayColorType center:center radius:32];
     }
     
     return cell;

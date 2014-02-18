@@ -22,7 +22,6 @@
 		B1C9866118A9157B00B9BF50 /* BubbleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9864F18A9157B00B9BF50 /* BubbleCell.m */; };
 		B1C9866218A9157B00B9BF50 /* BubbleGameAreaViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9865118A9157B00B9BF50 /* BubbleGameAreaViewLayout.m */; };
 		B1C9866318A9157B00B9BF50 /* BubbleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9865318A9157B00B9BF50 /* BubbleModel.m */; };
-		B1C9866618A9157B00B9BF50 /* GameBubblesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9865918A9157B00B9BF50 /* GameBubblesController.m */; };
 		B1C9866718A9157B00B9BF50 /* PopOverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9865C18A9157B00B9BF50 /* PopOverTableViewController.m */; };
 		B1C9866818A9157B00B9BF50 /* GameDesignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9865E18A9157B00B9BF50 /* GameDesignViewController.m */; };
 		B1C9866918A9157B00B9BF50 /* GameDesignViewController+ViewControllerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9866018A9157B00B9BF50 /* GameDesignViewController+ViewControllerExtension.m */; };
@@ -49,6 +48,7 @@
 		B1D13E9818B12A1A0098BBB3 /* cannon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D13E9018B12A1A0098BBB3 /* cannon.png */; };
 		B1D13E9B18B12B300098BBB3 /* LevelSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */; };
 		B1D1C48F18AE6F730000AC43 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D1C48E18AE6F730000AC43 /* Queue.m */; };
+		B1EEC42318B3A007002A007B /* BubbleModelsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EEC42218B3A007002A007B /* BubbleModelsManager.m */; };
 		B1F387BE18AA623100EFE9AF /* ObjectBody.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387BD18AA623100EFE9AF /* ObjectBody.m */; };
 		B1F387C118AA62C000EFE9AF /* Velocity.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387C018AA62C000EFE9AF /* Velocity.m */; };
 		B1F387DC18AA963C00EFE9AF /* MovableObjectBody.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387DB18AA963C00EFE9AF /* MovableObjectBody.m */; };
@@ -87,8 +87,6 @@
 		B1C9865118A9157B00B9BF50 /* BubbleGameAreaViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleGameAreaViewLayout.m; sourceTree = "<group>"; };
 		B1C9865218A9157B00B9BF50 /* BubbleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleModel.h; sourceTree = "<group>"; };
 		B1C9865318A9157B00B9BF50 /* BubbleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleModel.m; sourceTree = "<group>"; };
-		B1C9865818A9157B00B9BF50 /* GameBubblesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBubblesController.h; sourceTree = "<group>"; };
-		B1C9865918A9157B00B9BF50 /* GameBubblesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBubblesController.m; sourceTree = "<group>"; };
 		B1C9865A18A9157B00B9BF50 /* PopOverDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverDelegate.h; sourceTree = "<group>"; };
 		B1C9865B18A9157B00B9BF50 /* PopOverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverTableViewController.h; sourceTree = "<group>"; };
 		B1C9865C18A9157B00B9BF50 /* PopOverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopOverTableViewController.m; sourceTree = "<group>"; };
@@ -129,6 +127,8 @@
 		B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectViewController.m; sourceTree = "<group>"; };
 		B1D1C48D18AE6F730000AC43 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		B1D1C48E18AE6F730000AC43 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		B1EEC42118B3A007002A007B /* BubbleModelsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleModelsManager.h; sourceTree = "<group>"; };
+		B1EEC42218B3A007002A007B /* BubbleModelsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleModelsManager.m; sourceTree = "<group>"; };
 		B1F387BC18AA623100EFE9AF /* ObjectBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBody.h; sourceTree = "<group>"; };
 		B1F387BD18AA623100EFE9AF /* ObjectBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectBody.m; sourceTree = "<group>"; };
 		B1F387BF18AA62C000EFE9AF /* Velocity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Velocity.h; sourceTree = "<group>"; };
@@ -333,6 +333,8 @@
 			children = (
 				B1C9865218A9157B00B9BF50 /* BubbleModel.h */,
 				B1C9865318A9157B00B9BF50 /* BubbleModel.m */,
+				B1EEC42118B3A007002A007B /* BubbleModelsManager.h */,
+				B1EEC42218B3A007002A007B /* BubbleModelsManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -359,8 +361,6 @@
 		B1CAEF9D18ACDE6C00A96057 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B1C9865818A9157B00B9BF50 /* GameBubblesController.h */,
-				B1C9865918A9157B00B9BF50 /* GameBubblesController.m */,
 				B1C9865B18A9157B00B9BF50 /* PopOverTableViewController.h */,
 				B1C9865C18A9157B00B9BF50 /* PopOverTableViewController.m */,
 				B1C9865D18A9157B00B9BF50 /* GameDesignViewController.h */,
@@ -527,6 +527,7 @@
 				B1C9866918A9157B00B9BF50 /* GameDesignViewController+ViewControllerExtension.m in Sources */,
 				B1F387DC18AA963C00EFE9AF /* MovableObjectBody.m in Sources */,
 				B1C9866218A9157B00B9BF50 /* BubbleGameAreaViewLayout.m in Sources */,
+				B1EEC42318B3A007002A007B /* BubbleModelsManager.m in Sources */,
 				B1C9867D18A918A400B9BF50 /* WelcomeViewController.m in Sources */,
 				B1C9866818A9157B00B9BF50 /* GameDesignViewController.m in Sources */,
 				B1C9868218A91A3E00B9BF50 /* AnimateViewController.m in Sources */,
@@ -537,7 +538,6 @@
 				B1C9862818A9140A00B9BF50 /* main.m in Sources */,
 				B1F387BE18AA623100EFE9AF /* ObjectBody.m in Sources */,
 				B1C9868C18A92A1700B9BF50 /* CircleShape.m in Sources */,
-				B1C9866618A9157B00B9BF50 /* GameBubblesController.m in Sources */,
 				B1C9C1BD18ABB1EA0069A5B2 /* GameGraph.m in Sources */,
 				B1C9868918A91DB200B9BF50 /* GameBubbleCell.m in Sources */,
 				B1F387C118AA62C000EFE9AF /* Velocity.m in Sources */,

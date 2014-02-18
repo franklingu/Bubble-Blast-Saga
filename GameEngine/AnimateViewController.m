@@ -131,7 +131,6 @@
         NSInteger colorType = [(NSString*)[dic objectForKey:kKeyColorType] integerValue];
         [self.gameGraph setColorType:colorType forBubbleModelAndAddToSpaceAtItem:item];
     }
-    [self.bubbleGridArea reloadData];
 }
 
 - (void)addGameBubbleAtIndexPathItem:(NSInteger)item colorType:(NSInteger)colorType center:(CGPoint)center

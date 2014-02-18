@@ -19,6 +19,7 @@
 #import <Foundation/Foundation.h>
 
 static const NSInteger kNumberOfBubbleModelKinds = 5;
+static const NSInteger kNoDisplayColorType = 0;
 static const NSString *kKeyItem = @"Item";
 static const NSString *kKeyColorType = @"Color Type";
 static const NSString *kKeyCenterX = @"Center X";

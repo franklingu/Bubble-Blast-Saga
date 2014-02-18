@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BubbleModel.h"
+#import "BubbleModelsManager.h"
 #import "PhysicsSpace.h"
 #import "GraphDelegate.h"
 
@@ -17,8 +17,6 @@ static const CGFloat kOriginXOfFiringBubble = 352;
 static const CGFloat kOriginYOfFiringBubble = 941;
 static const CGFloat kRadiusOfFiringBubble = 32;
 static const NSInteger kMaximumNumberOfConnectedBubbles = 3;
-static const NSInteger kNumberOfItemsInOddRow = 12;
-static const NSInteger kNumberOfItemsInEvenRow = 11;
 static const NSInteger kNumberOfRows = 13;
 static const NSInteger kInvalidItem = -1;
 static const NSString *kBubbleToFireIdentifier = @"bubbleToFire";
@@ -40,6 +38,6 @@ static const NSString *kBubbleToFireIdentifier = @"bubbleToFire";
 
 - (void)setColorType:(NSInteger)colorType forBubbleModelAndAddToSpaceAtItem:(NSInteger)item;
 
-- (NSInteger)colorTypeForBubbleModelAtIndexPathItem:(NSInteger)item;
+- (NSInteger)colorTypeForBubbleModelAtItem:(NSInteger)item;
 
 @end

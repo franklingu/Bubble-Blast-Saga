@@ -44,7 +44,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     NSString* filePathToSave = [documentsPath stringByAppendingPathComponent:fileName];
-    [self.gameBubblesController saveCurrentDesignToFile:filePathToSave];
+    [self.bubbleModelsManager saveToFilePath:filePathToSave];
     [self resetInputFieldInSavingAlert];
 }
 
@@ -117,7 +117,8 @@
     // REQUIRES: game in designer mode
     // EFFECTS: current game bubbles in the grid are deleted
     
-    [self.gameBubblesController resetAllBubbles];
+    [self.bubbleModelsManager resetAllBubbles];
+    [self.bubblesGridArea reloadData];
 }
 
 @end

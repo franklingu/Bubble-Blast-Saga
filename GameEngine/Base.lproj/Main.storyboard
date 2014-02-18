@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="T3Z-rg-hlE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -40,7 +40,6 @@
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ke8-Xd-egG"/>
-                                    <segue destination="wQS-fc-Oda" kind="modal" modalTransitionStyle="coverVertical" id="Jbu-vB-Ikd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPZ-KM-lE2">
@@ -168,7 +167,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Design" id="KZu-LR-ehq"/>
                     <connections>
-                        <outlet property="bubbleGridArea" destination="Uli-jN-IVD" id="MK5-AW-cx0"/>
+                        <outlet property="bubblesGridArea" destination="Uli-jN-IVD" id="n8Q-6U-PgS"/>
                         <outlet property="gameArea" destination="dbr-0A-Ys0" id="7kf-8U-6SK"/>
                         <outlet property="loadButton" destination="fXS-7b-bDP" id="Cw5-hP-5K4"/>
                         <outlet property="palette" destination="EMN-rd-Pnh" id="7Qx-oo-Hlc"/>
@@ -315,7 +314,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="Jbu-vB-Ikd"/>
-    </inferredMetricsTieBreakers>
 </document>
