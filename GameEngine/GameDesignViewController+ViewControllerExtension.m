@@ -26,6 +26,14 @@
         [fileNameIllegalAlert show];
         return ;
     }
+    if (![self.bubbleModelsManager isValidGraph]) {
+        UIAlertView* invalidGraphAlert = [[UIAlertView alloc] initWithTitle:@"Saving file"
+                                                                    message:@"Current design is not valid"
+                                                                   delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [invalidGraphAlert show];
+        return ;
+    }
+    
     if ([self isFileNameExisting:fileName]) {
         [self.existingFileAlert show];
     } else {

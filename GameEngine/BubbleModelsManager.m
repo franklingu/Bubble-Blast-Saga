@@ -171,10 +171,17 @@
 
 - (NSArray *)dropOthersAndKeepBubbles:(NSArray *)bubblesToKeep
 {
-    NSMutableArray *bubblesCopy = [self.bubbles mutableCopy];
-    [bubblesCopy removeObjectsInArray:bubblesToKeep];
+    NSMutableArray *others = [NSMutableArray new];
     
-    return bubblesCopy;
+    for (BubbleModel *bubble in self.bubbles) {
+        if (bubble.colorType != kNoDisplayColorType) {
+            if (![bubblesToKeep containsObject:bubble]) {
+                [others addObject:bubble];
+            }
+        }
+    }
+    
+    return others;
 }
 
 - (NSArray *)neighborsWithModelAtItem:(NSInteger)item
