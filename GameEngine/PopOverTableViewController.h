@@ -18,6 +18,8 @@
 #import <UIKit/UIKit.h>
 #import "PopOverDelegate.h"
 
+static NSString *PopOverTableViewCellIdentifier = @"PopOverTableViewCell";
+
 @interface PopOverTableViewController : UITableViewController
 
 @property (strong, nonatomic) id<PopOverDelegate> delegate;

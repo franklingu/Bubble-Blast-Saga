@@ -29,6 +29,7 @@
     static NSString *saveLabel = @"Save";
     static NSString *resetLabel = @"Reset";
     static NSString *loadLabel = @"Load";
+    static NSString *returnLabel = @"Return";
     UIButton *button = (UIButton*)sender;
     
     if ([button.titleLabel.text isEqualToString:saveLabel]) {
@@ -37,6 +38,8 @@
         [self reset];
     } else if ([button.titleLabel.text isEqualToString:loadLabel]) {
         [self load];
+    } else if ([button.titleLabel.text isEqualToString:returnLabel]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

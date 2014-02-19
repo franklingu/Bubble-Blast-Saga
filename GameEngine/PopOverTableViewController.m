@@ -19,7 +19,7 @@
     self = [super initWithStyle:style];
     if (self) {
         self.fileNames = nil;
-        [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+        [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:PopOverTableViewCellIdentifier];
     }
     return self;
 }
@@ -50,8 +50,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PopOverTableViewCellIdentifier forIndexPath:indexPath];
     
     @try {
         NSString* fileName = self.fileNames[indexPath.row];
