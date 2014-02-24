@@ -32,9 +32,9 @@ static const NSString *kBubbleToFireIdentifier = @"bubbleToFire";
 
 - (void)update;
 
-- (void)fireGameBubbleInDirection:(CGPoint)direction withColorType:(NSInteger)colorType;
+- (void)loadFromFilePath:(NSString *)filePath;
 
-- (void)addGameBubbleAtItem:(NSInteger)item colorType:(NSInteger)colorType center:(CGPoint)center radius:(CGFloat)radius;
+- (void)fireGameBubbleInDirection:(CGPoint)direction withColorType:(NSInteger)colorType;
 
 - (void)setColorType:(NSInteger)colorType forBubbleModelAndAddToSpaceAtItem:(NSInteger)item;
 

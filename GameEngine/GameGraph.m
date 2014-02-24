@@ -22,9 +22,9 @@
         self.physicsSpace = [[PhysicsSpace alloc] initWithFrame:frame];
         self.physicsSpace.delegate = self;
         self.physicsSpace.timeInterval = kTimerInterval;
-        self.bubbleModelsManager = [[BubbleModelsManager alloc] init];
         self.isReadyToFire = YES;
         self.stopSimulating = NO;
+        self.bubbleModelsManager = [[BubbleModelsManager alloc] init];
     }
     
     return self;
@@ -96,6 +96,16 @@
     }
 }
 
+- (void)loadFromFilePath:(NSString *)filePath
+{
+    [self.bubbleModelsManager loadFromFilePath:filePath];
+    NSArray *bubblesToBeDisplayed = [self.bubbleModelsManager bubblesShouldBeDisplayed];
+    
+    for (BubbleModel *bubble in bubblesToBeDisplayed) {
+        [self addShapeByBubble:bubble];
+    }
+}
+
 - (void)fireGameBubbleInDirection:(CGPoint)direction withColorType:(NSInteger)colorType
 {
     self.currentFiringColorType = colorType;
@@ -122,27 +132,21 @@
     [self.delegate updateGameBubbleViewWithIdentifier:shape.identifier toPosition:shape.objectBody.position];
 }
 
-- (void)addGameBubbleAtItem:(NSInteger)item colorType:(NSInteger)colorType center:(CGPoint)center radius:(CGFloat)radius
-{
-    [self.bubbleModelsManager addBubbleAtItem:item colorType:colorType center:center radius:radius];
-    if (colorType != kNoDisplayColorType) {
-        MovableObjectBody *body = [[MovableObjectBody alloc] initWithPosition:center mass:1];
-        CircleShape *circle = [[CircleShape alloc] initWithObjectBody:body radius:kRadiusOfFiringBubble
-                                                     uniqueIdentifier:[NSString stringWithFormat:@"%d", (int)item]];
-        [self.physicsSpace addCircleShape:circle];
-    }
-}
-
 - (void)setColorType:(NSInteger)colorType forBubbleModelAndAddToSpaceAtItem:(NSInteger)item
 {
     [self.bubbleModelsManager setColorType:colorType forBubbleModelAtItem:item];
     BubbleModel *bubble = [self.bubbleModelsManager bubbleAtItem:item];
     if (colorType != kNoDisplayColorType) {
-        MovableObjectBody *body = [[MovableObjectBody alloc] initWithPosition:bubble.center mass:1];
-        CircleShape *circle = [[CircleShape alloc] initWithObjectBody:body radius:kRadiusOfFiringBubble
-                                                     uniqueIdentifier:[NSString stringWithFormat:@"%d", (int)item]];
-        [self.physicsSpace addCircleShape:circle];
+        [self addShapeByBubble:bubble];
     }
+}
+
+- (void)addShapeByBubble:(BubbleModel *)bubble
+{
+    MovableObjectBody *body = [[MovableObjectBody alloc] initWithPosition:bubble.center mass:1];
+    CircleShape *circle = [[CircleShape alloc] initWithObjectBody:body radius:kRadiusOfFiringBubble
+                                                 uniqueIdentifier:[NSString stringWithFormat:@"%d", (int)bubble.item]];
+    [self.physicsSpace addCircleShape:circle];
 }
 
 - (NSInteger)colorTypeForBubbleModelAtItem:(NSInteger)item

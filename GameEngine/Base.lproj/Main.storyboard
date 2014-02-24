@@ -254,6 +254,7 @@
                                 <rect key="frame" x="20" y="989" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Return">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -264,10 +265,11 @@
                                 <rect key="frame" x="702" y="989" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="T2J-Bn-unl" kind="modal" modalTransitionStyle="crossDissolve" id="U5M-D8-HVc"/>
+                                    <segue destination="T2J-Bn-unl" kind="modal" identifier="playSceneSegue" modalTransitionStyle="crossDissolve" id="U5M-D8-HVc"/>
                                 </connections>
                             </button>
                         </subviews>

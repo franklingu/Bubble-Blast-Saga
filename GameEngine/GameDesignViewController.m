@@ -71,13 +71,13 @@
     [self.gameArea addSubview:background];
     self.palette.layer.zPosition = 1;
     UIAlertView* saveAlert= [[UIAlertView alloc] initWithTitle:@"Saving file"
-                                                 message:@"Do you want to save the current design"
-                                                 delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+                                                 message:@"Enter a name for the current level"
+                                                 delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
     saveAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [saveAlert setTag:1];
     self.saveAlert = saveAlert;
     UIAlertView* existingFileAlert = [[UIAlertView alloc] initWithTitle:@"Saving file"
-                                                          message:@"File with the same name exists"
+                                                          message:@"File with the same name exists\nOverwrite existing file?"
                                                           delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
     [existingFileAlert setTag:2];
     self.existingFileAlert = existingFileAlert;

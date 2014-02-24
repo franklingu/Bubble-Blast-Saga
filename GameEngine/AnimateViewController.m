@@ -22,6 +22,7 @@
 @property (nonatomic) CGPoint firingDirection;
 @property (nonatomic) NSInteger currentFiringType;
 @property (nonatomic) NSInteger nextFiringType;
+@property (nonatomic) NSString *filePath;
 @end
 
 @implementation AnimateViewController
@@ -37,11 +38,12 @@
 
 - (void)initializeAttributes
 {
-    self.numberOfRows = 13;
     CGRect frame = self.gameArea.frame;
     frame.origin.y=25;
     self.gameGraph = [[GameGraph alloc] initWithFrame:frame];
     self.gameGraph.delegate = self;
+    [self.gameGraph loadFromFilePath:self.filePath];
+    self.numberOfRows = 13;
     self.itemsToRemove = [NSMutableArray new];
     self.itemsToDrop = [NSMutableArray new];
     self.isGameOver = NO;
@@ -73,10 +75,8 @@
     [self.bubbleGridArea setDataSource:self];
     [self.bubbleGridArea setDelegate:self];
     
-    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
-                                                                                 action:@selector(handlePan:)];
-    recognizer.minimumNumberOfTouches = 1;
-    recognizer.minimumNumberOfTouches = 1;
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(handleTap:)];
     [self.bubbleGridArea addGestureRecognizer:recognizer];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:kTimerInterval
                                                   target:self selector:@selector(update) userInfo:nil repeats:YES];
@@ -101,7 +101,7 @@
     [self.view addSubview:self.nextBubble];
 }
 
-- (void)handlePan:(UIPanGestureRecognizer *)tap
+- (void)handleTap:(UITapGestureRecognizer *)tap
 {
     if (tap.state == UIGestureRecognizerStateEnded) {
         if (!self.isGameOver) {
@@ -117,29 +117,15 @@
     }
 }
 
-// for future use
-- (void)loadFromFile:(NSString *)fileName
+- (void)configureLoadingFilePathByFileName:(NSString *)fileName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     NSString *filePathToLoad = [documentsPath stringByAppendingPathComponent:fileName];
-    NSArray *allModelData = [NSArray arrayWithContentsOfFile:filePathToLoad];
-    
-    for (id modelData in [allModelData objectEnumerator]) {
-        NSDictionary *dic = (NSDictionary*)modelData;
-        NSInteger item = [(NSString*)[dic objectForKey:kKeyItem] integerValue];
-        NSInteger colorType = [(NSString*)[dic objectForKey:kKeyColorType] integerValue];
-        [self.gameGraph setColorType:colorType forBubbleModelAndAddToSpaceAtItem:item];
-    }
+    self.filePath = filePathToLoad;
 }
 
-- (void)addGameBubbleAtIndexPathItem:(NSInteger)item colorType:(NSInteger)colorType center:(CGPoint)center
-                              radius:(CGFloat)radius
-{
-    [self.gameGraph addGameBubbleAtItem:item colorType:colorType center:center radius:radius];
-}
-
-- (void)setColorType:(NSInteger)colorType forCell:(GameBubbleCell*)aCell
+- (void)setColorType:(NSInteger)colorType forCell:(GameBubbleCell *)aCell
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[self imageWithColorType:colorType]];
     [aCell setBubbleImage:imageView];
@@ -188,9 +174,8 @@
 {
     GameBubbleCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"gameBubbleCell" forIndexPath:indexPath];
     
-    UICollectionViewLayoutAttributes *attr = [self.bubbleGridArea.collectionViewLayout layoutAttributesForItemAtIndexPath:indexPath];
-    CGPoint center = CGPointMake(attr.center.x, attr.center.y+25);
-    [self addGameBubbleAtIndexPathItem:indexPath.item colorType:0 center:center radius:attr.size.height/2];
+    NSInteger colorType = [self.gameGraph colorTypeForBubbleModelAtItem:indexPath.item];
+    [self setColorType:colorType forCell:cell];
     
     return cell;
 }

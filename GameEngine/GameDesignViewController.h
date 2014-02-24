@@ -28,7 +28,8 @@ static NSString *kRedImageName = @"bubble-red.png";
 static NSString *kOrangeImageName = @"bubble-orange.png";
 static NSString *kGreenImageName = @"bubble-green.png";
 
-@interface GameDesignViewController : UIViewController <UIPopoverControllerDelegate, PopOverDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface GameDesignViewController : UIViewController <UIPopoverControllerDelegate, PopOverDelegate,
+UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *gameArea;
 @property (strong, nonatomic) IBOutlet UIView *palette;
 @property (strong, nonatomic) IBOutlet UICollectionView *bubblesGridArea;

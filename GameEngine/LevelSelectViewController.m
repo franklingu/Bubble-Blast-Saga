@@ -10,6 +10,7 @@
 
 @interface LevelSelectViewController ()
 @property (strong, nonatomic) NSArray *fileNames;
+@property (strong, nonatomic) NSString *selectedFileName;
 @end
 
 @implementation LevelSelectViewController
@@ -42,6 +43,8 @@
     self.levelInfoView.layer.zPosition = 1;
     self.returnButton.layer.zPosition = 1;
     self.playButton.layer.zPosition = 1;
+    self.playButton.alpha = 0.5;
+    self.playButton.userInteractionEnabled = NO;
 }
 
 - (IBAction)returnPressed:(UIButton *)sender
@@ -61,8 +64,18 @@
     return files;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"playSceneSegue"]) {
+        AnimateViewController *playViewController = segue.destinationViewController;
+        NSString *fileName = [self.selectedFileName stringByAppendingString:@".plist"];
+        [playViewController configureLoadingFilePathByFileName:fileName];
+    }
+}
+
 - (NSArray*)fileNamesInAppDirectory
 {
+    // put in constant file
     static NSString *plistExtension = @".plist";
     NSArray *files = [self filesInAppDocumentDirectory];
     NSMutableArray *fileNames = [[NSMutableArray alloc] init];
@@ -95,7 +108,7 @@
         cell.textLabel.text = fileName;
     }
     @catch (NSException *exception) {
-        NSLog(@"loading row for table view:\n%@", exception.description);
+        NSLog(@"loading row failure for table view:\n%@", exception.description);
     }
     
     return cell;
@@ -110,11 +123,12 @@
 {
     @try {
         NSString* selectedFileName = self.fileNames[indexPath.row];
-        //[self.delegate selectedFileName:selectedFileName];
-        NSLog(@"%@", selectedFileName);
+        self.selectedFileName = selectedFileName;
+        self.playButton.alpha = 1;
+        self.playButton.userInteractionEnabled = YES;
     }
     @catch (NSException *exception) {
-        NSLog(@"selecting row in table view:\n%@", exception.description);
+        NSLog(@"selecting row failure in table view:\n%@", exception.description);
     }
 }
 

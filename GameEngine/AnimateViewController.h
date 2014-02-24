@@ -23,4 +23,6 @@ static NSString *kGreenImageName = @"bubble-green.png";
 @interface AnimateViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, GraphDelegate>
 @property (strong, nonatomic) IBOutlet UIView *gameArea;
 @property (strong, nonatomic) IBOutlet UICollectionView *bubbleGridArea;
+
+- (void)configureLoadingFilePathByFileName:(NSString *)fileName;
 @end

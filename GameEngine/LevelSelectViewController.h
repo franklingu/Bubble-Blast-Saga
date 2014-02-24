@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnimateViewController.h"
 
 static NSString *LevelTabelViewCellIdentifier = @"LevelTableViewCell";
 

@@ -48,9 +48,13 @@
     for (NSDictionary *modelData in [allModelData objectEnumerator]) {
         BubbleModel *bubble = [BubbleModel bubbleModelFromDic:modelData];
         BubbleModel *bubbleToChange = [self bubbleAtItem:bubble.item];
-        bubbleToChange.colorType = bubble.colorType;
-        bubbleToChange.center = bubble.center;
-        bubbleToChange.radius = bubble.radius;
+        if (bubbleToChange) {
+            bubbleToChange.colorType = bubble.colorType;
+            bubbleToChange.center = bubble.center;
+            bubbleToChange.radius = bubble.radius;
+        } else {
+            [self.bubbles addObject:bubble];
+        }
     }
 }
 
@@ -87,6 +91,19 @@
     }
     
     return nil;
+}
+
+- (NSArray *)bubblesShouldBeDisplayed
+{
+    NSMutableArray *bubblesToReturn = [NSMutableArray new];
+    
+    for (BubbleModel *bubble in self.bubbles) {
+        if (bubble.colorType != kNoDisplayColorType) {
+            [bubblesToReturn addObject:bubble];
+        }
+    }
+    
+    return bubblesToReturn;
 }
 
 - (NSInteger)colorTypeForBubbleAtItem:(NSInteger)item

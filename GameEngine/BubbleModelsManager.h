@@ -24,6 +24,8 @@ static const NSInteger kNumberOfItemsInEvenRow = 11;
 
 - (BubbleModel *)bubbleAtItem:(NSInteger)item;
 
+- (NSArray *)bubblesShouldBeDisplayed;
+
 - (NSInteger)colorTypeForBubbleAtItem:(NSInteger)item;
 
 - (void)setColorType:(NSInteger)colorType forBubbleModelAtItem:(NSInteger)item;
