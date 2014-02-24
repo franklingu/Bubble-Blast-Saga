@@ -31,7 +31,6 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBarHidden = YES;
     [self initializeAttributes];
     [self setUpMainViews];
 }
@@ -63,7 +62,7 @@
 
 - (void)setUpMainViews
 {
-    UIImage* backgroundImage = [UIImage imageNamed:@"background.png"];
+    UIImage* backgroundImage = [UIImage imageNamed:@"sky.png"];
     UIImageView* background = [[UIImageView alloc] initWithImage:backgroundImage];
     CGFloat gameViewWidth = self.gameArea.frame.size.width;
     CGFloat gameViewHeight = self.gameArea.frame.size.height;

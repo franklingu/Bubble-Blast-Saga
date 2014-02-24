@@ -27,9 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.navigationController.navigationBarHidden = YES;
-    UIImage* backgroundImage = [UIImage imageNamed:@"background.png"];
+	
+    UIImage* backgroundImage = [UIImage imageNamed:@"blue-sky.png"];
     UIImageView* background = [[UIImageView alloc] initWithImage:backgroundImage];
     CGFloat gameViewWidth = self.view.frame.size.width;
     CGFloat gameViewHeight = self.view.frame.size.height;
@@ -40,6 +39,7 @@
     self.levelsTableView.delegate = self;
     self.levelsTableView.dataSource = self;
     self.levelsTableView.layer.zPosition = 1;
+    self.levelsTableView.backgroundColor = [UIColor clearColor];
     self.levelInfoView.layer.zPosition = 1;
     self.returnButton.layer.zPosition = 1;
     self.playButton.layer.zPosition = 1;
@@ -103,6 +103,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LevelTabelViewCellIdentifier forIndexPath:indexPath];
     
+    cell.backgroundColor = [UIColor clearColor];
     @try {
         NSString* fileName = self.fileNames[indexPath.row];
         cell.textLabel.text = fileName;

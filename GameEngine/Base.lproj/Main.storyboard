@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="T3Z-rg-hlE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="wQS-fc-Oda">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="P25-Ky-WK3">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="T3Z-rg-hlE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0sp-JS-wyI">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="wQS-fc-Oda" kind="relationship" relationship="rootViewController" id="Nc3-X1-Oba"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aEW-KK-rZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-908" y="-197"/>
-        </scene>
         <!--Game Design View Controller - Design-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -190,11 +175,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g68-gT-MCJ">
-                                <rect key="frame" x="302" y="361" width="159" height="89"/>
+                                <rect key="frame" x="285" y="300" width="119" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                 <state key="normal" title="Design">
+                                    <color key="titleColor" red="0.0" green="1" blue="0.46782196493803596" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
@@ -202,11 +188,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBA-Jb-Kwe">
-                                <rect key="frame" x="302" y="481" width="159" height="80"/>
+                                <rect key="frame" x="397" y="546" width="119" height="116"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="25"/>
                                 <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.036015190824719046" green="0.88229353127500643" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
@@ -240,18 +227,18 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIu-SU-NUF">
-                                <rect key="frame" x="211" y="26" width="557" height="960"/>
+                                <rect key="frame" x="211" y="26" width="557" height="938"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nQi-Vy-FYU">
-                                <rect key="frame" x="-5" y="26" width="217" height="960"/>
+                                <rect key="frame" x="41" y="26" width="162" height="938"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhj-Jv-psO">
-                                <rect key="frame" x="20" y="989" width="46" height="30"/>
+                                <rect key="frame" x="20" y="972" width="64" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Return">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -262,7 +249,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEd-Xh-mH8">
-                                <rect key="frame" x="702" y="989" width="46" height="30"/>
+                                <rect key="frame" x="682" y="969" width="78" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>

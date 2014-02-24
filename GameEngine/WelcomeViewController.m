@@ -26,9 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.navigationController.navigationBarHidden = YES;
-    UIImage* backgroundImage = [UIImage imageNamed:@"background.png"];
+	
+    UIImage* backgroundImage = [UIImage imageNamed:@"water-sky.png"];
     UIImageView* background = [[UIImageView alloc] initWithImage:backgroundImage];
     CGFloat gameViewWidth = self.welcomeView.frame.size.width;
     CGFloat gameViewHeight = self.welcomeView.frame.size.height;
@@ -36,12 +35,6 @@
     [self.welcomeView addSubview:background];
     self.designMode.layer.zPosition = 1;
     self.playMode.layer.zPosition = 1;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
