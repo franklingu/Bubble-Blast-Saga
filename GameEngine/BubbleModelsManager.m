@@ -162,6 +162,9 @@
             [toBeRemovedBubbles addObjectsFromArray:[self allBubblesWithColorType:startingModel.colorType]];
             return toBeRemovedBubbles;
         }
+        if (![visited containsObject:bubble]) {
+            [visited addObject:bubble];
+        }
     }
     
     while (queue.count > 0) {

@@ -21,7 +21,7 @@ static const NSInteger kNumberOfRows = 13;
 static const NSInteger kInvalidItem = -1;
 static const NSString *kBubbleToFireIdentifier = @"bubbleToFire";
 
-@interface GameGraph : NSObject <PhysicsSpaceDelegate>
+@interface GameEngine : NSObject <PhysicsSpaceDelegate>
 
 @property (nonatomic) BOOL isReadyToFire;
 @property (weak, nonatomic) id<GraphDelegate> delegate;

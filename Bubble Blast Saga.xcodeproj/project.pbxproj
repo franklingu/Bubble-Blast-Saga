@@ -37,7 +37,7 @@
 		B1C9868918A91DB200B9BF50 /* GameBubbleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9868818A91DB200B9BF50 /* GameBubbleCell.m */; };
 		B1C9868C18A92A1700B9BF50 /* CircleShape.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9868B18A92A1700B9BF50 /* CircleShape.m */; };
 		B1C9868F18A92A5400B9BF50 /* PhysicsSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9868E18A92A5400B9BF50 /* PhysicsSpace.m */; };
-		B1C9C1BD18ABB1EA0069A5B2 /* GameGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9C1BC18ABB1EA0069A5B2 /* GameGraph.m */; };
+		B1C9C1BD18ABB1EA0069A5B2 /* GameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */; };
 		B1CCBE1118BBB3B3008E7DDA /* blue-sky.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCBE0E18BBB3B3008E7DDA /* blue-sky.png */; };
 		B1CCBE1618BBB417008E7DDA /* water-sky.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCBE1418BBB417008E7DDA /* water-sky.png */; };
 		B1CCBE1918BBB8A2008E7DDA /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCBE1818BBB8A2008E7DDA /* sky.png */; };
@@ -114,8 +114,8 @@
 		B1C9868D18A92A5400B9BF50 /* PhysicsSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsSpace.h; sourceTree = "<group>"; };
 		B1C9868E18A92A5400B9BF50 /* PhysicsSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhysicsSpace.m; sourceTree = "<group>"; };
 		B1C9C1BA18AB9DEB0069A5B2 /* PhysicsSpaceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsSpaceDelegate.h; sourceTree = "<group>"; };
-		B1C9C1BB18ABB1EA0069A5B2 /* GameGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameGraph.h; sourceTree = "<group>"; };
-		B1C9C1BC18ABB1EA0069A5B2 /* GameGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameGraph.m; sourceTree = "<group>"; };
+		B1C9C1BB18ABB1EA0069A5B2 /* GameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
+		B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEngine.m; sourceTree = "<group>"; };
 		B1CAEF9F18AD14EA00A96057 /* GraphDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphDelegate.h; sourceTree = "<group>"; };
 		B1CCBE0E18BBB3B3008E7DDA /* blue-sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-sky.png"; path = "Images/possible backgrounds/blue-sky.png"; sourceTree = SOURCE_ROOT; };
 		B1CCBE1418BBB417008E7DDA /* water-sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "water-sky.png"; path = "Images/possible backgrounds/water-sky.png"; sourceTree = SOURCE_ROOT; };
@@ -317,8 +317,8 @@
 				B1CAEF9E18AD14C800A96057 /* Graph Delegate */,
 				B1D1C48D18AE6F730000AC43 /* Queue.h */,
 				B1D1C48E18AE6F730000AC43 /* Queue.m */,
-				B1C9C1BB18ABB1EA0069A5B2 /* GameGraph.h */,
-				B1C9C1BC18ABB1EA0069A5B2 /* GameGraph.m */,
+				B1C9C1BB18ABB1EA0069A5B2 /* GameEngine.h */,
+				B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */,
 			);
 			name = Graph;
 			sourceTree = "<group>";
@@ -562,7 +562,7 @@
 				B1C9862818A9140A00B9BF50 /* main.m in Sources */,
 				B1F387BE18AA623100EFE9AF /* ObjectBody.m in Sources */,
 				B1C9868C18A92A1700B9BF50 /* CircleShape.m in Sources */,
-				B1C9C1BD18ABB1EA0069A5B2 /* GameGraph.m in Sources */,
+				B1C9C1BD18ABB1EA0069A5B2 /* GameEngine.m in Sources */,
 				B1C9868918A91DB200B9BF50 /* GameBubbleCell.m in Sources */,
 				B1F387C118AA62C000EFE9AF /* Velocity.m in Sources */,
 			);

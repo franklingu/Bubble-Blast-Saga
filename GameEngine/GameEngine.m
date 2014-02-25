@@ -6,14 +6,14 @@
 //
 //
 
-#import "GameGraph.h"
+#import "GameEngine.h"
 
-@interface GameGraph ()
+@interface GameEngine ()
 @property (strong, nonatomic) PhysicsSpace *physicsSpace;
 @property (strong, nonatomic) BubbleModelsManager *bubbleModelsManager;
 @end
 
-@implementation GameGraph
+@implementation GameEngine
 
 - (id)initWithFrame:(CGRect)frame
 {

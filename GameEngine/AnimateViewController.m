@@ -11,14 +11,17 @@
 
 @interface AnimateViewController ()
 @property (nonatomic) NSInteger numberOfRows;
-@property (nonatomic) GameGraph *gameGraph;
+@property (nonatomic) GameEngine *gameEngine;
 @property (nonatomic) UIView *bubbleToFire;
 @property (nonatomic) UIView *nextBubble;
+@property (nonatomic) UIImageView *cannonBase;
+@property (nonatomic) UIImageView *cannonPart;
 @property (nonatomic) NSTimer *timer;
-@property (nonatomic) NSMutableArray *itemsToRemove;
-@property (nonatomic) NSMutableArray *itemsToDrop;
 @property (nonatomic) BOOL isGameOver;
 @property (nonatomic) BOOL isReadyForFiring;
+@property (nonatomic) BOOL dropingAnimationFinished;
+@property (nonatomic) BOOL removingAnimationFinished;
+@property (nonatomic) BOOL firingAnimationFinished;
 @property (nonatomic) CGPoint firingDirection;
 @property (nonatomic) NSInteger currentFiringType;
 @property (nonatomic) NSInteger nextFiringType;
@@ -39,14 +42,15 @@
 {
     CGRect frame = self.gameArea.frame;
     frame.origin.y=25;
-    self.gameGraph = [[GameGraph alloc] initWithFrame:frame];
-    self.gameGraph.delegate = self;
-    [self.gameGraph loadFromFilePath:self.filePath];
+    self.gameEngine = [[GameEngine alloc] initWithFrame:frame];
+    self.gameEngine.delegate = self;
+    [self.gameEngine loadFromFilePath:self.filePath];
     self.numberOfRows = 13;
-    self.itemsToRemove = [NSMutableArray new];
-    self.itemsToDrop = [NSMutableArray new];
     self.isGameOver = NO;
     self.isReadyForFiring = NO;
+    self.dropingAnimationFinished = YES;
+    self.removingAnimationFinished = YES;
+    self.firingAnimationFinished = YES;
     self.currentFiringType = 1;
     [self produceNextFiringType];
 }
@@ -79,23 +83,54 @@
                                                   target:self selector:@selector(update) userInfo:nil repeats:YES];
     
     [self drawBubbleToFireAndNextBubble];
+    [self drawCannon];
 }
 
 - (void)drawBubbleToFireAndNextBubble
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[self imageWithColorType:self.currentFiringType]];
     imageView.frame = CGRectMake(kOriginXOfFiringBubble, kOriginYOfFiringBubble,
-                                 kRadiusOfFiringBubble*2, kRadiusOfFiringBubble*2);
+                                 kRadiusOfFiringBubble * 2, kRadiusOfFiringBubble * 2);
     imageView.layer.zPosition = 2;
     self.bubbleToFire = imageView;
     self.bubbleToFire.alpha = 1;
     [self.view addSubview:self.bubbleToFire];
     UIImageView *nextBubble = [[UIImageView alloc] initWithImage:[self imageWithColorType:self.nextFiringType]];
     nextBubble.frame = CGRectMake(kOriginXOfNextFiringBubble, kOriginYOfFiringBubble,
-                                  kRadiusOfFiringBubble*2, kRadiusOfFiringBubble*2);
+                                  kRadiusOfFiringBubble * 2, kRadiusOfFiringBubble * 2);
     self.nextBubble = nextBubble;
     self.nextBubble.alpha = 0.7;
     [self.view addSubview:self.nextBubble];
+}
+
+- (void)drawCannon
+{
+    UIImageView *cannonBaseImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cannon-base.png"]];
+    // magic numbers
+    cannonBaseImageView.frame = CGRectMake(kOriginXOfFiringBubble-2, kOriginYOfFiringBubble-4,
+                                           kRadiusOfFiringBubble * 2+4, kRadiusOfFiringBubble+6);
+    cannonBaseImageView.layer.zPosition = 3;
+    self.cannonBase = cannonBaseImageView;
+    [self.view addSubview:self.cannonBase];
+    UIImage *cannonWholeImage = [UIImage imageNamed:@"cannon.png"];
+    CGRect frame = CGRectMake(kOriginXOfFiringBubble, kOriginYOfFiringBubble - kRadiusOfFiringBubble * 4,
+                              kRadiusOfFiringBubble * 2, kRadiusOfFiringBubble * 4);
+    NSMutableArray *images = [NSMutableArray new];
+    
+    for (int i = 0; i < 12; i++) {
+        CGRect rect = CGRectMake(400 * (i%6), 800 * (i/6), 400, 800);
+        CGImageRef imgRef = CGImageCreateWithImageInRect(cannonWholeImage.CGImage,  rect);
+        UIImage *cannonPartImage = [UIImage imageWithCGImage:imgRef];
+        if (i == 0) {
+            self.cannonPart = [[UIImageView alloc] initWithImage:cannonPartImage];
+            self.cannonPart.frame = frame;
+            self.cannonPart.layer.zPosition = 3;
+            [self.view addSubview:self.cannonPart];
+        }
+        [images addObject:cannonPartImage];
+    }
+    self.cannonPart.animationImages = images;
+    self.cannonPart.animationDuration = 1.0f/60;
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)tap
@@ -183,65 +218,59 @@
 {
     GameBubbleCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"gameBubbleCell" forIndexPath:indexPath];
     
-    NSInteger colorType = [self.gameGraph colorTypeForBubbleModelAtItem:indexPath.item];
+    NSInteger colorType = [self.gameEngine colorTypeForBubbleModelAtItem:indexPath.item];
     [self setColorType:colorType forCell:cell];
     
     return cell;
 }
 
-- (void)animation
-{
-    NSMutableArray *itemsRemoved = [NSMutableArray new];
-    NSMutableArray *itemsDroped = [NSMutableArray new];
-    for (NSNumber *number in self.itemsToRemove) {
-        NSInteger item = [number integerValue];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
-        GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
-        cell.backgroundView.alpha -= kAlphaChangeForRemoving;
-        CGRect frame = cell.backgroundView.frame;
-        cell.backgroundView.frame = CGRectMake(frame.origin.x-kExpandingRateForRemoving,
-                                               frame.origin.y-kExpandingRateForRemoving,
-                                               frame.size.width+kExpandingRateForRemoving*2,
-                                               frame.size.width+kExpandingRateForRemoving*2);
-        if (cell.backgroundView.alpha <= 0) {
-            [itemsRemoved addObject:number];
-        }
-    }
-    for (NSNumber *number in self.itemsToDrop) {
-        NSInteger item = [number integerValue];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
-        GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
-        cell.backgroundView.alpha -= kAlphaChangeForDroping;
-        CGPoint center = cell.backgroundView.center;
-        cell.backgroundView.center = CGPointMake(center.x, center.y+kDropingRateForDroping);
-        if (cell.backgroundView.alpha <= 0) {
-            [itemsDroped addObject:number];
-        }
-    }
-    for (NSNumber *number in itemsRemoved) {
-        [self.itemsToRemove removeObject:number];
-    }
-    for (NSNumber *number in itemsDroped) {
-        [self.itemsToDrop removeObject:number];
-    }
-}
-
 - (void)update
 {
-    [self animation];
-    [self.gameGraph update];
+    [self.gameEngine update];
 }
 
 - (void)removeCellAtItem:(NSInteger)item
 {
-    NSNumber *number = [NSNumber numberWithInteger:item];
-    [self.itemsToRemove addObject:number];
+    self.removingAnimationFinished = NO;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
+    GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
+    CGRect newFrame = CGRectMake(cell.backgroundView.frame.origin.x - kExpandingRate,
+                                 cell.backgroundView.frame.origin.y - kExpandingRate,
+                                 cell.backgroundView.frame.size.width + kExpandingRate * 2,
+                                 cell.backgroundView.frame.size.height + kExpandingRate * 2);
+    
+    NSLog(@"removing cell's item: %d", (int)item);
+    [UIView animateWithDuration:kAnimationDuration animations:^{
+        cell.backgroundView.alpha = 0;
+        cell.backgroundView.frame = newFrame;
+    } completion:^(BOOL finished){
+            if (finished) {
+                cell.backgroundView = nil;
+                // here we consider that once one is finished, others are nearly finished
+                self.removingAnimationFinished = YES;
+                NSLog(@"reached here");
+            }
+        }];
 }
 
 - (void)dropCellAtItem:(NSInteger)item
 {
-    NSNumber *number = [NSNumber numberWithInteger:item];
-    [self.itemsToDrop addObject:number];
+    self.dropingAnimationFinished = NO;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
+    GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
+    CGPoint dropCenter = CGPointMake(cell.backgroundView.center.x, cell.backgroundView.center.y + kDropingDistance);
+    
+    NSLog(@"droping cell's item: %d", (int)item);
+    [UIView animateWithDuration:kAnimationDuration animations:^{
+        cell.backgroundView.alpha = 0;
+        cell.backgroundView.center = dropCenter;
+    } completion:^(BOOL finished){
+        if (finished) {
+            cell.backgroundView = nil;
+            self.removingAnimationFinished = YES;
+            NSLog(@"reached here");
+        }
+    }];
 }
 
 - (void)addCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType
@@ -249,6 +278,7 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
     GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
     [self setColorType:colorType forCell:cell];
+    NSLog(@"adding cell's item: %d", (int)item);
 }
 
 - (void)removeGameBubbleViewWithIdentifier:(id)identifier
@@ -305,15 +335,38 @@
 
 - (void)fireBubble
 {
-    [self getFiringDirectionAndFire];
+    [self getFiringDirectionAndAnimate];
 }
 
-- (void)getFiringDirectionAndFire
+- (void)getFiringDirectionAndAnimate
 {
-    BOOL animationFinished = (self.itemsToDrop.count==0 && self.itemsToRemove.count==0);
-    if (!self.isGameOver && self.isReadyForFiring && animationFinished) {
+    if (!self.isGameOver && self.isReadyForFiring) {
+        [self animateCannon];
+    }
+}
+
+- (void)animateCannon
+{
+    if (self.removingAnimationFinished && self.dropingAnimationFinished) {
+        self.firingAnimationFinished = NO;
+        [self.cannonPart startAnimating];
+        [self performSelector:@selector(stopCannon) withObject:self afterDelay:0.2];
+    }
+}
+
+- (void)stopCannon
+{
+    [self.cannonPart stopAnimating];
+    self.firingAnimationFinished = YES;
+    [self fireUpTheBubble];
+}
+
+- (void)fireUpTheBubble
+{
+    if (!self.isGameOver && self.isReadyForFiring && self.removingAnimationFinished && self.dropingAnimationFinished && self.firingAnimationFinished){
         self.isReadyForFiring = NO;
-        [self.gameGraph fireGameBubbleInDirection:self.firingDirection withColorType:self.currentFiringType];
+        NSLog(@"actual fire up");
+        [self.gameEngine fireGameBubbleInDirection:self.firingDirection withColorType:self.currentFiringType];
     }
 }
 
@@ -321,7 +374,7 @@
 {
     self.isGameOver = YES;
     [self.timer invalidate];
-    self.gameGraph.stopSimulating = YES;
+    self.gameEngine.stopSimulating = YES;
     UIAlertView *gameLost = [[UIAlertView alloc] initWithTitle:@"Game Lost"
                                                        message:@"Sorry, you lost the game" delegate:self
                                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
