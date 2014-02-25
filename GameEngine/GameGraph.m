@@ -62,13 +62,12 @@
 
 - (void)checkGraphFromItem:(NSInteger)item
 {
-    NSArray *sameColoredBubbles = [self.bubbleModelsManager sameColorConnectedBubblesFromItem:item];
-    if (sameColoredBubbles.count>=kMaximumNumberOfConnectedBubbles) {
-        for (BubbleModel *model in sameColoredBubbles) {
-            model.colorType = kNoDisplayColorType;
-            [self.delegate removeCellAtItem:model.item];
-            [self.physicsSpace destroyCircleShapeWithIdentifier:[NSString stringWithFormat:@"%d",(int)model.item]];
-        }
+    NSArray *sameColoredBubbles = [self.bubbleModelsManager toBeRemovedBubblesStartingFromItem:item];
+    
+    for (BubbleModel *model in sameColoredBubbles) {
+        model.colorType = kNoDisplayColorType;
+        [self.delegate removeCellAtItem:model.item];
+        [self.physicsSpace destroyCircleShapeWithIdentifier:[NSString stringWithFormat:@"%d",(int)model.item]];
     }
 }
 

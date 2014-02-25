@@ -36,6 +36,6 @@ static const NSInteger kNumberOfItemsInEvenRow = 11;
 
 - (NSArray *)bubblesToDrop;
 
-- (NSArray *)sameColorConnectedBubblesFromItem:(NSInteger)item;
+- (NSArray *)toBeRemovedBubblesStartingFromItem:(NSInteger)item;
 
 @end

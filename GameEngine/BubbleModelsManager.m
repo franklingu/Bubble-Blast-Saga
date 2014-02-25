@@ -132,26 +132,44 @@
     }
 }
 
-- (NSArray *)sameColorConnectedBubblesFromItem:(NSInteger)item
+- (NSArray *)toBeRemovedBubblesStartingFromItem:(NSInteger)item
 {
     NSMutableArray *visited = [NSMutableArray new];
+    NSMutableArray *toBeRemovedBubbles = [NSMutableArray new];
+    NSMutableArray *connectedBubblesWithSameColor = [NSMutableArray new];
     BubbleModel *startingModel = [self bubbleAtItem:item];
+    if (!startingModel) {
+        NSLog(@"Bubble at item:%d not recognized in toBeRemovedBubblesStartingFromItem", (int)item);
+        return visited;
+    }
     [visited addObject:startingModel];
+    [connectedBubblesWithSameColor addObject:startingModel];
     Queue *queue = [Queue queue];
-    [queue enqueue:startingModel];
+    NSArray *neighborsOfStartingModel = [self neighborsWithModelAtItem:startingModel.item];
+    // process special bubbles and same color situation for all neighbors here
+    for (BubbleModel *bubble in neighborsOfStartingModel) {
+        if (bubble.colorType == startingModel.colorType && ![visited containsObject:bubble]) {
+            [queue enqueue:bubble];
+            [connectedBubblesWithSameColor addObject:bubble];
+        } // process special bubbles next
+    }
     
     while (queue.count > 0) {
         BubbleModel *model = [queue dequeue];
         NSArray *neighbors = [self neighborsWithModelAtItem:model.item];
         for (BubbleModel *neighbor in neighbors) {
-            if (neighbor.colorType == model.colorType && ![visited containsObject:neighbor]) {
+            if (neighbor.colorType == startingModel.colorType && ![visited containsObject:neighbor]) {
                 [queue enqueue:neighbor];
+                [connectedBubblesWithSameColor addObject:neighbor];
                 [visited addObject:neighbor];
             }
         }
     }
+    if (connectedBubblesWithSameColor.count >= 3) {
+        [toBeRemovedBubbles addObjectsFromArray:connectedBubblesWithSameColor];
+    }
     
-    return visited;
+    return toBeRemovedBubbles;
 }
 
 - (NSArray *)bubblesToDrop
@@ -176,7 +194,7 @@
         BubbleModel *model = [queue dequeue];
         NSArray *neighbors = [self neighborsWithModelAtItem:model.item];
         for (BubbleModel *neighbor in neighbors) {
-            if (neighbor.colorType != 0 && ![bubblesVisited containsObject:neighbor]) {
+            if (neighbor.colorType != kNoDisplayColorType && ![bubblesVisited containsObject:neighbor]) {
                 [queue enqueue:neighbor];
                 [bubblesVisited addObject:neighbor];
             }

@@ -18,9 +18,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    kNoDisplayColorType,
+    
+} GameBubbleColorType;
+
 static const NSInteger kNumberOfBubbleModelKinds = 9;
 static const NSInteger kNumberOfBubbleModelKindsCanBeFired = 4;
-static const NSInteger kNoDisplayColorType = 0;
 static const NSString *kKeyItem = @"Item";
 static const NSString *kKeyColorType = @"Color Type";
 static const NSString *kKeyCenterX = @"Center X";
