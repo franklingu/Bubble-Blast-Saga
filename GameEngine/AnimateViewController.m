@@ -53,10 +53,8 @@
 
 - (void)produceNextFiringType
 {
-    int num = rand()%kNumberOfBubbleModelKinds;
-    if (num == 0) {
-        num++;
-    }
+    int num = (rand()%kNumberOfBubbleModelKindsCanBeFired) + 1;
+
     self.nextFiringType = num;
 }
 
@@ -148,6 +146,18 @@
             break;
         case 4:
             image = [UIImage imageNamed:kGreenImageName];
+            break;
+        case 5:
+            image = [UIImage imageNamed:kStarImageName];
+            break;
+        case 6:
+            image = [UIImage imageNamed:kBombImageName];
+            break;
+        case 7:
+            image = [UIImage imageNamed:kLightningImageName];
+            break;
+        case 8:
+            image = [UIImage imageNamed:kIndestructibleImageName];
             break;
         default:
             image = nil;

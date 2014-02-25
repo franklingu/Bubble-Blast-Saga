@@ -86,7 +86,7 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <view alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EMN-rd-Pnh">
+                                    <view alpha="0.80000000000000004" tag="-1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EMN-rd-Pnh">
                                         <rect key="frame" x="0.0" y="929" width="768" height="51"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
@@ -130,8 +130,48 @@
                                                     <action selector="colorSelectorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x22-iK-Em4"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" alpha="0.5" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIb-nY-XKg">
+                                            <button opaque="NO" alpha="0.5" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1y-Km-pUc">
                                                 <rect key="frame" x="198" y="5" width="40" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="bubble-star.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="colorSelectorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UxH-ED-3Us"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.5" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q8-MF-M6M">
+                                                <rect key="frame" x="246" y="5" width="40" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="bubble-bomb.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="colorSelectorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IpX-hm-r7O"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.5" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmA-n6-F3V">
+                                                <rect key="frame" x="342" y="5" width="40" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="bubble-indestructible.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="colorSelectorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sOC-F8-fPK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.5" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9f-zd-ecO">
+                                                <rect key="frame" x="294" y="5" width="40" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="bubble-lightning.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="colorSelectorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b4O-Og-7pp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIb-nY-XKg">
+                                                <rect key="frame" x="718" y="5" width="40" height="39"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" backgroundImage="eraser-1.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -327,9 +367,13 @@
     </scenes>
     <resources>
         <image name="bubble-blue.png" width="160" height="160"/>
+        <image name="bubble-bomb.png" width="160" height="160"/>
         <image name="bubble-green.png" width="160" height="160"/>
+        <image name="bubble-indestructible.png" width="160" height="160"/>
+        <image name="bubble-lightning.png" width="160" height="160"/>
         <image name="bubble-orange.png" width="160" height="160"/>
         <image name="bubble-red.png" width="160" height="160"/>
+        <image name="bubble-star.png" width="160" height="160"/>
         <image name="eraser-1.png" width="254" height="152"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

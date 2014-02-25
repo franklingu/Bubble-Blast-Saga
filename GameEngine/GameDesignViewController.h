@@ -23,11 +23,6 @@
 #import "BubbleModelsManager.h"
 #import "PopOverDelegate.h"
 
-static NSString *kBlueImageName = @"bubble-blue.png";
-static NSString *kRedImageName = @"bubble-red.png";
-static NSString *kOrangeImageName = @"bubble-orange.png";
-static NSString *kGreenImageName = @"bubble-green.png";
-
 @interface GameDesignViewController : UIViewController <UIPopoverControllerDelegate, PopOverDelegate,
 UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *gameArea;

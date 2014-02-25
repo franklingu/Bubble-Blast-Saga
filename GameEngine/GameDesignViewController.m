@@ -47,7 +47,7 @@
 - (IBAction)colorSelectorPressed:(id)sender
 {
     UIButton* colorSelectorButton = (UIButton*)sender;
-    for (int i=1; i<=5; i++) {
+    for (int i=0; i<kNumberOfBubbleModelKinds; i++) {
         UIButton* button = (UIButton*)[self.palette viewWithTag:i];
         button.alpha = 0.5;
     }
@@ -127,6 +127,9 @@
     if (gesture.state == UIGestureRecognizerStateEnded) {
         CGPoint location = [gesture locationInView:self.bubblesGridArea];
         NSIndexPath *indexPath = [self.bubblesGridArea indexPathForItemAtPoint:location];
+        if (!indexPath) {
+            return ;
+        }
         NSInteger colorType = [self.bubbleModelsManager colorTypeForBubbleAtItem:indexPath.item];
         if (colorType == kNoDisplayColorType) {
             return ;
@@ -145,6 +148,9 @@
     if (gesture.state == UIGestureRecognizerStateEnded) {
         CGPoint location = [gesture locationInView:self.bubblesGridArea];
         NSIndexPath *indexPath = [self.bubblesGridArea indexPathForItemAtPoint:location];
+        if (!indexPath) {
+            return ;
+        }
         [self.bubbleModelsManager setColorType:kNoDisplayColorType forBubbleModelAtItem:indexPath.item];
         [self setColorType:kNoDisplayColorType forCellAtItem:indexPath.item];
     }
@@ -156,6 +162,9 @@
         || gesture.state == UIGestureRecognizerStateEnded) {
         CGPoint location = [gesture locationInView:self.bubblesGridArea];
         NSIndexPath *indexPath = [self.bubblesGridArea indexPathForItemAtPoint:location];
+        if (!indexPath) {
+            return ;
+        }
         [self.bubbleModelsManager setColorType:self.currentFillingType forBubbleModelAtItem:indexPath.item];
         [self setColorType:self.currentFillingType forCellAtItem:indexPath.item];
     }
@@ -179,6 +188,18 @@
             break;
         case 4:
             image = [UIImage imageNamed:kGreenImageName];
+            break;
+        case 5:
+            image = [UIImage imageNamed:kStarImageName];
+            break;
+        case 6:
+            image = [UIImage imageNamed:kBombImageName];
+            break;
+        case 7:
+            image = [UIImage imageNamed:kLightningImageName];
+            break;
+        case 8:
+            image = [UIImage imageNamed:kIndestructibleImageName];
             break;
         default:
             image = nil;

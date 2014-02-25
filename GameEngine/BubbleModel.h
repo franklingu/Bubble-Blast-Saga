@@ -18,13 +18,23 @@
 
 #import <Foundation/Foundation.h>
 
-static const NSInteger kNumberOfBubbleModelKinds = 5;
+static const NSInteger kNumberOfBubbleModelKinds = 9;
+static const NSInteger kNumberOfBubbleModelKindsCanBeFired = 4;
 static const NSInteger kNoDisplayColorType = 0;
 static const NSString *kKeyItem = @"Item";
 static const NSString *kKeyColorType = @"Color Type";
 static const NSString *kKeyCenterX = @"Center X";
 static const NSString *kKeyCenterY = @"Center Y";
 static const NSString *kKeyRadius = @"radius";
+
+static NSString *kBlueImageName = @"bubble-blue.png";
+static NSString *kRedImageName = @"bubble-red.png";
+static NSString *kOrangeImageName = @"bubble-orange.png";
+static NSString *kGreenImageName = @"bubble-green.png";
+static NSString *kStarImageName = @"bubble-star.png";
+static NSString *kBombImageName = @"bubble-bomb.png";
+static NSString *kLightningImageName = @"bubble-lightning.png";
+static NSString *kIndestructibleImageName = @"bubble-indestructible.png";
 
 @interface BubbleModel : NSObject
 
