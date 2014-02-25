@@ -40,11 +40,7 @@
     int col = rowFromIndex;
     while ((row%2==0 && col>=numberOfItemsInEvenRow) || (row%2!=0 && col>=numberOfItemsInOddRow)) {
         row++;
-        if (row%2 == 0) {
-            col = col - numberOfItemsInOddRow;
-        } else {
-            col = col - numberOfItemsInEvenRow;
-        }
+        col -= row % 2 ? numberOfItemsInEvenRow : numberOfItemsInOddRow;
     }
     float x_coordinate = col*2*radius + radius;
     float y_coordinate = row*radius*pow(3, 0.5f) + radius;

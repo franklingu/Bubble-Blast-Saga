@@ -146,12 +146,22 @@
     [connectedBubblesWithSameColor addObject:startingModel];
     Queue *queue = [Queue queue];
     NSArray *neighborsOfStartingModel = [self neighborsWithModelAtItem:startingModel.item];
-    // process special bubbles and same color situation for all neighbors here
+    
     for (BubbleModel *bubble in neighborsOfStartingModel) {
         if (bubble.colorType == startingModel.colorType && ![visited containsObject:bubble]) {
             [queue enqueue:bubble];
             [connectedBubblesWithSameColor addObject:bubble];
-        } // process special bubbles next
+        } else if (bubble.colorType == kLightningColorType) {
+            [toBeRemovedBubbles addObject:bubble];
+            [toBeRemovedBubbles addObjectsFromArray:[self toBeRemovedBubblesWithStarBubble:bubble]];
+        } else if (bubble.colorType == kBombColorType) {
+            [toBeRemovedBubbles addObject:bubble];
+            [toBeRemovedBubbles addObjectsFromArray:[self toBeRemovedBubblesWithBombBubble:bubble]];
+        } else if (bubble.colorType == kStarColorType) {
+            [toBeRemovedBubbles addObject:bubble];
+            [toBeRemovedBubbles addObjectsFromArray:[self allBubblesWithColorType:startingModel.colorType]];
+            return toBeRemovedBubbles;
+        }
     }
     
     while (queue.count > 0) {
@@ -170,6 +180,57 @@
     }
     
     return toBeRemovedBubbles;
+}
+
+- (NSArray *)toBeRemovedBubblesWithStarBubble:(BubbleModel *)bubble
+{
+    NSMutableArray *bubblesInCurrentRow = [NSMutableArray new];
+    NSInteger item = bubble.item;
+    NSInteger row = 1;
+    NSInteger rowStarting = 0;
+    
+    while (rowStarting < item) {
+        rowStarting += (row % 2) ? 12 : 11;
+        row++;
+    }
+    rowStarting -= (row % 2) ? 11 : 12;
+    row--;
+    NSInteger currentRowLength = (row % 2) ? 12 : 11;
+    for (int i = 0; i < currentRowLength; i++) {
+        BubbleModel *bubble = [self bubbleAtItem:(rowStarting + i)];
+        if (bubble && bubble.colorType != kNoDisplayColorType) {
+            [bubblesInCurrentRow addObject:bubble];
+        }
+    }
+    
+    return bubblesInCurrentRow;
+}
+
+- (NSArray *)toBeRemovedBubblesWithBombBubble:(BubbleModel *)bubble
+{
+    NSArray *neighbors = [self neighborsWithModelAtItem:bubble.item];
+    NSMutableArray *bubblesAsNeighbor = [NSMutableArray new];
+    
+    for (BubbleModel *bubble in neighbors) {
+        if (bubble && bubble.colorType != kNoDisplayColorType) {
+            [bubblesAsNeighbor addObject:bubble];
+        }
+    }
+    
+    return bubblesAsNeighbor;
+}
+
+- (NSArray *)allBubblesWithColorType:(NSInteger)colorType
+{
+    NSMutableArray *bubblesWithColorType = [NSMutableArray new];
+    
+    for (BubbleModel *bubble in self.bubbles) {
+        if (bubble.colorType == colorType) {
+            [bubblesWithColorType addObject:bubble];
+        }
+    }
+    
+    return bubblesWithColorType;
 }
 
 - (NSArray *)bubblesToDrop

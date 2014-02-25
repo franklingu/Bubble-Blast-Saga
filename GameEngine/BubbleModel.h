@@ -20,7 +20,14 @@
 
 typedef enum {
     kNoDisplayColorType,
-    
+    kBlueColorType,
+    kRedColorType,
+    kOrangeColorType,
+    kGreenColorType,
+    kStarColorType,
+    kBombColorType,
+    kLightningColorType,
+    kIndesturctibleColorType
 } GameBubbleColorType;
 
 static const NSInteger kNumberOfBubbleModelKinds = 9;
