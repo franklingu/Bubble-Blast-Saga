@@ -19,9 +19,6 @@
 @property (nonatomic) NSTimer *timer;
 @property (nonatomic) BOOL isGameOver;
 @property (nonatomic) BOOL isReadyForFiring;
-@property (nonatomic) BOOL dropingAnimationFinished;
-@property (nonatomic) BOOL removingAnimationFinished;
-@property (nonatomic) BOOL firingAnimationFinished;
 @property (nonatomic) CGPoint firingDirection;
 @property (nonatomic) NSInteger currentFiringType;
 @property (nonatomic) NSInteger nextFiringType;
@@ -48,18 +45,8 @@
     self.numberOfRows = 13;
     self.isGameOver = NO;
     self.isReadyForFiring = NO;
-    self.dropingAnimationFinished = YES;
-    self.removingAnimationFinished = YES;
-    self.firingAnimationFinished = YES;
     self.currentFiringType = 1;
     [self produceNextFiringType];
-}
-
-- (void)produceNextFiringType
-{
-    int num = (rand()%kNumberOfBubbleModelKindsCanBeFired) + 1;
-
-    self.nextFiringType = num;
 }
 
 - (void)setUpMainViews
@@ -69,7 +56,7 @@
     CGFloat gameViewWidth = self.gameArea.frame.size.width;
     CGFloat gameViewHeight = self.gameArea.frame.size.height;
     background.frame = CGRectMake(0, 0, gameViewWidth, gameViewHeight);
-    [self.gameArea addSubview:background];
+    //[self.gameArea addSubview:background];
     
     [self.bubbleGridArea registerClass:[GameBubbleCell class] forCellWithReuseIdentifier:@"gameBubbleCell"];
     self.bubbleGridArea.layer.zPosition = 1;
@@ -91,7 +78,7 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[self imageWithColorType:self.currentFiringType]];
     imageView.frame = CGRectMake(kOriginXOfFiringBubble, kOriginYOfFiringBubble,
                                  kRadiusOfFiringBubble * 2, kRadiusOfFiringBubble * 2);
-    imageView.layer.zPosition = 2;
+    //imageView.layer.zPosition = 2;
     self.bubbleToFire = imageView;
     self.bubbleToFire.alpha = 1;
     [self.view addSubview:self.bubbleToFire];
@@ -109,7 +96,6 @@
     // magic numbers
     cannonBaseImageView.frame = CGRectMake(kOriginXOfFiringBubble-2, kOriginYOfFiringBubble-4,
                                            kRadiusOfFiringBubble * 2+4, kRadiusOfFiringBubble+6);
-    cannonBaseImageView.layer.zPosition = 3;
     self.cannonBase = cannonBaseImageView;
     [self.view addSubview:self.cannonBase];
     UIImage *cannonWholeImage = [UIImage imageNamed:@"cannon.png"];
@@ -124,13 +110,23 @@
         if (i == 0) {
             self.cannonPart = [[UIImageView alloc] initWithImage:cannonPartImage];
             self.cannonPart.frame = frame;
-            self.cannonPart.layer.zPosition = 3;
+            //self.cannonPart.layer.anchorPoint = CGPointMake(kOriginXOfFiringBubble + kRadiusOfFiringBubble,
+            //                                                kOriginYOfFiringBubble + kRadiusOfFiringBubble);
+            //self.cannonPart.center = CGPointMake(kOriginYOfFiringBubble + kRadiusOfFiringBubble,
+            //                                     kOriginYOfFiringBubble - kRadiusOfFiringBubble * 2);
             [self.view addSubview:self.cannonPart];
         }
         [images addObject:cannonPartImage];
     }
     self.cannonPart.animationImages = images;
-    self.cannonPart.animationDuration = 1.0f/60;
+    self.cannonPart.animationDuration = kTimerInterval;
+}
+
+- (void)produceNextFiringType
+{
+    int num = (rand()%kNumberOfBubbleModelKindsCanBeFired) + 1;
+    
+    self.nextFiringType = num;
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)tap
@@ -161,6 +157,148 @@
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[self imageWithColorType:colorType]];
     [aCell setBubbleImage:imageView];
+}
+
+- (void)fireBubble
+{
+    [self getFiringDirectionAndAnimate];
+}
+
+- (void)getFiringDirectionAndAnimate
+{
+    if (!self.isGameOver && self.isReadyForFiring) {
+        [self animateCannon];
+    }
+}
+
+- (void)animateCannon
+{
+    [self.cannonPart startAnimating];
+    [UIView animateWithDuration:(kAnimationDuration / 2)
+                     animations:^{
+                         CGFloat radians = atan(-self.firingDirection.y / self.firingDirection.x);
+                         NSLog(@"radians : %f", radians);
+                         self.cannonPart.transform = CGAffineTransformMakeRotation(radians);
+                     } completion:^(BOOL finished){
+                         [self stopCannon];
+                     }];
+}
+
+- (void)stopCannon
+{
+    [self.cannonPart stopAnimating];
+    [self fireUpTheBubble];
+}
+
+- (void)fireUpTheBubble
+{
+    if (!self.isGameOver && self.isReadyForFiring){
+        self.isReadyForFiring = NO;
+        [self.gameEngine fireGameBubbleInDirection:self.firingDirection withColorType:self.currentFiringType];
+    }
+}
+
+- (void)gameOver
+{
+    self.isGameOver = YES;
+    [self.timer invalidate];
+    self.gameEngine.stopSimulating = YES;
+    UIAlertView *gameLost = [[UIAlertView alloc] initWithTitle:@"Game Lost"
+                                                       message:@"Sorry, you lost the game" delegate:self
+                                             cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [gameLost show];
+}
+
+- (void)removeCellAtItem:(NSInteger)item
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
+    GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
+    CGRect newFrame = CGRectMake(cell.backgroundView.frame.origin.x - kExpandingRate,
+                                 cell.backgroundView.frame.origin.y - kExpandingRate,
+                                 cell.backgroundView.frame.size.width + kExpandingRate * 2,
+                                 cell.backgroundView.frame.size.height + kExpandingRate * 2);
+    
+    [UIView animateWithDuration:kAnimationDuration animations:^{
+        cell.backgroundView.alpha = 0;
+        cell.backgroundView.frame = newFrame;
+    } completion:^(BOOL finished){
+            if (finished) {
+                cell.backgroundView = nil;;
+            }
+        }];
+}
+
+- (void)dropCellAtItem:(NSInteger)item
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
+    GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
+    CGPoint dropCenter = CGPointMake(cell.backgroundView.center.x, cell.backgroundView.center.y + kDropingDistance);
+    
+    [UIView animateWithDuration:kAnimationDuration animations:^{
+        cell.backgroundView.alpha = 0;
+        cell.backgroundView.center = dropCenter;
+    } completion:^(BOOL finished){
+        if (finished) {
+            cell.backgroundView = nil;
+        }
+    }];
+}
+
+- (void)addCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
+    GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
+    [self setColorType:colorType forCell:cell];
+}
+
+- (void)removeGameBubbleViewWithIdentifier:(id)identifier
+{
+    if ([identifier isEqual:kBubbleToFireIdentifier]) {
+        self.bubbleToFire.alpha = 0;
+        [self.bubbleToFire removeFromSuperview];
+        self.nextBubble.alpha = 0;
+        [self.nextBubble removeFromSuperview];
+        [self switchingNextTypeToCurrent];
+    }
+}
+
+- (void)switchingNextTypeToCurrent
+{
+    self.currentFiringType = self.nextFiringType;
+    [self produceNextFiringType];
+    [self drawBubbleToFireAndNextBubble];
+}
+
+- (void)updateGameBubbleViewWithIdentifier:(id)identifier toPosition:(CGPoint)position
+{
+    if ([identifier isEqual:kBubbleToFireIdentifier]) {
+        self.bubbleToFire.center = position;
+    }
+}
+
+- (NSInteger)indexPathItemForLocation:(CGPoint)location
+{
+    CGRect frame = self.bubbleGridArea.frame;
+    if (!CGRectContainsPoint(frame, location)) {
+        [self gameOver];
+        return kInvalidItem;
+    }
+    NSIndexPath *indexPath = [self.bubbleGridArea indexPathForItemAtPoint:CGPointMake(location.x,
+                                                                                      location.y - kYIndentForBubblesArea)];
+    if (!indexPath) { // try corner case
+        indexPath = [self.bubbleGridArea indexPathForItemAtPoint:CGPointMake(location.x - kRadiusOfFiringBubble,
+                                                                             location.y - kYIndentForBubblesArea)];
+        if (!indexPath) { // try corner case
+            indexPath = [self.bubbleGridArea indexPathForItemAtPoint:CGPointMake(location.x + kRadiusOfFiringBubble,
+                                                                                 location.y - kYIndentForBubblesArea)];
+        }
+        if (!indexPath) {
+            [self gameOver];
+            return kInvalidItem;
+        }
+    }
+    
+    return indexPath.item;
 }
 
 - (UIImage *)imageWithColorType:(NSInteger)colorType
@@ -227,158 +365,6 @@
 - (void)update
 {
     [self.gameEngine update];
-}
-
-- (void)removeCellAtItem:(NSInteger)item
-{
-    self.removingAnimationFinished = NO;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
-    GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
-    CGRect newFrame = CGRectMake(cell.backgroundView.frame.origin.x - kExpandingRate,
-                                 cell.backgroundView.frame.origin.y - kExpandingRate,
-                                 cell.backgroundView.frame.size.width + kExpandingRate * 2,
-                                 cell.backgroundView.frame.size.height + kExpandingRate * 2);
-    
-    NSLog(@"removing cell's item: %d", (int)item);
-    [UIView animateWithDuration:kAnimationDuration animations:^{
-        cell.backgroundView.alpha = 0;
-        cell.backgroundView.frame = newFrame;
-    } completion:^(BOOL finished){
-            if (finished) {
-                cell.backgroundView = nil;
-                // here we consider that once one is finished, others are nearly finished
-                self.removingAnimationFinished = YES;
-                NSLog(@"reached here");
-            }
-        }];
-}
-
-- (void)dropCellAtItem:(NSInteger)item
-{
-    self.dropingAnimationFinished = NO;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
-    GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
-    CGPoint dropCenter = CGPointMake(cell.backgroundView.center.x, cell.backgroundView.center.y + kDropingDistance);
-    
-    NSLog(@"droping cell's item: %d", (int)item);
-    [UIView animateWithDuration:kAnimationDuration animations:^{
-        cell.backgroundView.alpha = 0;
-        cell.backgroundView.center = dropCenter;
-    } completion:^(BOOL finished){
-        if (finished) {
-            cell.backgroundView = nil;
-            self.removingAnimationFinished = YES;
-            NSLog(@"reached here");
-        }
-    }];
-}
-
-- (void)addCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType
-{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
-    GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
-    [self setColorType:colorType forCell:cell];
-    NSLog(@"adding cell's item: %d", (int)item);
-}
-
-- (void)removeGameBubbleViewWithIdentifier:(id)identifier
-{
-    if ([identifier isEqual:kBubbleToFireIdentifier]) {
-        self.bubbleToFire.alpha = 0;
-        [self.bubbleToFire removeFromSuperview];
-        self.nextBubble.alpha = 0;
-        [self.nextBubble removeFromSuperview];
-        [self switchingNextTypeToCurrent];
-    }
-}
-
-- (void)switchingNextTypeToCurrent
-{
-    self.currentFiringType = self.nextFiringType;
-    [self produceNextFiringType];
-    [self drawBubbleToFireAndNextBubble];
-}
-
-- (void)updateGameBubbleViewWithIdentifier:(id)identifier toPosition:(CGPoint)position
-{
-    if ([identifier isEqual:kBubbleToFireIdentifier]) {
-        self.bubbleToFire.center = position;
-    }
-}
-
-- (NSInteger)indexPathItemForLocation:(CGPoint)location
-{
-    CGRect frame = self.bubbleGridArea.frame;
-    if (!CGRectContainsPoint(frame, location)) {
-        [self gameOver];
-        return kInvalidItem;
-    }
-    NSIndexPath *indexPath = [self.bubbleGridArea indexPathForItemAtPoint:CGPointMake(location.x, location.y-25)];
-    if (!indexPath) {    // indexPath is nil, three possibilities
-                         //   1.invalid location--out of bounds, somehow this case will pass the above checking
-                         //   2. even row, left cornor
-                         //   3. even row, right cornor
-        indexPath = [self.bubbleGridArea indexPathForItemAtPoint:CGPointMake(location.x-kRadiusOfFiringBubble,
-                                                                             location.y-25)];
-        if (!indexPath) {
-            indexPath = [self.bubbleGridArea indexPathForItemAtPoint:CGPointMake(location.x+kRadiusOfFiringBubble,
-                                                                                 location.y-25)];
-        }
-        if (!indexPath) {    // case 1
-            [self gameOver];
-            return kInvalidItem;
-        }
-    }
-    
-    return indexPath.item;
-}
-
-- (void)fireBubble
-{
-    [self getFiringDirectionAndAnimate];
-}
-
-- (void)getFiringDirectionAndAnimate
-{
-    if (!self.isGameOver && self.isReadyForFiring) {
-        [self animateCannon];
-    }
-}
-
-- (void)animateCannon
-{
-    if (self.removingAnimationFinished && self.dropingAnimationFinished) {
-        self.firingAnimationFinished = NO;
-        [self.cannonPart startAnimating];
-        [self performSelector:@selector(stopCannon) withObject:self afterDelay:0.2];
-    }
-}
-
-- (void)stopCannon
-{
-    [self.cannonPart stopAnimating];
-    self.firingAnimationFinished = YES;
-    [self fireUpTheBubble];
-}
-
-- (void)fireUpTheBubble
-{
-    if (!self.isGameOver && self.isReadyForFiring && self.removingAnimationFinished && self.dropingAnimationFinished && self.firingAnimationFinished){
-        self.isReadyForFiring = NO;
-        NSLog(@"actual fire up");
-        [self.gameEngine fireGameBubbleInDirection:self.firingDirection withColorType:self.currentFiringType];
-    }
-}
-
-- (void)gameOver
-{
-    self.isGameOver = YES;
-    [self.timer invalidate];
-    self.gameEngine.stopSimulating = YES;
-    UIAlertView *gameLost = [[UIAlertView alloc] initWithTitle:@"Game Lost"
-                                                       message:@"Sorry, you lost the game" delegate:self
-                                             cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [gameLost show];
 }
 
 @end

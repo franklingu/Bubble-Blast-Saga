@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "GameEngine.h"
 
 static const CGFloat kOriginXOfNextFiringBubble = 25;
@@ -14,6 +15,7 @@ static const CGFloat kMaximumYReplacement = -20;
 static const CGFloat kExpandingRate = 8;
 static const CGFloat kDropingDistance = 100;
 static const CGFloat kAnimationDuration = 0.2;
+static const CGFloat kYIndentForBubblesArea = 25;
 
 @interface AnimateViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, GraphDelegate>
 @property (strong, nonatomic) IBOutlet UIView *gameArea;
