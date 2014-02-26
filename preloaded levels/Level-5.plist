@@ -1,0 +1,1806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Center X</key>
+		<string>32.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>0</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>96.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>1</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>160.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>2</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>224.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>3</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>288.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>4</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>352.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>5</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>416.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>6</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>480.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>7</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>544.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>8</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>608.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>9</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>672.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>10</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>736.000000</string>
+		<key>Center Y</key>
+		<string>57.000000</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>11</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>64.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>12</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>128.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>13</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>192.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>14</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>256.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>15</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>320.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>16</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>384.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>17</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>448.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>18</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>512.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>19</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>576.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>20</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>640.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>6</string>
+		<key>Item</key>
+		<string>21</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>704.000000</string>
+		<key>Center Y</key>
+		<string>112.425629</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>22</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>32.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>23</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>96.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>24</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>160.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>1</string>
+		<key>Item</key>
+		<string>25</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>224.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>26</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>288.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>1</string>
+		<key>Item</key>
+		<string>27</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>352.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>1</string>
+		<key>Item</key>
+		<string>28</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>416.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>1</string>
+		<key>Item</key>
+		<string>29</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>480.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>1</string>
+		<key>Item</key>
+		<string>30</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>544.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>6</string>
+		<key>Item</key>
+		<string>31</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>608.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>6</string>
+		<key>Item</key>
+		<string>32</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>672.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>6</string>
+		<key>Item</key>
+		<string>33</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>736.000000</string>
+		<key>Center Y</key>
+		<string>167.851257</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>34</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>64.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>35</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>128.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>36</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>192.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>37</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>256.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>38</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>320.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>39</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>384.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>40</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>448.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>41</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>512.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>42</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>576.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>43</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>640.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>44</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>704.000000</string>
+		<key>Center Y</key>
+		<string>223.276871</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>45</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>32.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>46</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>96.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>47</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>160.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>48</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>224.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>49</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>288.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>50</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>352.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>51</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>416.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>5</string>
+		<key>Item</key>
+		<string>52</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>480.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>7</string>
+		<key>Item</key>
+		<string>53</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>544.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>7</string>
+		<key>Item</key>
+		<string>54</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>608.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>55</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>672.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>56</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>736.000000</string>
+		<key>Center Y</key>
+		<string>278.702515</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>57</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>64.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>58</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>128.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>59</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>192.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>60</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>256.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>61</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>320.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>62</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>384.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>63</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>448.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>-1</string>
+		<key>Item</key>
+		<string>64</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>512.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>65</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>576.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>66</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>640.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>67</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>704.000000</string>
+		<key>Center Y</key>
+		<string>334.128143</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>68</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>32.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>69</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>96.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>70</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>160.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>71</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>224.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>72</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>288.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>73</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>352.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>74</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>416.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>-1</string>
+		<key>Item</key>
+		<string>75</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>480.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>-1</string>
+		<key>Item</key>
+		<string>76</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>544.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>77</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>608.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>78</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>672.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>79</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>736.000000</string>
+		<key>Center Y</key>
+		<string>389.553741</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>80</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>64.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>81</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>128.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>82</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>192.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>83</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>256.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>84</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>320.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>85</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>384.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>-1</string>
+		<key>Item</key>
+		<string>86</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>448.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>87</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>512.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>-1</string>
+		<key>Item</key>
+		<string>88</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>576.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>89</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>640.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>90</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>704.000000</string>
+		<key>Center Y</key>
+		<string>444.979370</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>91</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>32.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>92</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>96.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>93</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>160.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>94</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>224.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>95</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>288.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>96</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>352.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>97</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>416.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>98</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>480.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>99</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>544.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>100</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>608.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>101</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>672.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>102</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>736.000000</string>
+		<key>Center Y</key>
+		<string>500.404999</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>103</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>64.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>104</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>128.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>105</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>192.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>106</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>256.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>107</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>320.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>108</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>384.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>109</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>448.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>110</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>512.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>111</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>576.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>6</string>
+		<key>Item</key>
+		<string>112</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>640.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>8</string>
+		<key>Item</key>
+		<string>113</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>704.000000</string>
+		<key>Center Y</key>
+		<string>555.830627</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>114</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>32.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>115</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>96.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>116</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>160.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>1</string>
+		<key>Item</key>
+		<string>117</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>224.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>1</string>
+		<key>Item</key>
+		<string>118</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>288.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>119</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>352.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>3</string>
+		<key>Item</key>
+		<string>120</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>416.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>121</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>480.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>4</string>
+		<key>Item</key>
+		<string>122</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>544.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>1</string>
+		<key>Item</key>
+		<string>123</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>608.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>2</string>
+		<key>Item</key>
+		<string>124</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>672.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>125</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>736.000000</string>
+		<key>Center Y</key>
+		<string>611.256287</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>126</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>64.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>127</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>128.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>128</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>192.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>129</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>256.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>130</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>320.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>131</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>384.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>132</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>448.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>133</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>512.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>134</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>576.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>135</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>640.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>136</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>704.000000</string>
+		<key>Center Y</key>
+		<string>666.681885</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>137</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>32.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>138</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>96.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>139</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>160.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>140</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>224.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>141</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>288.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>142</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>352.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>143</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>416.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>144</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>480.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>145</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>544.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>146</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>608.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>147</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>672.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>148</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+	<dict>
+		<key>Center X</key>
+		<string>736.000000</string>
+		<key>Center Y</key>
+		<string>722.107483</string>
+		<key>Color Type</key>
+		<string>0</string>
+		<key>Item</key>
+		<string>149</string>
+		<key>radius</key>
+		<string>32.000000</string>
+	</dict>
+</array>
+</plist>

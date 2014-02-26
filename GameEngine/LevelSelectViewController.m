@@ -85,6 +85,11 @@
         NSString* fileName = [file substringWithRange:NSMakeRange(0, range.location)];
         [fileNames addObject:fileName];
     }
+    [fileNames addObject:@"Level-1"];
+    [fileNames addObject:@"Level-2"];
+    [fileNames addObject:@"Level-3"];
+    [fileNames addObject:@"Level-4"];
+    [fileNames addObject:@"Level-5"];
     
     return fileNames;
 }

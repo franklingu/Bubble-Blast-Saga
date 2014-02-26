@@ -161,6 +161,13 @@
 
 - (void)configureLoadingFilePathByFileName:(NSString *)fileName
 {
+    // need refactoring later
+    if ([[fileName substringWithRange:NSMakeRange(0, 5)] isEqualToString:@"Level"]) {
+        NSString *fileNameWithoutExtension = [fileName substringWithRange:NSMakeRange(0, 7)];
+        NSString *path  = [[NSBundle mainBundle] pathForResource:fileNameWithoutExtension ofType:@"plist"];
+        self.filePath = path;
+        return ;
+    }
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     NSString *filePathToLoad = [documentsPath stringByAppendingPathComponent:fileName];

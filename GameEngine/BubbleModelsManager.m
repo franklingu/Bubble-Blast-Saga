@@ -206,7 +206,7 @@
     NSInteger currentRowLength = (row % 2) ? 12 : 11;
     for (int i = 0; i < currentRowLength; i++) {
         BubbleModel *bubble = [self bubbleAtItem:(rowStarting + i)];
-        if (bubble && bubble.colorType != kNoDisplayColorType) {
+        if (bubble && bubble.colorType != kNoDisplayColorType && bubble.colorType != kIndesturctibleColorType) {
             [bubblesInCurrentRow addObject:bubble];
         }
     }
