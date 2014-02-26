@@ -44,13 +44,20 @@
     }
 }
 
-- (IBAction)colorSelectorPressed:(id)sender
+- (void)fadeAllColorSelector
 {
-    UIButton* colorSelectorButton = (UIButton*)sender;
-    for (int i=0; i<kNumberOfBubbleModelKinds; i++) {
+    for (int i=1; i<kNumberOfBubbleModelKinds; i++) {
         UIButton* button = (UIButton*)[self.palette viewWithTag:i];
         button.alpha = 0.5;
     }
+    UIButton* button = (UIButton*)[self.palette viewWithTag:-1];
+    button.alpha = 0.5;
+}
+
+- (IBAction)colorSelectorPressed:(id)sender
+{
+    UIButton* colorSelectorButton = (UIButton*)sender;
+    [self fadeAllColorSelector];
     colorSelectorButton.alpha = 1;
     self.currentFillingType = colorSelectorButton.tag % kNumberOfBubbleModelKinds;
 }
@@ -99,6 +106,7 @@
     [self.bubblesGridArea setDataSource:self];
     [self.bubblesGridArea setDelegate:self];
     self.bubblesGridArea.layer.zPosition = 1;
+    [self fadeAllColorSelector];
     [self createGesturesRecognizers];
 }
 

@@ -16,6 +16,7 @@ static const CGFloat kExpandingRate = 8;
 static const CGFloat kDropingDistance = 100;
 static const CGFloat kAnimationDuration = 0.2;
 static const CGFloat kYIndentForBubblesArea = 25;
+static const CGFloat kShakingConstant = 3;
 
 @interface AnimateViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, GameEngineDelegate>
 @property (strong, nonatomic) IBOutlet UIView *gameArea;

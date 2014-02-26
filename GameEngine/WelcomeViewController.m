@@ -9,7 +9,7 @@
 #import "WelcomeViewController.h"
 
 @interface WelcomeViewController ()
-
+@property (nonatomic) SystemSoundID introMusic;
 @end
 
 @implementation WelcomeViewController
@@ -35,6 +35,24 @@
     [self.welcomeView addSubview:background];
     self.designMode.layer.zPosition = 1;
     self.playMode.layer.zPosition = 1;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSString *path  = [[NSBundle mainBundle] pathForResource:@"bg-music" ofType:@"mp3"];
+    NSURL *pathURL = [NSURL fileURLWithPath : path];
+
+    SystemSoundID audioEffect;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef) pathURL, &audioEffect);
+    self.introMusic = audioEffect;
+    AudioServicesPlaySystemSound(audioEffect);
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    AudioServicesDisposeSystemSoundID(self.introMusic);
 }
 
 @end

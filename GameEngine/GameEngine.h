@@ -36,8 +36,6 @@ static const NSString *kBubbleToFireIdentifier = @"bubbleToFire";
 
 - (void)fireGameBubbleInDirection:(CGPoint)direction withColorType:(NSInteger)colorType;
 
-- (void)setColorType:(NSInteger)colorType forBubbleModelAndAddToSpaceAtItem:(NSInteger)item;
-
 - (NSInteger)colorTypeForBubbleModelAtItem:(NSInteger)item;
 
 @end

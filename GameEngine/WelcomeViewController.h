@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface WelcomeViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *welcomeView;

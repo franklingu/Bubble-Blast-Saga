@@ -126,6 +126,7 @@
         if (i == 0) {
             self.cannonPart = [[UIImageView alloc] initWithImage:cannonPartImage];
             self.cannonPart.frame = frame;
+            self.cannonPart.layer.zPosition = 2;
             self.cannonPart.layer.anchorPoint = CGPointMake(0.5, 1.25);
             [self.view addSubview:self.cannonPart];
         }
@@ -272,6 +273,33 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
     GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
     [self setColorType:colorType forCell:cell];
+    [self animateShake:cell.backgroundView];
+}
+
+- (void)animateShake:(UIView*)itemView
+{
+    CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, kShakingConstant, -kShakingConstant);
+    CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity, -kShakingConstant, kShakingConstant);
+    
+    itemView.transform = leftQuake;  // starting point
+    [UIView beginAnimations:@"animateShake" context:(__bridge void *)(itemView)];
+    [UIView setAnimationRepeatAutoreverses:YES]; // important
+    [UIView setAnimationRepeatCount:5];
+    [UIView setAnimationDuration:(kAnimationDuration / 16)];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animateShakeEnded:finished:context:)];
+    itemView.transform = rightQuake; // end here & auto-reverse
+    
+    [UIView commitAnimations];
+}
+
+- (void)animateShakeEnded:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+    if ([finished boolValue])
+    {
+    	UIView* item = (__bridge UIView *)context;
+    	item.transform = CGAffineTransformIdentity;
+    }
 }
 
 - (void)removeGameBubbleViewWithIdentifier:(id)identifier

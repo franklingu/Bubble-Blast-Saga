@@ -50,6 +50,8 @@
 		B1D13E9818B12A1A0098BBB3 /* cannon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D13E9018B12A1A0098BBB3 /* cannon.png */; };
 		B1D13E9B18B12B300098BBB3 /* LevelSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */; };
 		B1D1C48F18AE6F730000AC43 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D1C48E18AE6F730000AC43 /* Queue.m */; };
+		B1DE5F5218BDF88A003A4414 /* intro-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1DE5F5118BDF88A003A4414 /* intro-music.mp3 */; };
+		B1DE5F5418BDFD5E003A4414 /* bg-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1DE5F5318BDFD5E003A4414 /* bg-music.mp3 */; };
 		B1EEC42318B3A007002A007B /* BubbleModelsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EEC42218B3A007002A007B /* BubbleModelsManager.m */; };
 		B1F387BE18AA623100EFE9AF /* ObjectBody.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387BD18AA623100EFE9AF /* ObjectBody.m */; };
 		B1F387C118AA62C000EFE9AF /* Velocity.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387C018AA62C000EFE9AF /* Velocity.m */; };
@@ -131,6 +133,8 @@
 		B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectViewController.m; sourceTree = "<group>"; };
 		B1D1C48D18AE6F730000AC43 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		B1D1C48E18AE6F730000AC43 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		B1DE5F5118BDF88A003A4414 /* intro-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "intro-music.mp3"; path = "music/intro-music.mp3"; sourceTree = SOURCE_ROOT; };
+		B1DE5F5318BDFD5E003A4414 /* bg-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music.mp3"; path = "music/bg-music.mp3"; sourceTree = SOURCE_ROOT; };
 		B1EEC42118B3A007002A007B /* BubbleModelsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleModelsManager.h; sourceTree = "<group>"; };
 		B1EEC42218B3A007002A007B /* BubbleModelsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleModelsManager.m; sourceTree = "<group>"; };
 		B1F387BC18AA623100EFE9AF /* ObjectBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBody.h; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 		B1C9862118A9140A00B9BF50 /* Bubble Blast Saga */ = {
 			isa = PBXGroup;
 			children = (
+				B1DE5F5018BDF874003A4414 /* sound */,
 				B1C9866B18A915DB00B9BF50 /* images */,
 				B1C9866A18A9158E00B9BF50 /* ps3 */,
 				B1C9867E18A918B200B9BF50 /* ps4 */,
@@ -401,6 +406,15 @@
 			name = bubbles;
 			sourceTree = "<group>";
 		};
+		B1DE5F5018BDF874003A4414 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				B1DE5F5318BDFD5E003A4414 /* bg-music.mp3 */,
+				B1DE5F5118BDF88A003A4414 /* intro-music.mp3 */,
+			);
+			name = sound;
+			sourceTree = "<group>";
+		};
 		B1F387CF18AA68D400EFE9AF /* Object body */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,11 +532,13 @@
 				B1C9867218A915F300B9BF50 /* background.png in Resources */,
 				B1C9867518A915F300B9BF50 /* bubble-orange.png in Resources */,
 				B1C9862618A9140A00B9BF50 /* InfoPlist.strings in Resources */,
+				B1DE5F5418BDFD5E003A4414 /* bg-music.mp3 in Resources */,
 				B1D13E9218B12A1A0098BBB3 /* bubble-burst.png in Resources */,
 				B1C9867A18A9164E00B9BF50 /* Main.storyboard in Resources */,
 				B1C9867318A915F300B9BF50 /* bubble-blue.png in Resources */,
 				B1CCBE1618BBB417008E7DDA /* water-sky.png in Resources */,
 				B1D13E9418B12A1A0098BBB3 /* bubble-lightning.png in Resources */,
+				B1DE5F5218BDF88A003A4414 /* intro-music.mp3 in Resources */,
 				B1D13E9318B12A1A0098BBB3 /* bubble-indestructible.png in Resources */,
 				B1C9867718A915F300B9BF50 /* eraser-1.png in Resources */,
 				B1CCBE1918BBB8A2008E7DDA /* sky.png in Resources */,
