@@ -50,6 +50,7 @@
 		B1D13E9818B12A1A0098BBB3 /* cannon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D13E9018B12A1A0098BBB3 /* cannon.png */; };
 		B1D13E9B18B12B300098BBB3 /* LevelSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */; };
 		B1D1C48F18AE6F730000AC43 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D1C48E18AE6F730000AC43 /* Queue.m */; };
+		B1DB39E418BE334B007405D2 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DB39E318BE334B007405D2 /* SoundPlayer.m */; };
 		B1DE5F5218BDF88A003A4414 /* intro-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1DE5F5118BDF88A003A4414 /* intro-music.mp3 */; };
 		B1DE5F5418BDFD5E003A4414 /* bg-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1DE5F5318BDFD5E003A4414 /* bg-music.mp3 */; };
 		B1EEC42318B3A007002A007B /* BubbleModelsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EEC42218B3A007002A007B /* BubbleModelsManager.m */; };
@@ -133,6 +134,8 @@
 		B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectViewController.m; sourceTree = "<group>"; };
 		B1D1C48D18AE6F730000AC43 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		B1D1C48E18AE6F730000AC43 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		B1DB39E218BE334B007405D2 /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
+		B1DB39E318BE334B007405D2 /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		B1DE5F5118BDF88A003A4414 /* intro-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "intro-music.mp3"; path = "music/intro-music.mp3"; sourceTree = SOURCE_ROOT; };
 		B1DE5F5318BDFD5E003A4414 /* bg-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music.mp3"; path = "music/bg-music.mp3"; sourceTree = SOURCE_ROOT; };
 		B1EEC42118B3A007002A007B /* BubbleModelsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleModelsManager.h; sourceTree = "<group>"; };
@@ -285,6 +288,7 @@
 		B1C9867F18A918CF00B9BF50 /* ps5 */ = {
 			isa = PBXGroup;
 			children = (
+				B1DB39E118BE331D007405D2 /* sound player */,
 				B1C9867B18A918A400B9BF50 /* WelcomeViewController.h */,
 				B1C9867C18A918A400B9BF50 /* WelcomeViewController.m */,
 				B1D13E9918B12B300098BBB3 /* LevelSelectViewController.h */,
@@ -404,6 +408,15 @@
 				B1D13E8C18B12A1A0098BBB3 /* bubble-lightning.png */,
 			);
 			name = bubbles;
+			sourceTree = "<group>";
+		};
+		B1DB39E118BE331D007405D2 /* sound player */ = {
+			isa = PBXGroup;
+			children = (
+				B1DB39E218BE334B007405D2 /* SoundPlayer.h */,
+				B1DB39E318BE334B007405D2 /* SoundPlayer.m */,
+			);
+			name = "sound player";
 			sourceTree = "<group>";
 		};
 		B1DE5F5018BDF874003A4414 /* sound */ = {
@@ -574,6 +587,7 @@
 				B1C9868F18A92A5400B9BF50 /* PhysicsSpace.m in Sources */,
 				B1C9866118A9157B00B9BF50 /* BubbleCell.m in Sources */,
 				B1C9866718A9157B00B9BF50 /* PopOverTableViewController.m in Sources */,
+				B1DB39E418BE334B007405D2 /* SoundPlayer.m in Sources */,
 				B1C9866318A9157B00B9BF50 /* BubbleModel.m in Sources */,
 				B1C9862818A9140A00B9BF50 /* main.m in Sources */,
 				B1F387BE18AA623100EFE9AF /* ObjectBody.m in Sources */,
