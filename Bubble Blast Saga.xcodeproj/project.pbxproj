@@ -116,7 +116,7 @@
 		B1C9C1BA18AB9DEB0069A5B2 /* PhysicsSpaceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsSpaceDelegate.h; sourceTree = "<group>"; };
 		B1C9C1BB18ABB1EA0069A5B2 /* GameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
 		B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEngine.m; sourceTree = "<group>"; };
-		B1CAEF9F18AD14EA00A96057 /* GraphDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphDelegate.h; sourceTree = "<group>"; };
+		B1CAEF9F18AD14EA00A96057 /* GameEngineDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameEngineDelegate.h; sourceTree = "<group>"; };
 		B1CCBE0E18BBB3B3008E7DDA /* blue-sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-sky.png"; path = "Images/possible backgrounds/blue-sky.png"; sourceTree = SOURCE_ROOT; };
 		B1CCBE1418BBB417008E7DDA /* water-sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "water-sky.png"; path = "Images/possible backgrounds/water-sky.png"; sourceTree = SOURCE_ROOT; };
 		B1CCBE1818BBB8A2008E7DDA /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky.png; path = "Images/possible backgrounds/sky.png"; sourceTree = SOURCE_ROOT; };
@@ -315,8 +315,6 @@
 			isa = PBXGroup;
 			children = (
 				B1CAEF9E18AD14C800A96057 /* Graph Delegate */,
-				B1D1C48D18AE6F730000AC43 /* Queue.h */,
-				B1D1C48E18AE6F730000AC43 /* Queue.m */,
 				B1C9C1BB18ABB1EA0069A5B2 /* GameEngine.h */,
 				B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */,
 			);
@@ -326,6 +324,8 @@
 		B1CAEF9A18ACDE2900A96057 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B1D1C48D18AE6F730000AC43 /* Queue.h */,
+				B1D1C48E18AE6F730000AC43 /* Queue.m */,
 				B1C9865218A9157B00B9BF50 /* BubbleModel.h */,
 				B1C9865318A9157B00B9BF50 /* BubbleModel.m */,
 				B1EEC42118B3A007002A007B /* BubbleModelsManager.h */,
@@ -369,7 +369,7 @@
 		B1CAEF9E18AD14C800A96057 /* Graph Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				B1CAEF9F18AD14EA00A96057 /* GraphDelegate.h */,
+				B1CAEF9F18AD14EA00A96057 /* GameEngineDelegate.h */,
 			);
 			name = "Graph Delegate";
 			sourceTree = "<group>";

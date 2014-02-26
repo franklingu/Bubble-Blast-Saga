@@ -16,6 +16,8 @@
 @property (nonatomic) UIView *nextBubble;
 @property (nonatomic) UIImageView *cannonBase;
 @property (nonatomic) UIImageView *cannonPart;
+@property (nonatomic) UIAlertView *gameLostAlert;
+@property (nonatomic) UIAlertView *gameWonAlert;
 @property (nonatomic) NSTimer *timer;
 @property (nonatomic) BOOL isGameOver;
 @property (nonatomic) BOOL isReadyForFiring;
@@ -56,12 +58,26 @@
     CGFloat gameViewWidth = self.gameArea.frame.size.width;
     CGFloat gameViewHeight = self.gameArea.frame.size.height;
     background.frame = CGRectMake(0, 0, gameViewWidth, gameViewHeight);
-    //[self.gameArea addSubview:background];
+    [self.gameArea addSubview:background];
     
     [self.bubbleGridArea registerClass:[GameBubbleCell class] forCellWithReuseIdentifier:@"gameBubbleCell"];
     self.bubbleGridArea.layer.zPosition = 1;
     [self.bubbleGridArea setDataSource:self];
     [self.bubbleGridArea setDelegate:self];
+    
+    UIAlertView *gameLost = [[UIAlertView alloc] initWithTitle:@"Game Lost"
+                                                       message:@"Sorry, you lost the game" delegate:self
+                                             cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    gameLost.delegate = self;
+    gameLost.tag = 1;
+    self.gameLostAlert = gameLost;
+    
+    UIAlertView *gameWon = [[UIAlertView alloc] initWithTitle:@"Game Won"
+                                                       message:@"Haha, you won the game" delegate:self
+                                             cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    gameWon.delegate = self;
+    gameWon.tag = 2;
+    self.gameWonAlert = gameWon;
     
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                  action:@selector(handleTap:)];
@@ -78,7 +94,6 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[self imageWithColorType:self.currentFiringType]];
     imageView.frame = CGRectMake(kOriginXOfFiringBubble, kOriginYOfFiringBubble,
                                  kRadiusOfFiringBubble * 2, kRadiusOfFiringBubble * 2);
-    //imageView.layer.zPosition = 2;
     self.bubbleToFire = imageView;
     self.bubbleToFire.alpha = 1;
     [self.view addSubview:self.bubbleToFire];
@@ -97,9 +112,10 @@
     cannonBaseImageView.frame = CGRectMake(kOriginXOfFiringBubble-2, kOriginYOfFiringBubble-4,
                                            kRadiusOfFiringBubble * 2+4, kRadiusOfFiringBubble+6);
     self.cannonBase = cannonBaseImageView;
+    self.cannonBase.layer.zPosition = 2;
     [self.view addSubview:self.cannonBase];
     UIImage *cannonWholeImage = [UIImage imageNamed:@"cannon.png"];
-    CGRect frame = CGRectMake(kOriginXOfFiringBubble, kOriginYOfFiringBubble - kRadiusOfFiringBubble * 4,
+    CGRect frame = CGRectMake(kOriginXOfFiringBubble, kOriginYOfFiringBubble - kRadiusOfFiringBubble * 1,
                               kRadiusOfFiringBubble * 2, kRadiusOfFiringBubble * 4);
     NSMutableArray *images = [NSMutableArray new];
     
@@ -110,10 +126,7 @@
         if (i == 0) {
             self.cannonPart = [[UIImageView alloc] initWithImage:cannonPartImage];
             self.cannonPart.frame = frame;
-            //self.cannonPart.layer.anchorPoint = CGPointMake(kOriginXOfFiringBubble + kRadiusOfFiringBubble,
-            //                                                kOriginYOfFiringBubble + kRadiusOfFiringBubble);
-            //self.cannonPart.center = CGPointMake(kOriginYOfFiringBubble + kRadiusOfFiringBubble,
-            //                                     kOriginYOfFiringBubble - kRadiusOfFiringBubble * 2);
+            self.cannonPart.layer.anchorPoint = CGPointMake(0.5, 1.25);
             [self.view addSubview:self.cannonPart];
         }
         [images addObject:cannonPartImage];
@@ -124,7 +137,7 @@
 
 - (void)produceNextFiringType
 {
-    int num = (rand()%kNumberOfBubbleModelKindsCanBeFired) + 1;
+    int num = (rand() % kNumberOfBubbleModelKindsCanBeFired) + 1;
     
     self.nextFiringType = num;
 }
@@ -173,29 +186,28 @@
 
 - (void)animateCannon
 {
-    [self.cannonPart startAnimating];
-    [UIView animateWithDuration:(kAnimationDuration / 2)
-                     animations:^{
-                         CGFloat radians = atan(-self.firingDirection.y / self.firingDirection.x);
-                         NSLog(@"radians : %f", radians);
-                         self.cannonPart.transform = CGAffineTransformMakeRotation(radians);
-                     } completion:^(BOOL finished){
-                         [self stopCannon];
-                     }];
+    if (!self.isGameOver && self.isReadyForFiring) {
+        self.isReadyForFiring = NO;
+        [self.cannonPart startAnimating];
+        [UIView animateWithDuration:(kAnimationDuration / 2)
+                         animations:^{
+                             CGFloat radians = atan(-self.firingDirection.y / self.firingDirection.x);
+                             if (radians > 0) {
+                                 radians = M_PI_2 - radians;
+                             } else if (radians < 0){
+                                 radians = - M_PI_2 - radians;
+                             }
+                             self.cannonPart.transform = CGAffineTransformMakeRotation(radians);
+                         } completion:^(BOOL finished){
+                             [self stopCannonAndFireUpBubble];
+                         }];
+    }
 }
 
-- (void)stopCannon
+- (void)stopCannonAndFireUpBubble
 {
     [self.cannonPart stopAnimating];
-    [self fireUpTheBubble];
-}
-
-- (void)fireUpTheBubble
-{
-    if (!self.isGameOver && self.isReadyForFiring){
-        self.isReadyForFiring = NO;
-        [self.gameEngine fireGameBubbleInDirection:self.firingDirection withColorType:self.currentFiringType];
-    }
+    [self.gameEngine fireGameBubbleInDirection:self.firingDirection withColorType:self.currentFiringType];
 }
 
 - (void)gameOver
@@ -203,10 +215,21 @@
     self.isGameOver = YES;
     [self.timer invalidate];
     self.gameEngine.stopSimulating = YES;
-    UIAlertView *gameLost = [[UIAlertView alloc] initWithTitle:@"Game Lost"
-                                                       message:@"Sorry, you lost the game" delegate:self
-                                             cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [gameLost show];
+    [self.gameLostAlert show];
+}
+
+- (void)gameWon
+{
+    [self.gameWonAlert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 1 && buttonIndex == 0) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else if (alertView.tag == 2 && buttonIndex == 0) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)removeCellAtItem:(NSInteger)item
@@ -274,6 +297,11 @@
     if ([identifier isEqual:kBubbleToFireIdentifier]) {
         self.bubbleToFire.center = position;
     }
+}
+
+- (void)noMoreBubblesVisible
+{
+    [self gameWon];
 }
 
 - (NSInteger)indexPathItemForLocation:(CGPoint)location

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol GraphDelegate <NSObject>
+@protocol GameEngineDelegate <NSObject>
 
 // remove the display in cell
 - (void)removeCellAtItem:(NSInteger)item;
@@ -29,5 +29,7 @@
 - (NSInteger)indexPathItemForLocation:(CGPoint)location;
 
 - (void)fireBubble;
+
+- (void)noMoreBubblesVisible;
 
 @end

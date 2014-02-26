@@ -17,7 +17,7 @@ static const CGFloat kDropingDistance = 100;
 static const CGFloat kAnimationDuration = 0.2;
 static const CGFloat kYIndentForBubblesArea = 25;
 
-@interface AnimateViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, GraphDelegate>
+@interface AnimateViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, GameEngineDelegate>
 @property (strong, nonatomic) IBOutlet UIView *gameArea;
 @property (strong, nonatomic) IBOutlet UICollectionView *bubbleGridArea;
 

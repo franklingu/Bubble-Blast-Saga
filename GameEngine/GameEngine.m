@@ -57,6 +57,9 @@
         [self checkGraphFromItem:item];
         [self checkForDroping];
         [self.physicsSpace destroyCircleShape:shape];
+        if ([self.bubbleModelsManager numberOfVisibleBubbles] == 0) {
+            [self.delegate noMoreBubblesVisible];
+        }
     }
 }
 

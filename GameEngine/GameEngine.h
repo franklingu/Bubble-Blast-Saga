@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BubbleModelsManager.h"
 #import "PhysicsSpace.h"
-#import "GraphDelegate.h"
+#import "GameEngineDelegate.h"
 
 static const CGFloat kTimerInterval = 1.0/60;
 static const CGFloat kFiringSpeed = 900;
@@ -24,7 +24,7 @@ static const NSString *kBubbleToFireIdentifier = @"bubbleToFire";
 @interface GameEngine : NSObject <PhysicsSpaceDelegate>
 
 @property (nonatomic) BOOL isReadyToFire;
-@property (weak, nonatomic) id<GraphDelegate> delegate;
+@property (weak, nonatomic) id<GameEngineDelegate> delegate;
 @property (nonatomic) BOOL stopSimulating;
 @property (nonatomic) NSInteger currentFiringColorType;
 

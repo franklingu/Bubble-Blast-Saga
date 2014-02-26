@@ -38,4 +38,6 @@ static const NSInteger kNumberOfItemsInEvenRow = 11;
 
 - (NSArray *)toBeRemovedBubblesStartingFromItem:(NSInteger)item;
 
+- (NSInteger)numberOfVisibleBubbles;
+
 @end

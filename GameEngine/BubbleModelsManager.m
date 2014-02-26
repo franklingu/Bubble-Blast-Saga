@@ -106,6 +106,11 @@
     return bubblesToReturn;
 }
 
+- (NSInteger)numberOfVisibleBubbles
+{
+    return [self bubblesShouldBeDisplayed].count;
+}
+
 - (NSInteger)colorTypeForBubbleAtItem:(NSInteger)item
 {
     return [self bubbleAtItem:item].colorType;
