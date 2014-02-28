@@ -38,6 +38,16 @@
 		B1C9868C18A92A1700B9BF50 /* CircleShape.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9868B18A92A1700B9BF50 /* CircleShape.m */; };
 		B1C9868F18A92A5400B9BF50 /* PhysicsSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9868E18A92A5400B9BF50 /* PhysicsSpace.m */; };
 		B1C9C1BD18ABB1EA0069A5B2 /* GameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */; };
+		B1CCB5C318C0685400DE08A4 /* AVSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CCB5C218C0685400DE08A4 /* AVSoundPlayer.m */; };
+		B1CCB5C618C0A2A400DE08A4 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CCB5C518C0A2A400DE08A4 /* SoundPlayer.m */; };
+		B1CCB5CC18C0A40400DE08A4 /* bg-music-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5C718C0A40400DE08A4 /* bg-music-1.mp3 */; };
+		B1CCB5CD18C0A40400DE08A4 /* bg-music-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5C818C0A40400DE08A4 /* bg-music-2.mp3 */; };
+		B1CCB5CE18C0A40400DE08A4 /* bubble-popping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5C918C0A40400DE08A4 /* bubble-popping.mp3 */; };
+		B1CCB5CF18C0A40400DE08A4 /* bubble-snapping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5CA18C0A40400DE08A4 /* bubble-snapping.mp3 */; };
+		B1CCB5D018C0A40400DE08A4 /* cannon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5CB18C0A40400DE08A4 /* cannon.mp3 */; };
+		B1CCB5D718C0B50F00DE08A4 /* bubble-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5D518C0B50F00DE08A4 /* bubble-pink.png */; };
+		B1CCB5DA18C0B5B400DE08A4 /* bubble-colorful.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5D918C0B5B400DE08A4 /* bubble-colorful.png */; };
+		B1CCB5DF18C0D3A200DE08A4 /* GameResourcesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CCB5DE18C0D3A200DE08A4 /* GameResourcesManager.m */; };
 		B1CCBE1118BBB3B3008E7DDA /* blue-sky.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCBE0E18BBB3B3008E7DDA /* blue-sky.png */; };
 		B1CCBE1618BBB417008E7DDA /* water-sky.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCBE1418BBB417008E7DDA /* water-sky.png */; };
 		B1CCBE1918BBB8A2008E7DDA /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCBE1818BBB8A2008E7DDA /* sky.png */; };
@@ -50,14 +60,9 @@
 		B1D13E9818B12A1A0098BBB3 /* cannon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D13E9018B12A1A0098BBB3 /* cannon.png */; };
 		B1D13E9B18B12B300098BBB3 /* LevelSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */; };
 		B1D1C48F18AE6F730000AC43 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D1C48E18AE6F730000AC43 /* Queue.m */; };
-		B1DB39E418BE334B007405D2 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DB39E318BE334B007405D2 /* SoundPlayer.m */; };
 		B1DB39EB18BE4722007405D2 /* Level-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1DB39E618BE4722007405D2 /* Level-1.plist */; };
 		B1DB39EC18BE4722007405D2 /* Level-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1DB39E718BE4722007405D2 /* Level-2.plist */; };
 		B1DB39ED18BE4722007405D2 /* Level-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1DB39E818BE4722007405D2 /* Level-3.plist */; };
-		B1DB39EE18BE4722007405D2 /* Level-4.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1DB39E918BE4722007405D2 /* Level-4.plist */; };
-		B1DB39EF18BE4722007405D2 /* Level-5.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1DB39EA18BE4722007405D2 /* Level-5.plist */; };
-		B1DE5F5218BDF88A003A4414 /* intro-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1DE5F5118BDF88A003A4414 /* intro-music.mp3 */; };
-		B1DE5F5418BDFD5E003A4414 /* bg-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1DE5F5318BDFD5E003A4414 /* bg-music.mp3 */; };
 		B1EEC42318B3A007002A007B /* BubbleModelsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EEC42218B3A007002A007B /* BubbleModelsManager.m */; };
 		B1F387BE18AA623100EFE9AF /* ObjectBody.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387BD18AA623100EFE9AF /* ObjectBody.m */; };
 		B1F387C118AA62C000EFE9AF /* Velocity.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387C018AA62C000EFE9AF /* Velocity.m */; };
@@ -125,6 +130,19 @@
 		B1C9C1BB18ABB1EA0069A5B2 /* GameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
 		B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEngine.m; sourceTree = "<group>"; };
 		B1CAEF9F18AD14EA00A96057 /* GameEngineDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameEngineDelegate.h; sourceTree = "<group>"; };
+		B1CCB5C118C0685400DE08A4 /* AVSoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSoundPlayer.h; sourceTree = "<group>"; };
+		B1CCB5C218C0685400DE08A4 /* AVSoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSoundPlayer.m; sourceTree = "<group>"; };
+		B1CCB5C418C0A2A400DE08A4 /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
+		B1CCB5C518C0A2A400DE08A4 /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
+		B1CCB5C718C0A40400DE08A4 /* bg-music-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music-1.mp3"; path = "music/bg-music-1.mp3"; sourceTree = SOURCE_ROOT; };
+		B1CCB5C818C0A40400DE08A4 /* bg-music-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music-2.mp3"; path = "music/bg-music-2.mp3"; sourceTree = SOURCE_ROOT; };
+		B1CCB5C918C0A40400DE08A4 /* bubble-popping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bubble-popping.mp3"; path = "music/bubble-popping.mp3"; sourceTree = SOURCE_ROOT; };
+		B1CCB5CA18C0A40400DE08A4 /* bubble-snapping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bubble-snapping.mp3"; path = "music/bubble-snapping.mp3"; sourceTree = SOURCE_ROOT; };
+		B1CCB5CB18C0A40400DE08A4 /* cannon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cannon.mp3; path = music/cannon.mp3; sourceTree = SOURCE_ROOT; };
+		B1CCB5D518C0B50F00DE08A4 /* bubble-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-pink.png"; path = "Images/bubble-pink.png"; sourceTree = SOURCE_ROOT; };
+		B1CCB5D918C0B5B400DE08A4 /* bubble-colorful.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-colorful.png"; path = "Images/bubble-colorful.png"; sourceTree = SOURCE_ROOT; };
+		B1CCB5DD18C0D3A200DE08A4 /* GameResourcesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResourcesManager.h; sourceTree = "<group>"; };
+		B1CCB5DE18C0D3A200DE08A4 /* GameResourcesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameResourcesManager.m; sourceTree = "<group>"; };
 		B1CCBE0E18BBB3B3008E7DDA /* blue-sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-sky.png"; path = "Images/possible backgrounds/blue-sky.png"; sourceTree = SOURCE_ROOT; };
 		B1CCBE1418BBB417008E7DDA /* water-sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "water-sky.png"; path = "Images/possible backgrounds/water-sky.png"; sourceTree = SOURCE_ROOT; };
 		B1CCBE1818BBB8A2008E7DDA /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky.png; path = "Images/possible backgrounds/sky.png"; sourceTree = SOURCE_ROOT; };
@@ -139,15 +157,9 @@
 		B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectViewController.m; sourceTree = "<group>"; };
 		B1D1C48D18AE6F730000AC43 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		B1D1C48E18AE6F730000AC43 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
-		B1DB39E218BE334B007405D2 /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
-		B1DB39E318BE334B007405D2 /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		B1DB39E618BE4722007405D2 /* Level-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-1.plist"; path = "preloaded levels/Level-1.plist"; sourceTree = SOURCE_ROOT; };
 		B1DB39E718BE4722007405D2 /* Level-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-2.plist"; path = "preloaded levels/Level-2.plist"; sourceTree = SOURCE_ROOT; };
 		B1DB39E818BE4722007405D2 /* Level-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-3.plist"; path = "preloaded levels/Level-3.plist"; sourceTree = SOURCE_ROOT; };
-		B1DB39E918BE4722007405D2 /* Level-4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-4.plist"; path = "preloaded levels/Level-4.plist"; sourceTree = SOURCE_ROOT; };
-		B1DB39EA18BE4722007405D2 /* Level-5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-5.plist"; path = "preloaded levels/Level-5.plist"; sourceTree = SOURCE_ROOT; };
-		B1DE5F5118BDF88A003A4414 /* intro-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "intro-music.mp3"; path = "music/intro-music.mp3"; sourceTree = SOURCE_ROOT; };
-		B1DE5F5318BDFD5E003A4414 /* bg-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music.mp3"; path = "music/bg-music.mp3"; sourceTree = SOURCE_ROOT; };
 		B1EEC42118B3A007002A007B /* BubbleModelsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleModelsManager.h; sourceTree = "<group>"; };
 		B1EEC42218B3A007002A007B /* BubbleModelsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleModelsManager.m; sourceTree = "<group>"; };
 		B1F387BC18AA623100EFE9AF /* ObjectBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBody.h; sourceTree = "<group>"; };
@@ -217,9 +229,7 @@
 		B1C9862118A9140A00B9BF50 /* Bubble Blast Saga */ = {
 			isa = PBXGroup;
 			children = (
-				B1DB39E518BE4258007405D2 /* preloaded plist */,
-				B1DE5F5018BDF874003A4414 /* sound source */,
-				B1C9866B18A915DB00B9BF50 /* images */,
+				B1CCB5DB18C0D20A00DE08A4 /* game recources */,
 				B1C9866A18A9158E00B9BF50 /* ps3 */,
 				B1C9867E18A918B200B9BF50 /* ps4 */,
 				B1C9867F18A918CF00B9BF50 /* ps5 */,
@@ -277,6 +287,8 @@
 		B1C9866B18A915DB00B9BF50 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B1CCB5D918C0B5B400DE08A4 /* bubble-colorful.png */,
+				B1CCB5D518C0B50F00DE08A4 /* bubble-pink.png */,
 				B1CCBDF918BBA618008E7DDA /* bubbles */,
 				B1CCBDF818BBA536008E7DDA /* possible backgrounds */,
 				B1D13E8A18B12A1A0098BBB3 /* bubble-burst.png */,
@@ -394,6 +406,18 @@
 			name = "Graph Delegate";
 			sourceTree = "<group>";
 		};
+		B1CCB5DB18C0D20A00DE08A4 /* game recources */ = {
+			isa = PBXGroup;
+			children = (
+				B1DB39E518BE4258007405D2 /* preloaded plist */,
+				B1DE5F5018BDF874003A4414 /* sound source */,
+				B1C9866B18A915DB00B9BF50 /* images */,
+				B1CCB5DD18C0D3A200DE08A4 /* GameResourcesManager.h */,
+				B1CCB5DE18C0D3A200DE08A4 /* GameResourcesManager.m */,
+			);
+			name = "game recources";
+			sourceTree = "<group>";
+		};
 		B1CCBDF818BBA536008E7DDA /* possible backgrounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,8 +448,10 @@
 		B1DB39E118BE331D007405D2 /* sound player */ = {
 			isa = PBXGroup;
 			children = (
-				B1DB39E218BE334B007405D2 /* SoundPlayer.h */,
-				B1DB39E318BE334B007405D2 /* SoundPlayer.m */,
+				B1CCB5C418C0A2A400DE08A4 /* SoundPlayer.h */,
+				B1CCB5C518C0A2A400DE08A4 /* SoundPlayer.m */,
+				B1CCB5C118C0685400DE08A4 /* AVSoundPlayer.h */,
+				B1CCB5C218C0685400DE08A4 /* AVSoundPlayer.m */,
 			);
 			name = "sound player";
 			sourceTree = "<group>";
@@ -436,8 +462,6 @@
 				B1DB39E618BE4722007405D2 /* Level-1.plist */,
 				B1DB39E718BE4722007405D2 /* Level-2.plist */,
 				B1DB39E818BE4722007405D2 /* Level-3.plist */,
-				B1DB39E918BE4722007405D2 /* Level-4.plist */,
-				B1DB39EA18BE4722007405D2 /* Level-5.plist */,
 			);
 			name = "preloaded plist";
 			sourceTree = "<group>";
@@ -445,8 +469,11 @@
 		B1DE5F5018BDF874003A4414 /* sound source */ = {
 			isa = PBXGroup;
 			children = (
-				B1DE5F5318BDFD5E003A4414 /* bg-music.mp3 */,
-				B1DE5F5118BDF88A003A4414 /* intro-music.mp3 */,
+				B1CCB5C718C0A40400DE08A4 /* bg-music-1.mp3 */,
+				B1CCB5C818C0A40400DE08A4 /* bg-music-2.mp3 */,
+				B1CCB5C918C0A40400DE08A4 /* bubble-popping.mp3 */,
+				B1CCB5CA18C0A40400DE08A4 /* bubble-snapping.mp3 */,
+				B1CCB5CB18C0A40400DE08A4 /* cannon.mp3 */,
 			);
 			name = "sound source";
 			sourceTree = "<group>";
@@ -558,6 +585,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CCB5DA18C0B5B400DE08A4 /* bubble-colorful.png in Resources */,
 				B1C9867618A915F300B9BF50 /* bubble-red.png in Resources */,
 				B1D13E9818B12A1A0098BBB3 /* cannon.png in Resources */,
 				B1C9867418A915F300B9BF50 /* bubble-green.png in Resources */,
@@ -565,23 +593,25 @@
 				B1C9863418A9140A00B9BF50 /* Images.xcassets in Resources */,
 				B1D13E9618B12A1A0098BBB3 /* cannon-base.png in Resources */,
 				B1D13E9118B12A1A0098BBB3 /* bubble-bomb.png in Resources */,
+				B1CCB5D018C0A40400DE08A4 /* cannon.mp3 in Resources */,
 				B1C9867218A915F300B9BF50 /* background.png in Resources */,
+				B1CCB5CC18C0A40400DE08A4 /* bg-music-1.mp3 in Resources */,
 				B1C9867518A915F300B9BF50 /* bubble-orange.png in Resources */,
+				B1CCB5CF18C0A40400DE08A4 /* bubble-snapping.mp3 in Resources */,
 				B1DB39EB18BE4722007405D2 /* Level-1.plist in Resources */,
 				B1C9862618A9140A00B9BF50 /* InfoPlist.strings in Resources */,
-				B1DE5F5418BDFD5E003A4414 /* bg-music.mp3 in Resources */,
 				B1D13E9218B12A1A0098BBB3 /* bubble-burst.png in Resources */,
 				B1C9867A18A9164E00B9BF50 /* Main.storyboard in Resources */,
 				B1C9867318A915F300B9BF50 /* bubble-blue.png in Resources */,
-				B1DB39EF18BE4722007405D2 /* Level-5.plist in Resources */,
-				B1DB39EE18BE4722007405D2 /* Level-4.plist in Resources */,
+				B1CCB5CE18C0A40400DE08A4 /* bubble-popping.mp3 in Resources */,
+				B1CCB5CD18C0A40400DE08A4 /* bg-music-2.mp3 in Resources */,
 				B1DB39ED18BE4722007405D2 /* Level-3.plist in Resources */,
 				B1CCBE1618BBB417008E7DDA /* water-sky.png in Resources */,
 				B1D13E9418B12A1A0098BBB3 /* bubble-lightning.png in Resources */,
-				B1DE5F5218BDF88A003A4414 /* intro-music.mp3 in Resources */,
 				B1D13E9318B12A1A0098BBB3 /* bubble-indestructible.png in Resources */,
 				B1DB39EC18BE4722007405D2 /* Level-2.plist in Resources */,
 				B1C9867718A915F300B9BF50 /* eraser-1.png in Resources */,
+				B1CCB5D718C0B50F00DE08A4 /* bubble-pink.png in Resources */,
 				B1CCBE1918BBB8A2008E7DDA /* sky.png in Resources */,
 				B1D13E9518B12A1A0098BBB3 /* bubble-star.png in Resources */,
 			);
@@ -602,7 +632,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CCB5C618C0A2A400DE08A4 /* SoundPlayer.m in Sources */,
 				B1D1C48F18AE6F730000AC43 /* Queue.m in Sources */,
+				B1CCB5C318C0685400DE08A4 /* AVSoundPlayer.m in Sources */,
+				B1CCB5DF18C0D3A200DE08A4 /* GameResourcesManager.m in Sources */,
 				B1D13E9B18B12B300098BBB3 /* LevelSelectViewController.m in Sources */,
 				B1C9862C18A9140A00B9BF50 /* AppDelegate.m in Sources */,
 				B1C9866918A9157B00B9BF50 /* GameDesignViewController+ViewControllerExtension.m in Sources */,
@@ -615,7 +648,6 @@
 				B1C9868F18A92A5400B9BF50 /* PhysicsSpace.m in Sources */,
 				B1C9866118A9157B00B9BF50 /* BubbleCell.m in Sources */,
 				B1C9866718A9157B00B9BF50 /* PopOverTableViewController.m in Sources */,
-				B1DB39E418BE334B007405D2 /* SoundPlayer.m in Sources */,
 				B1C9866318A9157B00B9BF50 /* BubbleModel.m in Sources */,
 				B1C9862818A9140A00B9BF50 /* main.m in Sources */,
 				B1F387BE18AA623100EFE9AF /* ObjectBody.m in Sources */,

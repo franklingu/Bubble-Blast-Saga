@@ -11,7 +11,7 @@
 @protocol GameEngineDelegate <NSObject>
 
 // remove the display in cell
-- (void)removeCellAtItem:(NSInteger)item;
+- (void)removeCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType;
 
 // drop the display in cell
 - (void)dropCellAtItem:(NSInteger)item;

@@ -31,6 +31,7 @@
     static NSString *resetLabel = @"Reset";
     static NSString *loadLabel = @"Load";
     static NSString *returnLabel = @"Return";
+    static NSString *playLabel = @"Play";
     UIButton *button = (UIButton*)sender;
     
     if ([button.titleLabel.text isEqualToString:saveLabel]) {
@@ -41,7 +42,40 @@
         [self load];
     } else if ([button.titleLabel.text isEqualToString:returnLabel]) {
         [self dismissViewControllerAnimated:YES completion:nil];
+    } else if ([button.titleLabel.text isEqualToString:playLabel]) {
+        if ([self.bubbleModelsManager isValidGraph]) {
+            [self saveCurrentDesignToTmp];
+        }
     }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString:@"designToPlaySegue"]) {
+        if (![self.bubbleModelsManager isValidGraph]) {
+            [self.invalidGraphAlert show];
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"designToPlaySegue"]) {
+        AnimateViewController *playController = segue.destinationViewController;
+        [playController configureLoadingFilePathByFileName:@"tmp.plist"];
+    }
+}
+
+- (void)saveCurrentDesignToTmp
+{
+    NSString* fileName = @"tmp.plist";
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSString* filePathToSave = [documentsPath stringByAppendingPathComponent:fileName];
+    [self.bubbleModelsManager saveToFilePath:filePathToSave];
 }
 
 - (void)fadeAllColorSelector
@@ -60,6 +94,9 @@
     [self fadeAllColorSelector];
     colorSelectorButton.alpha = 1;
     self.currentFillingType = colorSelectorButton.tag % kNumberOfBubbleModelKinds;
+    if (self.currentFillingType < 0) {
+        self.currentFillingType = kNoDisplayColorType;
+    }
 }
 
 - (void)initializeAttributes
@@ -73,11 +110,11 @@
 {
     UIImage* backgroundImage = [UIImage imageNamed:@"background.png"];
     UIImageView* background = [[UIImageView alloc] initWithImage:backgroundImage];
-    CGFloat gameViewWidth = self.gameArea.frame.size.width;
-    CGFloat gameViewHeight = self.gameArea.frame.size.height;
+    CGFloat gameViewWidth = self.view.frame.size.width;
+    CGFloat gameViewHeight = self.view.frame.size.height;
     background.frame = CGRectMake(0, 0, gameViewWidth, gameViewHeight);
-    [self.gameArea addSubview:background];
-    self.palette.layer.zPosition = 1;
+    [self.view addSubview:background];
+    [self.view sendSubviewToBack:background];
     UIAlertView* saveAlert= [[UIAlertView alloc] initWithTitle:@"Saving file"
                                                  message:@"Enter a name for the current level"
                                                  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];
@@ -89,6 +126,11 @@
                                                           delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
     [existingFileAlert setTag:2];
     self.existingFileAlert = existingFileAlert;
+    
+    UIAlertView* invalidGraphAlert = [[UIAlertView alloc] initWithTitle:@"Saving file"
+                                                                message:@"Current design is not valid"
+                                                               delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    self.invalidGraphAlert = invalidGraphAlert;
     
     PopOverTableViewController* table = [[PopOverTableViewController alloc] initWithStyle:UITableViewStylePlain];
     table.delegate = self;
@@ -105,7 +147,6 @@
     [self.bubblesGridArea registerClass:[BubbleCell class] forCellWithReuseIdentifier:@"bubbleCell"];
     [self.bubblesGridArea setDataSource:self];
     [self.bubblesGridArea setDelegate:self];
-    self.bubblesGridArea.layer.zPosition = 1;
     [self fadeAllColorSelector];
     [self createGesturesRecognizers];
 }
@@ -239,33 +280,6 @@
     }
 }
 
-- (NSArray*)filesInAppDocumentDirectory
-{
-    NSError *readingFilesError = nil;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:paths[0] error:&readingFilesError];
-    if (readingFilesError) {
-        NSLog(@"error in reading files: %@", readingFilesError);
-    }
-    
-    return files;
-}
-
-- (NSArray*)fileNamesInAppDirectory
-{
-    static NSString *plistExtension = @".plist";
-    NSArray *files = [self filesInAppDocumentDirectory];
-    NSMutableArray *fileNames = [[NSMutableArray alloc] init];
-    
-    for (NSString* file in files) {
-        NSRange range = [file rangeOfString:plistExtension options:NSBackwardsSearch];
-        NSString* fileName = [file substringWithRange:NSMakeRange(0, range.location)];
-        [fileNames addObject:fileName];
-    }
-    
-    return fileNames;
-}
-
 - (void)selectedFileName:(NSString *)fileName
 {
     static NSString* plistExtension = @".plist";
@@ -306,8 +320,8 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSInteger numberOfDoubleRows = self.numberOfRows/2;
-    NSInteger numberOfRowLeft = self.numberOfRows%2;
+    NSInteger numberOfDoubleRows = self.numberOfRows / 2;
+    NSInteger numberOfRowLeft = self.numberOfRows % 2;
     return 23*(int)numberOfDoubleRows+12*(int)numberOfRowLeft;
 }
 

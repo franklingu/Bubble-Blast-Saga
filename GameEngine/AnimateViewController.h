@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "GameEngine.h"
+#import "SoundPlayer.h"
+#import "GameResourcesManager.h"
 
 static const CGFloat kOriginXOfNextFiringBubble = 25;
 static const CGFloat kMaximumYReplacement = -20;
@@ -21,6 +23,10 @@ static const CGFloat kShakingConstant = 3;
 @interface AnimateViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, GameEngineDelegate>
 @property (strong, nonatomic) IBOutlet UIView *gameArea;
 @property (strong, nonatomic) IBOutlet UICollectionView *bubbleGridArea;
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
 
 - (void)configureLoadingFilePathByFileName:(NSString *)fileName;
+
+- (IBAction)backButtonPressed:(UIButton *)sender;
+
 @end

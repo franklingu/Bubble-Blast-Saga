@@ -32,6 +32,7 @@
     CGFloat gameViewHeight = self.welcomeView.frame.size.height;
     background.frame = CGRectMake(0, 0, gameViewWidth, gameViewHeight);
     [self.welcomeView addSubview:background];
+    [self.welcomeView sendSubviewToBack:background];
     self.designMode.layer.zPosition = 1;
     self.playMode.layer.zPosition = 1;
 }

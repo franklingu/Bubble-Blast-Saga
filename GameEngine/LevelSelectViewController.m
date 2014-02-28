@@ -34,7 +34,8 @@
     CGFloat gameViewHeight = self.view.frame.size.height;
     background.frame = CGRectMake(0, 0, gameViewWidth, gameViewHeight);
     [self.view addSubview:background];
-    self.fileNames = [self fileNamesInAppDirectory];
+    [self.view sendSubviewToBack:background];
+    self.fileNames = [self fileNamesInAppDocumentDirectory];
     [self.levelsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:LevelTabelViewCellIdentifier];
     self.levelsTableView.delegate = self;
     self.levelsTableView.dataSource = self;
@@ -52,18 +53,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (NSArray*)filesInAppDocumentDirectory
-{
-    NSError *readingFilesError = nil;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:paths[0] error:&readingFilesError];
-    if (readingFilesError) {
-        NSLog(@"error in reading files: %@", readingFilesError);
-    }
-    
-    return files;
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"playSceneSegue"]) {
@@ -73,23 +62,9 @@
     }
 }
 
-- (NSArray*)fileNamesInAppDirectory
+- (NSArray*)fileNamesInAppDocumentDirectory
 {
-    // put in constant file
-    static NSString *plistExtension = @".plist";
-    NSArray *files = [self filesInAppDocumentDirectory];
     NSMutableArray *fileNames = [[NSMutableArray alloc] init];
-    
-    for (NSString* file in files) {
-        NSRange range = [file rangeOfString:plistExtension options:NSBackwardsSearch];
-        NSString* fileName = [file substringWithRange:NSMakeRange(0, range.location)];
-        [fileNames addObject:fileName];
-    }
-    [fileNames addObject:@"Level-1"];
-    [fileNames addObject:@"Level-2"];
-    [fileNames addObject:@"Level-3"];
-    [fileNames addObject:@"Level-4"];
-    [fileNames addObject:@"Level-5"];
     
     return fileNames;
 }

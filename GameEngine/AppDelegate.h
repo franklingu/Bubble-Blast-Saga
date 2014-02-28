@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SoundPlayer.h"
+#import "AVSoundPlayer.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) SoundPlayer *bgSoundPlayer;
+@property (strong, nonatomic) AVSoundPlayer *bgPlayer;
 
 @end

@@ -19,8 +19,8 @@ static void playSoundFinished(SystemSoundID sound, void *data)
 {
     self = [super init];
     if (self) {
-        NSString *path  = [[NSBundle mainBundle] pathForResource:@"bg-music" ofType:@"mp3"];
-        NSURL *pathURL = [NSURL fileURLWithPath : path];
+        NSString *path  = [[NSBundle mainBundle] pathForResource:fileName ofType:@"mp3"];
+        NSURL *pathURL = [NSURL fileURLWithPath:path];
         
         SystemSoundID audioEffect;
         AudioServicesCreateSystemSoundID((__bridge CFURLRef) pathURL, &audioEffect);
@@ -32,6 +32,7 @@ static void playSoundFinished(SystemSoundID sound, void *data)
 
 - (void)play
 {
+    NSLog(@"play");
     AudioServicesPlaySystemSound(self.musicID);
 }
 

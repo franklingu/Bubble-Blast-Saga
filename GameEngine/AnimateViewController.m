@@ -59,6 +59,9 @@
     CGFloat gameViewHeight = self.gameArea.frame.size.height;
     background.frame = CGRectMake(0, 0, gameViewWidth, gameViewHeight);
     [self.gameArea addSubview:background];
+    [self.gameArea sendSubviewToBack:background];
+    
+    self.backButton.layer.zPosition = 2;
     
     [self.bubbleGridArea registerClass:[GameBubbleCell class] forCellWithReuseIdentifier:@"gameBubbleCell"];
     self.bubbleGridArea.layer.zPosition = 1;
@@ -174,6 +177,11 @@
     self.filePath = filePathToLoad;
 }
 
+- (IBAction)backButtonPressed:(UIButton *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)setColorType:(NSInteger)colorType forCell:(GameBubbleCell *)aCell
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[self imageWithColorType:colorType]];
@@ -240,7 +248,7 @@
     }
 }
 
-- (void)removeCellAtItem:(NSInteger)item
+- (void)removeCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
     GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
@@ -248,13 +256,16 @@
                                  cell.backgroundView.frame.origin.y - kExpandingRate,
                                  cell.backgroundView.frame.size.width + kExpandingRate * 2,
                                  cell.backgroundView.frame.size.height + kExpandingRate * 2);
+    SoundPlayer *player = [[SoundPlayer alloc] initWithFileName:@"bubble-popping"];
+    [player play];
     
     [UIView animateWithDuration:kAnimationDuration animations:^{
         cell.backgroundView.alpha = 0;
         cell.backgroundView.frame = newFrame;
     } completion:^(BOOL finished){
             if (finished) {
-                cell.backgroundView = nil;;
+                cell.backgroundView = nil;
+                [player stopPlaying];
             }
         }];
 }

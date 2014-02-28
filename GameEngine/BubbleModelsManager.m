@@ -249,7 +249,7 @@
     
     for (int i=0; i<kNumberOfItemsInOddRow; i++) {
         BubbleModel *ceilingModel = [self bubbleAtItem:i];
-        if (ceilingModel.colorType!=0) {
+        if (ceilingModel.colorType != kNoDisplayColorType) {
             startingModel = ceilingModel;
             [bubblesVisited addObject:startingModel];
             [queue enqueue:startingModel];

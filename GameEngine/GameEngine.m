@@ -65,11 +65,11 @@
 
 - (void)checkGraphFromItem:(NSInteger)item
 {
-    NSArray *sameColoredBubbles = [self.bubbleModelsManager toBeRemovedBubblesStartingFromItem:item];
+    NSArray *toBeRemovedBubbles = [self.bubbleModelsManager toBeRemovedBubblesStartingFromItem:item];
     
-    for (BubbleModel *model in sameColoredBubbles) {
+    for (BubbleModel *model in toBeRemovedBubbles) {
+        [self.delegate removeCellAtItem:model.item withColorType:model.colorType];
         model.colorType = kNoDisplayColorType;
-        [self.delegate removeCellAtItem:model.item];
         [self.physicsSpace destroyCircleShapeWithIdentifier:[NSString stringWithFormat:@"%d",(int)model.item]];
     }
 }

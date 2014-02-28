@@ -20,18 +20,19 @@
 
 #import <UIKit/UIKit.h>
 #import "PopOverTableViewController.h"
+#import "AnimateViewController.h"
 #import "BubbleModelsManager.h"
 #import "PopOverDelegate.h"
 
 @interface GameDesignViewController : UIViewController <UIPopoverControllerDelegate, PopOverDelegate,
 UICollectionViewDataSource, UICollectionViewDelegate>
-@property (strong, nonatomic) IBOutlet UIView *gameArea;
 @property (strong, nonatomic) IBOutlet UIView *palette;
 @property (strong, nonatomic) IBOutlet UICollectionView *bubblesGridArea;
 @property (strong, nonatomic) IBOutlet UIButton *loadButton;
 
-@property (strong, nonatomic)          UIAlertView* saveAlert;
-@property (strong, nonatomic)          UIAlertView* existingFileAlert;
+@property (strong, nonatomic)          UIAlertView *saveAlert;
+@property (strong, nonatomic)          UIAlertView *invalidGraphAlert;
+@property (strong, nonatomic)          UIAlertView *existingFileAlert;
 @property (strong, nonatomic)          UIPopoverController* loadPopOverController;
 @property (strong, nonatomic)          BubbleModelsManager *bubbleModelsManager;
 
@@ -39,8 +40,8 @@ UICollectionViewDataSource, UICollectionViewDelegate>
 
 - (IBAction)colorSelectorPressed:(id)sender;
 
-- (NSArray*)filesInAppDocumentDirectory;
+- (NSArray *)fullFileNamesInAppDocumentDirectory;
 
-- (NSArray*)fileNamesInAppDirectory;
+- (NSArray *)fileNamesInAppDirectory;
 
 @end
