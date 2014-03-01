@@ -65,7 +65,7 @@
 {
     if ([segue.identifier isEqualToString:@"designToPlaySegue"]) {
         AnimateViewController *playController = segue.destinationViewController;
-        [playController configureLoadingFilePathByFileName:@"tmp.plist"];
+        [playController configureLoadingFilePath:[self.resourceManager pathForUserDefinedLevel:@"tmp"]];
     }
 }
 
@@ -75,6 +75,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     NSString* filePathToSave = [documentsPath stringByAppendingPathComponent:fileName];
+    
     [self.bubbleModelsManager saveToFilePath:filePathToSave];
 }
 
@@ -104,6 +105,7 @@
     self.currentFillingType = 1;
     self.numberOfRows = 13;
     self.bubbleModelsManager = [[BubbleModelsManager alloc] init];
+    self.resourceManager = [[GameResourcesManager alloc] init];
 }
 
 - (void)setUpMainViews
@@ -282,30 +284,27 @@
 
 - (void)selectedFileName:(NSString *)fileName
 {
-    static NSString* plistExtension = @".plist";
     [self.loadPopOverController dismissPopoverAnimated:YES];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    NSString *fileWithExtension = [documentsPath stringByAppendingPathComponent:fileName];
-    NSString *filePath = [fileWithExtension stringByAppendingString:plistExtension];
+    NSString *filePath = [self.resourceManager pathForUserDefinedLevel:fileName];
     [self.bubbleModelsManager loadFromFilePath:filePath];
     [self.bubblesGridArea reloadData];
 }
 
 - (void)deletedFileName:(NSString *)fileName
 {
-    static NSString* plistExtension = @".plist";
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    NSString *fileWithExtension = [documentsPath stringByAppendingPathComponent:fileName];
-    NSString *filePath = [fileWithExtension stringByAppendingString:plistExtension];
-    NSError *deletingError = nil;
+    NSError *deletingError, *deletingImageError;
+    NSString *filePath = [self.resourceManager pathForUserDefinedLevel:fileName];
+    NSString *imagePath = [self.resourceManager pathForUserDefinedLevelImage:fileName];
     [[NSFileManager defaultManager] removeItemAtPath:filePath error:&deletingError];
+    [[NSFileManager defaultManager] removeItemAtPath:imagePath error:&deletingImageError];
     if (deletingError) {
-        NSLog(@"error in deleting file:\n%@", deletingError);
+        NSLog(@"error in deleting file:\n%@", deletingError.localizedDescription);
+    }
+    if (deletingImageError) {
+        NSLog(@"error in deleting file:\n%@", deletingImageError.localizedDescription);
     }
     PopOverTableViewController* controller = (PopOverTableViewController*)self.loadPopOverController.contentViewController;
-    controller.fileNames = [self fileNamesInAppDirectory];
+    controller.fileNames = [self.resourceManager fileNamesForLevelInAppDocumentDirectory];
 }
 
 - (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController

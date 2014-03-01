@@ -23,7 +23,5 @@
 
 - (NSString *)pathForUserDefinedLevelImage:(NSString *)levelName;
 
-- (NSString *)pathForBackgroundMusic:(NSString *)fileName;
-
 - (NSString *)imageNameForColorType:(NSInteger)colorType;
 @end

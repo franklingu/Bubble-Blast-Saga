@@ -278,7 +278,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hIu-SU-NUF">
-                                <rect key="frame" x="211" y="26" width="557" height="938"/>
+                                <rect key="frame" x="200" y="99" width="565" height="763"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -395,6 +395,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="cUc-S9-gDW"/>
+        <segue reference="U5M-D8-HVc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -67,6 +67,9 @@
 		B1F387BE18AA623100EFE9AF /* ObjectBody.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387BD18AA623100EFE9AF /* ObjectBody.m */; };
 		B1F387C118AA62C000EFE9AF /* Velocity.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387C018AA62C000EFE9AF /* Velocity.m */; };
 		B1F387DC18AA963C00EFE9AF /* MovableObjectBody.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F387DB18AA963C00EFE9AF /* MovableObjectBody.m */; };
+		B1F81F3418C1C59000268A82 /* Level-1.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F81F3118C1C59000268A82 /* Level-1.png */; };
+		B1F81F3518C1C59000268A82 /* Level-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F81F3218C1C59000268A82 /* Level-2.png */; };
+		B1F81F3618C1C59000268A82 /* Level-3.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F81F3318C1C59000268A82 /* Level-3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +173,9 @@
 		B1F387D518AA93D000EFE9AF /* CircleShapeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleShapeDelegate.h; sourceTree = "<group>"; };
 		B1F387DA18AA963C00EFE9AF /* MovableObjectBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovableObjectBody.h; sourceTree = "<group>"; };
 		B1F387DB18AA963C00EFE9AF /* MovableObjectBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovableObjectBody.m; sourceTree = "<group>"; };
+		B1F81F3118C1C59000268A82 /* Level-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Level-1.png"; path = "preloaded levels/Level-1.png"; sourceTree = SOURCE_ROOT; };
+		B1F81F3218C1C59000268A82 /* Level-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Level-2.png"; path = "preloaded levels/Level-2.png"; sourceTree = SOURCE_ROOT; };
+		B1F81F3318C1C59000268A82 /* Level-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Level-3.png"; path = "preloaded levels/Level-3.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,7 +415,7 @@
 		B1CCB5DB18C0D20A00DE08A4 /* game recources */ = {
 			isa = PBXGroup;
 			children = (
-				B1DB39E518BE4258007405D2 /* preloaded plist */,
+				B1F81F3018C1BD1400268A82 /* preloaded levels */,
 				B1DE5F5018BDF874003A4414 /* sound source */,
 				B1C9866B18A915DB00B9BF50 /* images */,
 				B1CCB5DD18C0D3A200DE08A4 /* GameResourcesManager.h */,
@@ -510,6 +516,25 @@
 			name = Shape;
 			sourceTree = "<group>";
 		};
+		B1F81F2F18C1BD0000268A82 /* preloaded images */ = {
+			isa = PBXGroup;
+			children = (
+				B1F81F3118C1C59000268A82 /* Level-1.png */,
+				B1F81F3218C1C59000268A82 /* Level-2.png */,
+				B1F81F3318C1C59000268A82 /* Level-3.png */,
+			);
+			name = "preloaded images";
+			sourceTree = "<group>";
+		};
+		B1F81F3018C1BD1400268A82 /* preloaded levels */ = {
+			isa = PBXGroup;
+			children = (
+				B1DB39E518BE4258007405D2 /* preloaded plist */,
+				B1F81F2F18C1BD0000268A82 /* preloaded images */,
+			);
+			name = "preloaded levels";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -590,6 +615,7 @@
 				B1D13E9818B12A1A0098BBB3 /* cannon.png in Resources */,
 				B1C9867418A915F300B9BF50 /* bubble-green.png in Resources */,
 				B1CCBE1118BBB3B3008E7DDA /* blue-sky.png in Resources */,
+				B1F81F3518C1C59000268A82 /* Level-2.png in Resources */,
 				B1C9863418A9140A00B9BF50 /* Images.xcassets in Resources */,
 				B1D13E9618B12A1A0098BBB3 /* cannon-base.png in Resources */,
 				B1D13E9118B12A1A0098BBB3 /* bubble-bomb.png in Resources */,
@@ -606,9 +632,11 @@
 				B1CCB5CE18C0A40400DE08A4 /* bubble-popping.mp3 in Resources */,
 				B1CCB5CD18C0A40400DE08A4 /* bg-music-2.mp3 in Resources */,
 				B1DB39ED18BE4722007405D2 /* Level-3.plist in Resources */,
+				B1F81F3618C1C59000268A82 /* Level-3.png in Resources */,
 				B1CCBE1618BBB417008E7DDA /* water-sky.png in Resources */,
 				B1D13E9418B12A1A0098BBB3 /* bubble-lightning.png in Resources */,
 				B1D13E9318B12A1A0098BBB3 /* bubble-indestructible.png in Resources */,
+				B1F81F3418C1C59000268A82 /* Level-1.png in Resources */,
 				B1DB39EC18BE4722007405D2 /* Level-2.plist in Resources */,
 				B1C9867718A915F300B9BF50 /* eraser-1.png in Resources */,
 				B1CCB5D718C0B50F00DE08A4 /* bubble-pink.png in Resources */,

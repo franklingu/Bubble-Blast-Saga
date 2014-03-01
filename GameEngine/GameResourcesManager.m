@@ -42,6 +42,9 @@
         NSRange range = [file rangeOfString:plistExtension options:NSBackwardsSearch];
         if (range.location < file.length) {
             NSString* fileName = [file substringWithRange:NSMakeRange(0, range.location)];
+            if ([fileName isEqualToString:@"tmp"]) {
+                continue;
+            }
             [fileNames addObject:fileName];
         }
     }
@@ -61,27 +64,32 @@
 
 - (NSString *)pathForPredifinedLevel:(NSString *)levelName
 {
-    return nil;
+    return [[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"];
 }
 
 - (NSString *)pathForUserDefinedLevel:(NSString *)levelName
 {
-    return nil;
+    NSString *fullLevelName = [levelName stringByAppendingString:@".plist"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:fullLevelName];
+    
+    return filePath;
 }
 
 - (NSString *)pathForPredifinedLevelImage:(NSString *)levelName
 {
-    return nil;
+    return [[NSBundle mainBundle] pathForResource:levelName ofType:@"png"];
 }
 
 - (NSString *)pathForUserDefinedLevelImage:(NSString *)levelName
 {
-    return nil;
-}
-
-- (NSString *)pathForBackgroundMusic:(NSString *)fileName
-{
-    return nil;
+    NSString *fullLevelName = [levelName stringByAppendingString:@".png"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:fullLevelName];
+    
+    return filePath;
 }
 
 - (NSString *)imageNameForColorType:(NSInteger)colorType

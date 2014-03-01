@@ -61,8 +61,6 @@
     [self.gameArea addSubview:background];
     [self.gameArea sendSubviewToBack:background];
     
-    self.backButton.layer.zPosition = 2;
-    
     [self.bubbleGridArea registerClass:[GameBubbleCell class] forCellWithReuseIdentifier:@"gameBubbleCell"];
     self.bubbleGridArea.layer.zPosition = 1;
     [self.bubbleGridArea setDataSource:self];
@@ -162,24 +160,9 @@
     }
 }
 
-- (void)configureLoadingFilePathByFileName:(NSString *)fileName
+- (void)configureLoadingFilePath:(NSString *)filePath
 {
-    // need refactoring later
-    if ([[fileName substringWithRange:NSMakeRange(0, 5)] isEqualToString:@"Level"]) {
-        NSString *fileNameWithoutExtension = [fileName substringWithRange:NSMakeRange(0, 7)];
-        NSString *path  = [[NSBundle mainBundle] pathForResource:fileNameWithoutExtension ofType:@"plist"];
-        self.filePath = path;
-        return ;
-    }
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    NSString *filePathToLoad = [documentsPath stringByAppendingPathComponent:fileName];
-    self.filePath = filePathToLoad;
-}
-
-- (IBAction)backButtonPressed:(UIButton *)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    self.filePath = filePath;
 }
 
 - (void)setColorType:(NSInteger)colorType forCell:(GameBubbleCell *)aCell
@@ -421,8 +404,8 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSInteger numberOfDoubleRows = self.numberOfRows/2;
-    NSInteger numberOfRowLeft = self.numberOfRows%2;
+    NSInteger numberOfDoubleRows = self.numberOfRows / 2;
+    NSInteger numberOfRowLeft = self.numberOfRows % 2;
     return (kNumberOfItemsInEvenRow+kNumberOfItemsInOddRow)*(int)numberOfDoubleRows+kNumberOfItemsInOddRow*(int)numberOfRowLeft;
 }
 

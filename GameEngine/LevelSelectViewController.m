@@ -11,6 +11,8 @@
 @interface LevelSelectViewController ()
 @property (strong, nonatomic) NSArray *fileNames;
 @property (strong, nonatomic) NSString *selectedFileName;
+@property (strong, nonatomic) UIView *selecteLevelView;
+@property (strong, nonatomic) GameResourcesManager *resourceManager;
 @end
 
 @implementation LevelSelectViewController
@@ -35,7 +37,7 @@
     background.frame = CGRectMake(0, 0, gameViewWidth, gameViewHeight);
     [self.view addSubview:background];
     [self.view sendSubviewToBack:background];
-    self.fileNames = [self fileNamesInAppDocumentDirectory];
+    
     [self.levelsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:LevelTabelViewCellIdentifier];
     self.levelsTableView.delegate = self;
     self.levelsTableView.dataSource = self;
@@ -46,6 +48,9 @@
     self.playButton.layer.zPosition = 1;
     self.playButton.alpha = 0.5;
     self.playButton.userInteractionEnabled = NO;
+    
+    self.resourceManager = [[GameResourcesManager alloc] init];
+    self.fileNames = [self fileNamesForLevels];
 }
 
 - (IBAction)returnPressed:(UIButton *)sender
@@ -57,14 +62,21 @@
 {
     if ([segue.identifier isEqualToString:@"playSceneSegue"]) {
         AnimateViewController *playViewController = segue.destinationViewController;
-        NSString *fileName = [self.selectedFileName stringByAppendingString:@".plist"];
-        [playViewController configureLoadingFilePathByFileName:fileName];
+        NSString *filePath = nil;
+        if (self.selectedFileName.length > 4 && [[self.selectedFileName substringWithRange:NSMakeRange(0, 5)] isEqualToString:@"Level"]) {
+            filePath = [self.resourceManager pathForPredifinedLevel:self.selectedFileName];
+        } else {
+            filePath = [self.resourceManager pathForUserDefinedLevel:self.selectedFileName];
+        }
+        [playViewController configureLoadingFilePath:filePath];
     }
 }
 
-- (NSArray*)fileNamesInAppDocumentDirectory
+- (NSArray*)fileNamesForLevels
 {
-    NSMutableArray *fileNames = [[NSMutableArray alloc] init];
+    NSMutableArray *fileNames = [NSMutableArray new];
+    [fileNames addObjectsFromArray:[self.resourceManager fileNamesForLevelInAppDocumentDirectory]];
+    [fileNames addObjectsFromArray:[self.resourceManager fileNamesForPredefinedLevels]];
     
     return fileNames;
 }
@@ -97,19 +109,41 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     @try {
         NSString* selectedFileName = self.fileNames[indexPath.row];
-        self.selectedFileName = selectedFileName;
-        self.playButton.alpha = 1;
-        self.playButton.userInteractionEnabled = YES;
+        [self selectionInTableViewWithSelectedFileName:selectedFileName];
     }
     @catch (NSException *exception) {
-        NSLog(@"selecting row failure in table view:\n%@", exception.description);
+        NSLog(@"selecting row failure in table view: %@", exception.description);
+    }
+}
+
+- (void)selectionInTableViewWithSelectedFileName:(NSString *)selectedFileName
+{
+    self.selectedFileName = selectedFileName;
+    UIView *previousSelectedView = self.selecteLevelView;
+    UIImage* levelImage;
+    if (self.selectedFileName.length > 4 && [[self.selectedFileName substringWithRange:NSMakeRange(0, 5)] isEqualToString:@"Level"]) {
+        levelImage = [UIImage imageWithContentsOfFile:[self.resourceManager pathForPredifinedLevelImage:selectedFileName]];
+    } else {
+        levelImage = [UIImage imageWithContentsOfFile:[self.resourceManager pathForUserDefinedLevelImage:selectedFileName]];
+    }
+    UIImageView* levelImageView = [[UIImageView alloc] initWithImage:levelImage];
+    CGRect frame = CGRectMake(0, 0,
+                              self.levelInfoView.frame.size.width,
+                              self.levelInfoView.frame.size.height);
+    levelImageView.frame = frame;
+    self.selecteLevelView = levelImageView;
+    [self.levelInfoView addSubview:levelImageView];
+    self.playButton.alpha = 1;
+    self.playButton.userInteractionEnabled = YES;
+    if (previousSelectedView) {
+        [previousSelectedView removeFromSuperview];
     }
 }
 

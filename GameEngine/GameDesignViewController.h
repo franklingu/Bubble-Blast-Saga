@@ -6,22 +6,11 @@
 //
 //
 
-/**
- * this is the main controller of the game designer--and the only controller
- * that is linked to outlets.
- *
- * responding to button-related events are done here.
- * changing of selected color--will update gameBubblesController about the change
- * save--will ask gameBubblesController to do the work(extension)
- * load--show user the loading view and will 
- *       assign gameBubblesController the loading(extension)
- * play--not implemented yet
- */
-
 #import <UIKit/UIKit.h>
 #import "PopOverTableViewController.h"
 #import "AnimateViewController.h"
 #import "BubbleModelsManager.h"
+#import "GameResourcesManager.h"
 #import "PopOverDelegate.h"
 
 @interface GameDesignViewController : UIViewController <UIPopoverControllerDelegate, PopOverDelegate,
@@ -35,13 +24,10 @@ UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic)          UIAlertView *existingFileAlert;
 @property (strong, nonatomic)          UIPopoverController* loadPopOverController;
 @property (strong, nonatomic)          BubbleModelsManager *bubbleModelsManager;
+@property (strong, nonatomic)          GameResourcesManager *resourceManager;
 
 - (IBAction)buttonPressed:(id)sender;
 
 - (IBAction)colorSelectorPressed:(id)sender;
-
-- (NSArray *)fullFileNamesInAppDocumentDirectory;
-
-- (NSArray *)fileNamesInAppDirectory;
 
 @end

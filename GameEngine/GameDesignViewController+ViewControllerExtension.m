@@ -34,20 +34,15 @@
 
 - (void)saveWithoutCheckingFileExistence
 {
-    static NSString *plistExtension = @".plist";
     NSString *fileName = [self.saveAlert textFieldAtIndex:0].text;
-    NSString *fullFileName = [fileName stringByAppendingString:plistExtension];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    NSString *filePathToSave = [documentsPath stringByAppendingPathComponent:fullFileName];
+    NSString *filePathToSave = [self.resourceManager pathForUserDefinedLevel:fileName];
     
     UIGraphicsBeginImageContext(self.view.bounds.size);
     [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     NSData *data = UIImagePNGRepresentation(image);
-    NSString *fullImageName = [fileName stringByAppendingString:@".png"];
-    NSString *imagePathToSave = [documentsPath stringByAppendingPathComponent:fullImageName];
+    NSString *imagePathToSave = [self.resourceManager pathForUserDefinedLevelImage:fileName];
     [data writeToFile:imagePathToSave atomically:YES];
     
     [self.bubbleModelsManager saveToFilePath:filePathToSave];
@@ -71,11 +66,9 @@
 
 - (BOOL)isFileNameExisting:(NSString*)fileName
 {
-    static NSString *plistExtension = @".plist";
-    NSString* fileNameWithExtension = [[self.saveAlert textFieldAtIndex:0].text stringByAppendingString:plistExtension];
-    NSArray* filePaths = [self fullFileNamesInAppDocumentDirectory];
-    for (NSString* path in filePaths) {
-        if ([fileNameWithExtension isEqualToString:path]) {
+    NSArray *fileNamesInApp = [self.resourceManager fileNamesForLevelInAppDocumentDirectory];
+    for (NSString* name in fileNamesInApp) {
+        if ([fileName isEqualToString:name]) {
             return YES;
         }
     }
@@ -90,11 +83,11 @@
     
     if (!fileName) {
         return NO;
-    } else if (fileName.length <= minimumLengthOfString || fileName.length >= maximumLengthOfString) {
+    } else if (fileName.length < minimumLengthOfString || fileName.length > maximumLengthOfString) {
         return NO;
     } else if ([fileName rangeOfString:@"."].location != NSNotFound) {
         return NO;
-    } else if ([[fileName substringWithRange:NSMakeRange(0, 5)] isEqualToString:@"Level"]) {
+    } else if (fileName.length > minimumLengthOfString && [[fileName substringWithRange:NSMakeRange(0, 5)] isEqualToString:@"Level"]) {
         return NO;
     }else {
         return YES;
@@ -104,7 +97,7 @@
 - (void)load
 {
     PopOverTableViewController *controller = (PopOverTableViewController*)self.loadPopOverController.contentViewController;
-    controller.fileNames = [self fileNamesInAppDirectory];
+    controller.fileNames = [self.resourceManager fileNamesForLevelInAppDocumentDirectory];
     [controller.tableView reloadData];
     [self.loadPopOverController presentPopoverFromRect:self.loadButton.bounds inView:self.loadButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }

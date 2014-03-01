@@ -25,8 +25,6 @@ static const CGFloat kShakingConstant = 3;
 @property (strong, nonatomic) IBOutlet UICollectionView *bubbleGridArea;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 
-- (void)configureLoadingFilePathByFileName:(NSString *)fileName;
-
-- (IBAction)backButtonPressed:(UIButton *)sender;
+- (void)configureLoadingFilePath:(NSString *)filePath;
 
 @end
