@@ -11,16 +11,6 @@
 #import "PhysicsSpace.h"
 #import "GameEngineDelegate.h"
 
-static const CGFloat kTimerInterval = 1.0/60;
-static const CGFloat kFiringSpeed = 900;
-static const CGFloat kOriginXOfFiringBubble = 352;
-static const CGFloat kOriginYOfFiringBubble = 941;
-static const CGFloat kRadiusOfFiringBubble = 32;
-static const NSInteger kMaximumNumberOfConnectedBubbles = 3;
-static const NSInteger kNumberOfRows = 13;
-static const NSInteger kInvalidItem = -1;
-static const NSString *kBubbleToFireIdentifier = @"bubbleToFire";
-
 @interface GameEngine : NSObject <PhysicsSpaceDelegate>
 
 @property (nonatomic) BOOL isReadyToFire;

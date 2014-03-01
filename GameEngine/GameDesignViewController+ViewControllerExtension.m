@@ -51,8 +51,7 @@
 
 - (void)resetInputFieldInSavingAlert
 {
-    NSString* emptyString = @"";
-    [self.saveAlert textFieldAtIndex:0].text = emptyString;
+    [self.saveAlert textFieldAtIndex:0].text = kEmptyString;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -85,9 +84,10 @@
         return NO;
     } else if (fileName.length < minimumLengthOfString || fileName.length > maximumLengthOfString) {
         return NO;
-    } else if ([fileName rangeOfString:@"."].location != NSNotFound) {
+    } else if ([fileName rangeOfString:kDotString].location != NSNotFound) {
         return NO;
-    } else if (fileName.length > minimumLengthOfString && [[fileName substringWithRange:NSMakeRange(0, 5)] isEqualToString:@"Level"]) {
+    } else if (fileName.length > minimumLengthOfString &&
+               [[fileName substringWithRange:NSMakeRange(0, minimumLengthOfString + 1)] isEqualToString:kPredefinePrefix]) {
         return NO;
     }else {
         return YES;

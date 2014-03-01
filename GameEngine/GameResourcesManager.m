@@ -94,7 +94,41 @@
 
 - (NSString *)imageNameForColorType:(NSInteger)colorType
 {
-    return nil;
+    NSString *imageName;
+    switch ((int)colorType) {
+        case kNoDisplayColorType:
+            imageName = nil;
+            break;
+        case kBlueColorType:
+            imageName = kBlueImageName;
+            break;
+        case kRedColorType:
+            imageName = kRedImageName;
+            break;
+        case kOrangeColorType:
+            imageName = kOrangeImageName;
+            break;
+        case kGreenColorType:
+            imageName = kGreenImageName;
+            break;
+        case kStarColorType:
+            imageName = kStarImageName;
+            break;
+        case kBombColorType:
+            imageName = kBombImageName;
+            break;
+        case kLightningColorType:
+            imageName = kLightningImageName;
+            break;
+        case kIndesturctibleColorType:
+            imageName = kIndestructibleImageName;
+            break;
+        default:
+            imageName = nil;
+            break;
+    }
+    
+    return [imageName copy];
 }
 
 @end

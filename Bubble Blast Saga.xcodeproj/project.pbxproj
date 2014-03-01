@@ -42,7 +42,6 @@
 		B1CCB5CC18C0A40400DE08A4 /* bg-music-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5C718C0A40400DE08A4 /* bg-music-1.mp3 */; };
 		B1CCB5CD18C0A40400DE08A4 /* bg-music-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5C818C0A40400DE08A4 /* bg-music-2.mp3 */; };
 		B1CCB5CE18C0A40400DE08A4 /* bubble-popping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5C918C0A40400DE08A4 /* bubble-popping.mp3 */; };
-		B1CCB5CF18C0A40400DE08A4 /* bubble-snapping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5CA18C0A40400DE08A4 /* bubble-snapping.mp3 */; };
 		B1CCB5D018C0A40400DE08A4 /* cannon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5CB18C0A40400DE08A4 /* cannon.mp3 */; };
 		B1CCB5D718C0B50F00DE08A4 /* bubble-pink.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5D518C0B50F00DE08A4 /* bubble-pink.png */; };
 		B1CCB5DA18C0B5B400DE08A4 /* bubble-colorful.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5D918C0B5B400DE08A4 /* bubble-colorful.png */; };
@@ -137,7 +136,6 @@
 		B1CCB5C718C0A40400DE08A4 /* bg-music-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music-1.mp3"; path = "music/bg-music-1.mp3"; sourceTree = SOURCE_ROOT; };
 		B1CCB5C818C0A40400DE08A4 /* bg-music-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music-2.mp3"; path = "music/bg-music-2.mp3"; sourceTree = SOURCE_ROOT; };
 		B1CCB5C918C0A40400DE08A4 /* bubble-popping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bubble-popping.mp3"; path = "music/bubble-popping.mp3"; sourceTree = SOURCE_ROOT; };
-		B1CCB5CA18C0A40400DE08A4 /* bubble-snapping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bubble-snapping.mp3"; path = "music/bubble-snapping.mp3"; sourceTree = SOURCE_ROOT; };
 		B1CCB5CB18C0A40400DE08A4 /* cannon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cannon.mp3; path = music/cannon.mp3; sourceTree = SOURCE_ROOT; };
 		B1CCB5D518C0B50F00DE08A4 /* bubble-pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-pink.png"; path = "Images/bubble-pink.png"; sourceTree = SOURCE_ROOT; };
 		B1CCB5D918C0B5B400DE08A4 /* bubble-colorful.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bubble-colorful.png"; path = "Images/bubble-colorful.png"; sourceTree = SOURCE_ROOT; };
@@ -157,6 +155,7 @@
 		B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectViewController.m; sourceTree = "<group>"; };
 		B1D1C48D18AE6F730000AC43 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		B1D1C48E18AE6F730000AC43 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		B1D1CCB318C2105B00030F52 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B1DB39E618BE4722007405D2 /* Level-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-1.plist"; path = "preloaded levels/Level-1.plist"; sourceTree = SOURCE_ROOT; };
 		B1DB39E718BE4722007405D2 /* Level-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-2.plist"; path = "preloaded levels/Level-2.plist"; sourceTree = SOURCE_ROOT; };
 		B1DB39E818BE4722007405D2 /* Level-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-3.plist"; path = "preloaded levels/Level-3.plist"; sourceTree = SOURCE_ROOT; };
@@ -232,8 +231,8 @@
 		B1C9862118A9140A00B9BF50 /* Bubble Blast Saga */ = {
 			isa = PBXGroup;
 			children = (
-				B1DB39E118BE331D007405D2 /* sound player */,
-				B1CAEF9A18ACDE2900A96057 /* Model */,
+				B1D1CCB118C2049A00030F52 /* others */,
+				B1CAEF9A18ACDE2900A96057 /* model */,
 				B1CCB5DB18C0D20A00DE08A4 /* game recources */,
 				B1C9866A18A9158E00B9BF50 /* design mode */,
 				B1C9867E18A918B200B9BF50 /* play mode */,
@@ -291,10 +290,10 @@
 		B1C9866B18A915DB00B9BF50 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B1CCBDF818BBA536008E7DDA /* backgrounds */,
+				B1CCBDF918BBA618008E7DDA /* bubbles */,
 				B1CCB5D918C0B5B400DE08A4 /* bubble-colorful.png */,
 				B1CCB5D518C0B50F00DE08A4 /* bubble-pink.png */,
-				B1CCBDF918BBA618008E7DDA /* bubbles */,
-				B1CCBDF818BBA536008E7DDA /* possible backgrounds */,
 				B1D13E8A18B12A1A0098BBB3 /* bubble-burst.png */,
 				B1D13E8E18B12A1A0098BBB3 /* cannon-base.png */,
 				B1D13E9018B12A1A0098BBB3 /* cannon.png */,
@@ -356,7 +355,7 @@
 			name = "Game Engine";
 			sourceTree = "<group>";
 		};
-		B1CAEF9A18ACDE2900A96057 /* Model */ = {
+		B1CAEF9A18ACDE2900A96057 /* model */ = {
 			isa = PBXGroup;
 			children = (
 				B1D1C48D18AE6F730000AC43 /* Queue.h */,
@@ -366,7 +365,7 @@
 				B1EEC42118B3A007002A007B /* BubbleModelsManager.h */,
 				B1EEC42218B3A007002A007B /* BubbleModelsManager.m */,
 			);
-			name = Model;
+			name = model;
 			sourceTree = "<group>";
 		};
 		B1CAEF9B18ACDE3D00A96057 /* View */ = {
@@ -407,13 +406,11 @@
 				B1F81F3018C1BD1400268A82 /* preloaded levels */,
 				B1DE5F5018BDF874003A4414 /* sound source */,
 				B1C9866B18A915DB00B9BF50 /* images */,
-				B1CCB5DD18C0D3A200DE08A4 /* GameResourcesManager.h */,
-				B1CCB5DE18C0D3A200DE08A4 /* GameResourcesManager.m */,
 			);
 			name = "game recources";
 			sourceTree = "<group>";
 		};
-		B1CCBDF818BBA536008E7DDA /* possible backgrounds */ = {
+		B1CCBDF818BBA536008E7DDA /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
 				B1CCBE1818BBB8A2008E7DDA /* sky.png */,
@@ -421,7 +418,7 @@
 				B1CCBE0E18BBB3B3008E7DDA /* blue-sky.png */,
 				B1C9866C18A915F300B9BF50 /* background.png */,
 			);
-			name = "possible backgrounds";
+			name = backgrounds;
 			sourceTree = "<group>";
 		};
 		B1CCBDF918BBA618008E7DDA /* bubbles */ = {
@@ -438,6 +435,25 @@
 				B1D13E8C18B12A1A0098BBB3 /* bubble-lightning.png */,
 			);
 			name = bubbles;
+			sourceTree = "<group>";
+		};
+		B1D1CCB118C2049A00030F52 /* others */ = {
+			isa = PBXGroup;
+			children = (
+				B1D1CCB218C204AD00030F52 /* resource manager */,
+				B1DB39E118BE331D007405D2 /* sound player */,
+				B1D1CCB318C2105B00030F52 /* Constants.h */,
+			);
+			name = others;
+			sourceTree = "<group>";
+		};
+		B1D1CCB218C204AD00030F52 /* resource manager */ = {
+			isa = PBXGroup;
+			children = (
+				B1CCB5DD18C0D3A200DE08A4 /* GameResourcesManager.h */,
+				B1CCB5DE18C0D3A200DE08A4 /* GameResourcesManager.m */,
+			);
+			name = "resource manager";
 			sourceTree = "<group>";
 		};
 		B1DB39E118BE331D007405D2 /* sound player */ = {
@@ -465,7 +481,6 @@
 				B1CCB5C718C0A40400DE08A4 /* bg-music-1.mp3 */,
 				B1CCB5C818C0A40400DE08A4 /* bg-music-2.mp3 */,
 				B1CCB5C918C0A40400DE08A4 /* bubble-popping.mp3 */,
-				B1CCB5CA18C0A40400DE08A4 /* bubble-snapping.mp3 */,
 				B1CCB5CB18C0A40400DE08A4 /* cannon.mp3 */,
 			);
 			name = "sound source";
@@ -610,7 +625,6 @@
 				B1C9867218A915F300B9BF50 /* background.png in Resources */,
 				B1CCB5CC18C0A40400DE08A4 /* bg-music-1.mp3 in Resources */,
 				B1C9867518A915F300B9BF50 /* bubble-orange.png in Resources */,
-				B1CCB5CF18C0A40400DE08A4 /* bubble-snapping.mp3 in Resources */,
 				B1DB39EB18BE4722007405D2 /* Level-1.plist in Resources */,
 				B1C9862618A9140A00B9BF50 /* InfoPlist.strings in Resources */,
 				B1D13E9218B12A1A0098BBB3 /* bubble-burst.png in Resources */,

@@ -26,7 +26,10 @@
 @property (nonatomic) NSInteger nextFiringType;
 @property (nonatomic) NSString *filePath;
 
-@property (strong, nonatomic) AVSoundPlayer *poppingSound;
+@property (strong, nonatomic) GameResourcesManager *resourceManager;
+@property (strong, nonatomic) NSMutableArray *bubbleBurstSprite;
+@property (strong, nonatomic) AVSoundPlayer *poppingSoundPlayer;
+@property (strong, nonatomic) AVSoundPlayer *cannonSoundPlayer;
 @end
 
 @implementation AnimateViewController
@@ -51,7 +54,9 @@
     self.isReadyForFiring = NO;
     self.currentFiringType = 1;
     [self produceNextFiringType];
-    self.poppingSound = [[AVSoundPlayer alloc] initWithFileName:@"bubble-popping"];
+    self.poppingSoundPlayer = [[AVSoundPlayer alloc] initWithFileName:@"bubble-popping"];
+    self.cannonSoundPlayer = [[AVSoundPlayer alloc] initWithFileName:@"cannon"];
+    self.resourceManager = [[GameResourcesManager alloc] init];
 }
 
 - (void)setUpMainViews
@@ -91,6 +96,7 @@
     
     [self drawBubbleToFireAndNextBubble];
     [self drawCannon];
+    [self sliceBubbleBurstSprite];
 }
 
 - (void)drawBubbleToFireAndNextBubble
@@ -111,10 +117,15 @@
 
 - (void)drawCannon
 {
+    int edgeOfCannonBase = 2;
+    int changeInYForCannonBase = 4;
+    int widthForCannonOriginalImage = 400;
+    int heightForCannonOriginalImage = 800;
     UIImageView *cannonBaseImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cannon-base.png"]];
-    // magic numbers
-    cannonBaseImageView.frame = CGRectMake(kOriginXOfFiringBubble-2, kOriginYOfFiringBubble-4,
-                                           kRadiusOfFiringBubble * 2+4, kRadiusOfFiringBubble+6);
+    cannonBaseImageView.frame = CGRectMake(kOriginXOfFiringBubble - edgeOfCannonBase,
+                                           kOriginYOfFiringBubble - changeInYForCannonBase,
+                                           kRadiusOfFiringBubble * 2 + edgeOfCannonBase * 2,
+                                           kRadiusOfFiringBubble + changeInYForCannonBase + edgeOfCannonBase);
     self.cannonBase = cannonBaseImageView;
     self.cannonBase.layer.zPosition = 2;
     [self.view addSubview:self.cannonBase];
@@ -123,8 +134,11 @@
                               kRadiusOfFiringBubble * 2, kRadiusOfFiringBubble * 4);
     NSMutableArray *images = [NSMutableArray new];
     
-    for (int i = 0; i < 12; i++) {
-        CGRect rect = CGRectMake(400 * (i%6), 800 * (i/6), 400, 800);
+    for (int i = 0; i < 12; i++) {  // slicing the sprite
+        CGRect rect = CGRectMake(widthForCannonOriginalImage * (i % 6),
+                                 heightForCannonOriginalImage * (i / 6),
+                                 widthForCannonOriginalImage,
+                                 heightForCannonOriginalImage);
         CGImageRef imgRef = CGImageCreateWithImageInRect(cannonWholeImage.CGImage,  rect);
         UIImage *cannonPartImage = [UIImage imageWithCGImage:imgRef];
         if (i == 0) {
@@ -140,8 +154,24 @@
     self.cannonPart.animationDuration = kTimerInterval;
 }
 
+- (void)sliceBubbleBurstSprite
+{
+    int widthForBubbleBurst = 160;
+    int heightForBubbleBurst = 160;
+    UIImage *bubbleBurstWholeImage = [UIImage imageNamed:@"bubble-burst.png"];
+    self.bubbleBurstSprite = [NSMutableArray new];
+    for (int i = 0; i < 4; i++) {  // slicing the sprite
+        CGRect rect = CGRectMake(widthForBubbleBurst * i, 0,
+                                 widthForBubbleBurst, heightForBubbleBurst);
+        CGImageRef imgRef = CGImageCreateWithImageInRect(bubbleBurstWholeImage.CGImage,  rect);
+        UIImage *bubbleBurstPartImage = [UIImage imageWithCGImage:imgRef];
+        [self.bubbleBurstSprite addObject:bubbleBurstPartImage];
+    }
+}
+
 - (void)produceNextFiringType
 {
+    srand((unsigned int)time(NULL));
     int num = (rand() % kNumberOfBubbleModelKindsCanBeFired) + 1;
     
     self.nextFiringType = num;
@@ -176,6 +206,10 @@
 - (void)setColorType:(NSInteger)colorType forCell:(GameBubbleCell *)aCell
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[self imageWithColorType:colorType]];
+    if (colorType == kBombColorType || colorType == kStarColorType || colorType == kLightningColorType) {
+        imageView.animationImages = self.bubbleBurstSprite;
+        imageView.animationDuration = kAnimationDuration;
+    }
     [aCell setBubbleImage:imageView];
 }
 
@@ -196,6 +230,7 @@
     if (!self.isGameOver && self.isReadyForFiring) {
         self.isReadyForFiring = NO;
         [self.cannonPart startAnimating];
+        [self.cannonSoundPlayer play];
         [UIView animateWithDuration:(kAnimationDuration / 2)
                          animations:^{
                              CGFloat radians = atan(-self.firingDirection.y / self.firingDirection.x);
@@ -227,6 +262,9 @@
 
 - (void)gameWon
 {
+    self.isGameOver = YES;
+    [self.timer invalidate];
+    self.gameEngine.stopSimulating = YES;
     [self.gameWonAlert show];
 }
 
@@ -247,7 +285,11 @@
                                  cell.backgroundView.frame.origin.y - kExpandingRate,
                                  cell.backgroundView.frame.size.width + kExpandingRate * 2,
                                  cell.backgroundView.frame.size.height + kExpandingRate * 2);
-    [self.poppingSound play];
+    [self.poppingSoundPlayer play];
+    if (colorType == kBombColorType || colorType == kStarColorType || colorType == kLightningColorType) {
+        UIImageView *view = (UIImageView *)cell.backgroundView;
+        [view startAnimating];
+    }
     
     [UIView animateWithDuration:kAnimationDuration animations:^{
         cell.backgroundView.alpha = 0;
@@ -367,37 +409,10 @@
 - (UIImage *)imageWithColorType:(NSInteger)colorType
 {
     UIImage *image;
-    switch ((int)colorType) {
-        case 0:
-            image = nil;
-            break;
-        case 1:
-            image = [UIImage imageNamed:kBlueImageName];
-            break;
-        case 2:
-            image = [UIImage imageNamed:kRedImageName];
-            break;
-        case 3:
-            image = [UIImage imageNamed:kOrangeImageName];
-            break;
-        case 4:
-            image = [UIImage imageNamed:kGreenImageName];
-            break;
-        case 5:
-            image = [UIImage imageNamed:kStarImageName];
-            break;
-        case 6:
-            image = [UIImage imageNamed:kBombImageName];
-            break;
-        case 7:
-            image = [UIImage imageNamed:kLightningImageName];
-            break;
-        case 8:
-            image = [UIImage imageNamed:kIndestructibleImageName];
-            break;
-        default:
-            image = nil;
-            break;
+    if (colorType == kNoDisplayColorType) {
+        return image;
+    } else {
+        image = [UIImage imageNamed:[self.resourceManager imageNameForColorType:colorType]];
     }
     
     return image;
@@ -412,7 +427,8 @@
 {
     NSInteger numberOfDoubleRows = self.numberOfRows / 2;
     NSInteger numberOfRowLeft = self.numberOfRows % 2;
-    return (kNumberOfItemsInEvenRow+kNumberOfItemsInOddRow)*(int)numberOfDoubleRows+kNumberOfItemsInOddRow*(int)numberOfRowLeft;
+    
+    return (kNumberOfItemsInEvenRow + kNumberOfItemsInOddRow) * numberOfDoubleRows + kNumberOfItemsInOddRow * numberOfRowLeft;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

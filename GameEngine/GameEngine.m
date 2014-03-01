@@ -124,7 +124,7 @@
     CGFloat yVelocity = kFiringSpeed*direction.y/directionLength;
     Velocity *velocity = [[Velocity alloc] initWithXVelocity:xVelocity YVelocity:yVelocity];
     body.velocity = velocity;
-    CircleShape *circle = [[CircleShape alloc] initWithObjectBody:body radius:32
+    CircleShape *circle = [[CircleShape alloc] initWithObjectBody:body radius:kRadiusOfFiringBubble
                                                  uniqueIdentifier:identifier];
     [self.physicsSpace addCircleShape:circle];
 }

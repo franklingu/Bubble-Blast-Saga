@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "BubbleModel.h"
 
-static const NSInteger kNumberOfItemsInOddRow = 12;
-static const NSInteger kNumberOfItemsInEvenRow = 11;
-
 @interface BubbleModelsManager : NSObject
 
 - (id)initWithFilePath:(NSString *)filePath;

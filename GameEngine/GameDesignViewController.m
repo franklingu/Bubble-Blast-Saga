@@ -65,17 +65,13 @@
 {
     if ([segue.identifier isEqualToString:@"designToPlaySegue"]) {
         AnimateViewController *playController = segue.destinationViewController;
-        [playController configureLoadingFilePath:[self.resourceManager pathForUserDefinedLevel:@"tmp"]];
+        [playController configureLoadingFilePath:[self.resourceManager pathForUserDefinedLevel:kTmpFileName]];
     }
 }
 
 - (void)saveCurrentDesignToTmp
 {
-    NSString* fileName = @"tmp.plist";
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    NSString* filePathToSave = [documentsPath stringByAppendingPathComponent:fileName];
-    
+    NSString* filePathToSave = [self.resourceManager pathForUserDefinedLevel:kTmpFileName];
     [self.bubbleModelsManager saveToFilePath:filePathToSave];
 }
 
@@ -224,37 +220,10 @@
 - (UIImage *)imageWithColorType:(NSInteger)colorType
 {
     UIImage *image;
-    switch ((int)colorType) {
-        case 0:
-            image = nil;
-            break;
-        case 1:
-            image = [UIImage imageNamed:kBlueImageName];
-            break;
-        case 2:
-            image = [UIImage imageNamed:kRedImageName];
-            break;
-        case 3:
-            image = [UIImage imageNamed:kOrangeImageName];
-            break;
-        case 4:
-            image = [UIImage imageNamed:kGreenImageName];
-            break;
-        case 5:
-            image = [UIImage imageNamed:kStarImageName];
-            break;
-        case 6:
-            image = [UIImage imageNamed:kBombImageName];
-            break;
-        case 7:
-            image = [UIImage imageNamed:kLightningImageName];
-            break;
-        case 8:
-            image = [UIImage imageNamed:kIndestructibleImageName];
-            break;
-        default:
-            image = nil;
-            break;
+    if (colorType == kNoDisplayColorType) {
+        return image;
+    } else {
+        image = [UIImage imageNamed:[self.resourceManager imageNameForColorType:colorType]];
     }
     
     return image;

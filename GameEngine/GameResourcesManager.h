@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BubbleModel.h"
 
 @interface GameResourcesManager : NSObject
 - (NSArray *)fullFileNamesForLevelInAppDocumentDirectory;

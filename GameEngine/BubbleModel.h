@@ -6,17 +6,9 @@
 //
 //
 
-/**
- * This class is a model storing infomation of all the bubbles
- *
- * To extend the behaviour of the game bubble model, just subclass
- * it and add more properties for game engine--velocity and so on.
- * Right now center and radius is not stored since we have not come
- * to the stage where center and raius will be that useful--but for
- * game engine, storing that info for calculation is very important.
- */
 
 #import <Foundation/Foundation.h>
+#import "Constants.h"
 
 typedef enum {
     kNoDisplayColorType,
@@ -37,15 +29,6 @@ static const NSString *kKeyColorType = @"Color Type";
 static const NSString *kKeyCenterX = @"Center X";
 static const NSString *kKeyCenterY = @"Center Y";
 static const NSString *kKeyRadius = @"radius";
-
-static NSString *kBlueImageName = @"bubble-blue.png";
-static NSString *kRedImageName = @"bubble-red.png";
-static NSString *kOrangeImageName = @"bubble-orange.png";
-static NSString *kGreenImageName = @"bubble-green.png";
-static NSString *kStarImageName = @"bubble-star.png";
-static NSString *kBombImageName = @"bubble-bomb.png";
-static NSString *kLightningImageName = @"bubble-lightning.png";
-static NSString *kIndestructibleImageName = @"bubble-indestructible.png";
 
 @interface BubbleModel : NSObject
 

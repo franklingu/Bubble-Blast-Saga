@@ -15,8 +15,6 @@
 
 - (id)initWithIndexPathItem:(NSInteger)item colorType:(NSInteger)colorType center:(CGPoint)center radius:(CGFloat)radius
 {
-    // EFFECTS: init a bubbleModel based on given indexPathItem and colorType
-    
     self = [super init];
     if (self) {
         self.item = item;

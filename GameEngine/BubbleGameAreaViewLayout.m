@@ -17,7 +17,7 @@
     int numberOfSections = (int)[self.collectionView numberOfSections];
     int numberOfItems = 0;
     
-    for (int i=0; i<numberOfSections; i++) {
+    for (int i = 0; i < numberOfSections; i++) {
         numberOfItems += [self.collectionView numberOfItemsInSection:i];
     }
     self.numberOfItems = numberOfItems;
@@ -30,6 +30,7 @@
 
 - (UICollectionViewLayoutAttributes*)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    // here the values are not referenced from constants because the view is spearated from controllers and models
     static int numberOfItemsInEvenRow = 12;
     static int numberOfItemsInOddRow = 11;
     float radius = self.collectionViewContentSize.width/(float)numberOfItemsInEvenRow/2.0;
@@ -38,13 +39,14 @@
     int rowFromIndex = (int)indexPath.row;
     int row = 0;
     int col = rowFromIndex;
-    while ((row%2==0 && col>=numberOfItemsInEvenRow) || (row%2!=0 && col>=numberOfItemsInOddRow)) {
+    
+    while ((row % 2==0 && col >= numberOfItemsInEvenRow) || (row%2 != 0 && col >= numberOfItemsInOddRow)) {
         row++;
         col -= row % 2 ? numberOfItemsInEvenRow : numberOfItemsInOddRow;
     }
-    float x_coordinate = col*2*radius + radius;
+    float x_coordinate = col * 2 * radius + radius;
     float y_coordinate = row*radius*pow(3, 0.5f) + radius;
-    if (row%2!=0) {
+    if (row%2 != 0) {
         x_coordinate = x_coordinate+radius;
     }
     attr.size = CGSizeMake(radius*2, radius*2);

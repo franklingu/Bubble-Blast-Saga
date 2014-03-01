@@ -132,6 +132,8 @@
 {
     if ([self bubblesToDrop].count > 0) {
         return NO;
+    } else if ([self numberOfVisibleBubbles] == 0) {
+        return NO;
     } else {
         return YES;
     }
@@ -198,12 +200,12 @@
     NSInteger rowStarting = 0;
     
     while (rowStarting < item) {
-        rowStarting += (row % 2) ? 12 : 11;
+        rowStarting += (row % 2) ? kNumberOfItemsInOddRow : kNumberOfItemsInEvenRow;
         row++;
     }
-    rowStarting -= (row % 2) ? 11 : 12;
+    rowStarting -= (row % 2) ? kNumberOfItemsInEvenRow : kNumberOfItemsInOddRow;
     row--;
-    NSInteger currentRowLength = (row % 2) ? 12 : 11;
+    NSInteger currentRowLength = (row % 2) ? kNumberOfItemsInOddRow : kNumberOfItemsInEvenRow;
     for (int i = 0; i < currentRowLength; i++) {
         BubbleModel *bubble = [self bubbleAtItem:(rowStarting + i)];
         if (bubble && bubble.colorType != kNoDisplayColorType) {
@@ -297,8 +299,8 @@
     int count = 0;
     
     // special cases
-    for (int i=1; i<13; i++) {
-        if (i%2==0) {
+    for (int i = 1; i < kNumberOfRows; i++) {
+        if (i%2 == 0) {
             isOddRow = NO;
             if (item==count) {
                 isLeftNode=YES;
@@ -326,35 +328,35 @@
     // all the adding--neighbor behaviours are wrapped in addModelToNeighbor method for safety
     if (isLeftNode) {
         if (isOddRow) {    // leftNode at oddRow, three possible neighbors
-            [self addModelToNeighbors:neighbors atItem:item-11];
-            [self addModelToNeighbors:neighbors atItem:item+1];
-            [self addModelToNeighbors:neighbors atItem:item+12];
+            [self addModelToNeighbors:neighbors atItem:item - kNumberOfItemsInEvenRow];
+            [self addModelToNeighbors:neighbors atItem:item + 1];
+            [self addModelToNeighbors:neighbors atItem:item + kNumberOfItemsInOddRow];
         } else {    // leftNode at evenRow, five possible neighbors
-            [self addModelToNeighbors:neighbors atItem:item-12];
-            [self addModelToNeighbors:neighbors atItem:item-11];
-            [self addModelToNeighbors:neighbors atItem:item+1];
-            [self addModelToNeighbors:neighbors atItem:item+11];
-            [self addModelToNeighbors:neighbors atItem:item+12];
+            [self addModelToNeighbors:neighbors atItem:item - kNumberOfItemsInOddRow];
+            [self addModelToNeighbors:neighbors atItem:item - kNumberOfItemsInEvenRow];
+            [self addModelToNeighbors:neighbors atItem:item + 1];
+            [self addModelToNeighbors:neighbors atItem:item + kNumberOfItemsInEvenRow];
+            [self addModelToNeighbors:neighbors atItem:item + kNumberOfItemsInOddRow];
         }
     } else if (isRightNode) {
         if (isOddRow) {    // rightNode at oddRow, three possible neighbors
-            [self addModelToNeighbors:neighbors atItem:item-12];
-            [self addModelToNeighbors:neighbors atItem:item-1];
-            [self addModelToNeighbors:neighbors atItem:item+11];
+            [self addModelToNeighbors:neighbors atItem:item - kNumberOfItemsInOddRow];
+            [self addModelToNeighbors:neighbors atItem:item - 1];
+            [self addModelToNeighbors:neighbors atItem:item + kNumberOfItemsInEvenRow];
         } else {    // rightNode at oddRow, five possible neighbors
-            [self addModelToNeighbors:neighbors atItem:item-12];
-            [self addModelToNeighbors:neighbors atItem:item-11];
-            [self addModelToNeighbors:neighbors atItem:item-1];
-            [self addModelToNeighbors:neighbors atItem:item+11];
-            [self addModelToNeighbors:neighbors atItem:item+12];
+            [self addModelToNeighbors:neighbors atItem:item - kNumberOfItemsInOddRow];
+            [self addModelToNeighbors:neighbors atItem:item - kNumberOfItemsInEvenRow];
+            [self addModelToNeighbors:neighbors atItem:item - 1];
+            [self addModelToNeighbors:neighbors atItem:item + kNumberOfItemsInEvenRow];
+            [self addModelToNeighbors:neighbors atItem:item + kNumberOfItemsInOddRow];
         }
     } else {    // node in central area, 6 possible neighbors
-        [self addModelToNeighbors:neighbors atItem:item-12];
-        [self addModelToNeighbors:neighbors atItem:item-11];
-        [self addModelToNeighbors:neighbors atItem:item-1];
-        [self addModelToNeighbors:neighbors atItem:item+1];
-        [self addModelToNeighbors:neighbors atItem:item+11];
-        [self addModelToNeighbors:neighbors atItem:item+12];
+        [self addModelToNeighbors:neighbors atItem:item - kNumberOfItemsInOddRow];
+        [self addModelToNeighbors:neighbors atItem:item - kNumberOfItemsInEvenRow];
+        [self addModelToNeighbors:neighbors atItem:item - 1];
+        [self addModelToNeighbors:neighbors atItem:item + 1];
+        [self addModelToNeighbors:neighbors atItem:item + kNumberOfItemsInEvenRow];
+        [self addModelToNeighbors:neighbors atItem:item + kNumberOfItemsInOddRow];
     }
     
     return neighbors;
