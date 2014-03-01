@@ -167,7 +167,6 @@
         } else if (bubble.colorType == kStarColorType) {
             [toBeRemovedBubbles addObject:bubble];
             [toBeRemovedBubbles addObjectsFromArray:[self allBubblesWithColorType:startingModel.colorType]];
-            return toBeRemovedBubbles;
         }
         if (![visited containsObject:bubble]) {
             [visited addObject:bubble];
