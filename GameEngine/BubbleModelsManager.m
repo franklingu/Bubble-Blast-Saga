@@ -158,7 +158,7 @@
             [connectedBubblesWithSameColor addObject:bubble];
         } else if (bubble.colorType == kLightningColorType) {
             [toBeRemovedBubbles addObject:bubble];
-            [toBeRemovedBubbles addObjectsFromArray:[self toBeRemovedBubblesWithStarBubble:bubble]];
+            [toBeRemovedBubbles addObjectsFromArray:[self toBeRemovedBubblesWithLightningBubble:bubble]];
         } else if (bubble.colorType == kBombColorType) {
             [toBeRemovedBubbles addObject:bubble];
             [toBeRemovedBubbles addObjectsFromArray:[self toBeRemovedBubblesWithBombBubble:bubble]];
@@ -190,7 +190,7 @@
     return toBeRemovedBubbles;
 }
 
-- (NSArray *)toBeRemovedBubblesWithStarBubble:(BubbleModel *)bubble
+- (NSArray *)toBeRemovedBubblesWithLightningBubble:(BubbleModel *)bubble
 {
     NSMutableArray *bubblesInCurrentRow = [NSMutableArray new];
     NSInteger item = bubble.item;
@@ -206,7 +206,7 @@
     NSInteger currentRowLength = (row % 2) ? 12 : 11;
     for (int i = 0; i < currentRowLength; i++) {
         BubbleModel *bubble = [self bubbleAtItem:(rowStarting + i)];
-        if (bubble && bubble.colorType != kNoDisplayColorType && bubble.colorType != kIndesturctibleColorType) {
+        if (bubble && bubble.colorType != kNoDisplayColorType) {
             [bubblesInCurrentRow addObject:bubble];
         }
     }

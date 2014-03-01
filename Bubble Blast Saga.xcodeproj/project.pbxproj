@@ -232,10 +232,12 @@
 		B1C9862118A9140A00B9BF50 /* Bubble Blast Saga */ = {
 			isa = PBXGroup;
 			children = (
+				B1DB39E118BE331D007405D2 /* sound player */,
+				B1CAEF9A18ACDE2900A96057 /* Model */,
 				B1CCB5DB18C0D20A00DE08A4 /* game recources */,
-				B1C9866A18A9158E00B9BF50 /* ps3 */,
-				B1C9867E18A918B200B9BF50 /* ps4 */,
-				B1C9867F18A918CF00B9BF50 /* ps5 */,
+				B1C9866A18A9158E00B9BF50 /* design mode */,
+				B1C9867E18A918B200B9BF50 /* play mode */,
+				B1C9867F18A918CF00B9BF50 /* intro mode */,
 				B1C9862A18A9140A00B9BF50 /* AppDelegate.h */,
 				B1C9862B18A9140A00B9BF50 /* AppDelegate.m */,
 				B1C9867818A9164E00B9BF50 /* Main.storyboard */,
@@ -276,15 +278,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B1C9866A18A9158E00B9BF50 /* ps3 */ = {
+		B1C9866A18A9158E00B9BF50 /* design mode */ = {
 			isa = PBXGroup;
 			children = (
 				B1CAEF9D18ACDE6C00A96057 /* Controller */,
 				B1CAEF9C18ACDE5800A96057 /* Delegate */,
 				B1CAEF9B18ACDE3D00A96057 /* View */,
-				B1CAEF9A18ACDE2900A96057 /* Model */,
 			);
-			name = ps3;
+			name = "design mode";
 			sourceTree = "<group>";
 		};
 		B1C9866B18A915DB00B9BF50 /* images */ = {
@@ -301,26 +302,25 @@
 			name = images;
 			sourceTree = "<group>";
 		};
-		B1C9867E18A918B200B9BF50 /* ps4 */ = {
+		B1C9867E18A918B200B9BF50 /* play mode */ = {
 			isa = PBXGroup;
 			children = (
 				B1C9868618A91CFF00B9BF50 /* Game Engine */,
 				B1C9868518A91CEE00B9BF50 /* Physics Engine */,
 				B1C9868318A91CC400B9BF50 /* View and Controllers */,
 			);
-			name = ps4;
+			name = "play mode";
 			sourceTree = "<group>";
 		};
-		B1C9867F18A918CF00B9BF50 /* ps5 */ = {
+		B1C9867F18A918CF00B9BF50 /* intro mode */ = {
 			isa = PBXGroup;
 			children = (
-				B1DB39E118BE331D007405D2 /* sound player */,
 				B1C9867B18A918A400B9BF50 /* WelcomeViewController.h */,
 				B1C9867C18A918A400B9BF50 /* WelcomeViewController.m */,
 				B1D13E9918B12B300098BBB3 /* LevelSelectViewController.h */,
 				B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */,
 			);
-			name = ps5;
+			name = "intro mode";
 			sourceTree = "<group>";
 		};
 		B1C9868318A91CC400B9BF50 /* View and Controllers */ = {
@@ -349,7 +349,7 @@
 		B1C9868618A91CFF00B9BF50 /* Game Engine */ = {
 			isa = PBXGroup;
 			children = (
-				B1CAEF9E18AD14C800A96057 /* Engine Delegate */,
+				B1CAEF9F18AD14EA00A96057 /* GameEngineDelegate.h */,
 				B1C9C1BB18ABB1EA0069A5B2 /* GameEngine.h */,
 				B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */,
 			);
@@ -399,14 +399,6 @@
 				B1C9866018A9157B00B9BF50 /* GameDesignViewController+ViewControllerExtension.m */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		B1CAEF9E18AD14C800A96057 /* Engine Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				B1CAEF9F18AD14EA00A96057 /* GameEngineDelegate.h */,
-			);
-			name = "Engine Delegate";
 			sourceTree = "<group>";
 		};
 		B1CCB5DB18C0D20A00DE08A4 /* game recources */ = {

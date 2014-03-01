@@ -26,5 +26,6 @@ static const CGFloat kShakingConstant = 3;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 
 - (void)configureLoadingFilePath:(NSString *)filePath;
+- (IBAction)backButtonPressed:(UIButton *)sender;
 
 @end

@@ -52,13 +52,6 @@
     [self.player pause];
 }
 
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
-    if (flag) {
-        NSLog(@"did finish playing");
-    }
-}
-
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error
 {
     NSLog(@"error: %@", [error localizedDescription]);

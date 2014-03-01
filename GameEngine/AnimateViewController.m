@@ -25,6 +25,8 @@
 @property (nonatomic) NSInteger currentFiringType;
 @property (nonatomic) NSInteger nextFiringType;
 @property (nonatomic) NSString *filePath;
+
+@property (strong, nonatomic) AVSoundPlayer *poppingSound;
 @end
 
 @implementation AnimateViewController
@@ -49,6 +51,7 @@
     self.isReadyForFiring = NO;
     self.currentFiringType = 1;
     [self produceNextFiringType];
+    self.poppingSound = [[AVSoundPlayer alloc] initWithFileName:@"bubble-popping"];
 }
 
 - (void)setUpMainViews
@@ -165,6 +168,11 @@
     self.filePath = filePath;
 }
 
+- (IBAction)backButtonPressed:(UIButton *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)setColorType:(NSInteger)colorType forCell:(GameBubbleCell *)aCell
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[self imageWithColorType:colorType]];
@@ -239,11 +247,7 @@
                                  cell.backgroundView.frame.origin.y - kExpandingRate,
                                  cell.backgroundView.frame.size.width + kExpandingRate * 2,
                                  cell.backgroundView.frame.size.height + kExpandingRate * 2);
-    NSError *soundError;
-    NSString *path  = [[NSBundle mainBundle] pathForResource:@"bg-music-2" ofType:@"mp3"];
-    NSURL *pathURL = [NSURL fileURLWithPath:path];
-    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:pathURL error:&soundError];
-    [player play];
+    [self.poppingSound play];
     
     [UIView animateWithDuration:kAnimationDuration animations:^{
         cell.backgroundView.alpha = 0;

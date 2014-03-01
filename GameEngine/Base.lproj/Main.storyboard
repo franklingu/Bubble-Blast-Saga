@@ -359,6 +359,17 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ct-wr-lKC">
+                                        <rect key="frame" x="697" y="969" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="T2J-Bn-unl" eventType="touchUpInside" id="wAd-Se-Ge4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -367,6 +378,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Animate" id="TRI-gg-cbU"/>
                     <connections>
+                        <outlet property="backButton" destination="8ct-wr-lKC" id="NbC-ln-KlS"/>
                         <outlet property="bubbleGridArea" destination="smB-6X-coJ" id="gnc-xn-H6k"/>
                         <outlet property="gameArea" destination="47u-ZB-IGF" id="h2w-LJ-9dE"/>
                     </connections>
