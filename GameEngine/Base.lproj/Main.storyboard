@@ -370,6 +370,30 @@
                                             <action selector="backButtonPressed:" destination="T2J-Bn-unl" eventType="touchUpInside" id="wAd-Se-Ge4"/>
                                         </connections>
                                     </button>
+                                    <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="40" minValue="0.0" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="bKD-hV-Uop">
+                                        <rect key="frame" x="175" y="977" width="94" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="minimumTrackTintColor" red="0.036015190820000001" green="0.88229353129999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxX-8X-JR9">
+                                        <rect key="frame" x="554" y="983" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3X-3l-Og1">
+                                        <rect key="frame" x="599" y="983" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shots Left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hty-6R-fNU">
+                                        <rect key="frame" x="110" y="983" width="70" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -381,6 +405,8 @@
                         <outlet property="backButton" destination="8ct-wr-lKC" id="NbC-ln-KlS"/>
                         <outlet property="bubbleGridArea" destination="smB-6X-coJ" id="gnc-xn-H6k"/>
                         <outlet property="gameArea" destination="47u-ZB-IGF" id="h2w-LJ-9dE"/>
+                        <outlet property="scoreGained" destination="b3X-3l-Og1" id="s8N-Ob-Yyd"/>
+                        <outlet property="shotsLeftSlider" destination="bKD-hV-Uop" id="MnR-Hf-854"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xpF-tC-Ds4" userLabel="First Responder" sceneMemberID="firstResponder"/>

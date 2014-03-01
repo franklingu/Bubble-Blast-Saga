@@ -34,3 +34,14 @@ static const CGFloat kRadiusOfFiringBubble = 32;
 static const NSInteger kMaximumNumberOfConnectedBubbles = 3;
 static const NSInteger kInvalidItem = -1;
 static const NSString *kBubbleToFireIdentifier = @"bubbleToFire";
+
+static const CGFloat kOriginXOfNextFiringBubble = 25;
+static const CGFloat kMaximumYReplacement = -20;
+static const CGFloat kExpandingRate = 8;
+static const CGFloat kDropingDistance = 100;
+static const CGFloat kAnimationDuration = 0.2;
+static const CGFloat kYIndentForBubblesArea = 25;
+static const CGFloat kShakingConstant = 3;
+static const NSInteger kNumberOfShootsAllowed = 40;
+static const NSInteger kNumberOfScoreForRemovingBubble = 1;
+static const NSInteger kNumberOfScoreForDroppingBubble = 2;

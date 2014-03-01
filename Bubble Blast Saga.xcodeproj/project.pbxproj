@@ -58,6 +58,7 @@
 		B1D13E9818B12A1A0098BBB3 /* cannon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D13E9018B12A1A0098BBB3 /* cannon.png */; };
 		B1D13E9B18B12B300098BBB3 /* LevelSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D13E9A18B12B300098BBB3 /* LevelSelectViewController.m */; };
 		B1D1C48F18AE6F730000AC43 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D1C48E18AE6F730000AC43 /* Queue.m */; };
+		B1D1CCB718C22CE500030F52 /* direction-arorw-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D1CCB618C22CE500030F52 /* direction-arorw-selected.png */; };
 		B1DB39EB18BE4722007405D2 /* Level-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1DB39E618BE4722007405D2 /* Level-1.plist */; };
 		B1DB39EC18BE4722007405D2 /* Level-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1DB39E718BE4722007405D2 /* Level-2.plist */; };
 		B1DB39ED18BE4722007405D2 /* Level-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1DB39E818BE4722007405D2 /* Level-3.plist */; };
@@ -156,6 +157,7 @@
 		B1D1C48D18AE6F730000AC43 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
 		B1D1C48E18AE6F730000AC43 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		B1D1CCB318C2105B00030F52 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B1D1CCB618C22CE500030F52 /* direction-arorw-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "direction-arorw-selected.png"; path = "Images/direction-arorw-selected.png"; sourceTree = SOURCE_ROOT; };
 		B1DB39E618BE4722007405D2 /* Level-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-1.plist"; path = "preloaded levels/Level-1.plist"; sourceTree = SOURCE_ROOT; };
 		B1DB39E718BE4722007405D2 /* Level-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-2.plist"; path = "preloaded levels/Level-2.plist"; sourceTree = SOURCE_ROOT; };
 		B1DB39E818BE4722007405D2 /* Level-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Level-3.plist"; path = "preloaded levels/Level-3.plist"; sourceTree = SOURCE_ROOT; };
@@ -290,6 +292,7 @@
 		B1C9866B18A915DB00B9BF50 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B1D1CCB618C22CE500030F52 /* direction-arorw-selected.png */,
 				B1CCBDF818BBA536008E7DDA /* backgrounds */,
 				B1CCBDF918BBA618008E7DDA /* bubbles */,
 				B1CCB5D918C0B5B400DE08A4 /* bubble-colorful.png */,
@@ -642,6 +645,7 @@
 				B1C9867718A915F300B9BF50 /* eraser-1.png in Resources */,
 				B1CCB5D718C0B50F00DE08A4 /* bubble-pink.png in Resources */,
 				B1CCBE1918BBB8A2008E7DDA /* sky.png in Resources */,
+				B1D1CCB718C22CE500030F52 /* direction-arorw-selected.png in Resources */,
 				B1D13E9518B12A1A0098BBB3 /* bubble-star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

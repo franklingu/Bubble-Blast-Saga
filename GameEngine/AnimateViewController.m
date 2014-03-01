@@ -11,25 +11,27 @@
 
 @interface AnimateViewController ()
 @property (nonatomic) NSInteger numberOfRows;
-@property (nonatomic) GameEngine *gameEngine;
-@property (nonatomic) UIView *bubbleToFire;
-@property (nonatomic) UIView *nextBubble;
-@property (nonatomic) UIImageView *cannonBase;
-@property (nonatomic) UIImageView *cannonPart;
-@property (nonatomic) UIAlertView *gameLostAlert;
-@property (nonatomic) UIAlertView *gameWonAlert;
 @property (nonatomic) NSTimer *timer;
 @property (nonatomic) BOOL isGameOver;
 @property (nonatomic) BOOL isReadyForFiring;
 @property (nonatomic) CGPoint firingDirection;
 @property (nonatomic) NSInteger currentFiringType;
 @property (nonatomic) NSInteger nextFiringType;
+@property (nonatomic) NSInteger totalScore;
+@property (nonatomic) NSInteger numberOfShotsLeft;
 @property (nonatomic) NSString *filePath;
 
 @property (strong, nonatomic) GameResourcesManager *resourceManager;
 @property (strong, nonatomic) NSMutableArray *bubbleBurstSprite;
 @property (strong, nonatomic) AVSoundPlayer *poppingSoundPlayer;
 @property (strong, nonatomic) AVSoundPlayer *cannonSoundPlayer;
+@property (strong, nonatomic) GameEngine *gameEngine;
+@property (strong, nonatomic) UIView *bubbleToFire;
+@property (strong, nonatomic) UIView *nextBubble;
+@property (strong, nonatomic) UIImageView *cannonBase;
+@property (strong, nonatomic) UIImageView *cannonPart;
+@property (strong, nonatomic) UIAlertView *gameLostAlert;
+@property (strong, nonatomic) UIAlertView *gameWonAlert;
 @end
 
 @implementation AnimateViewController
@@ -45,14 +47,16 @@
 - (void)initializeAttributes
 {
     CGRect frame = self.gameArea.frame;
-    frame.origin.y=25;
+    frame.origin.y = kYIndentForBubblesArea;
     self.gameEngine = [[GameEngine alloc] initWithFrame:frame];
     self.gameEngine.delegate = self;
     [self.gameEngine loadFromFilePath:self.filePath];
-    self.numberOfRows = 13;
+    self.numberOfRows = kNumberOfRows;
     self.isGameOver = NO;
     self.isReadyForFiring = NO;
     self.currentFiringType = 1;
+    self.numberOfShotsLeft = kNumberOfShootsAllowed;
+    self.totalScore = 0;
     [self produceNextFiringType];
     self.poppingSoundPlayer = [[AVSoundPlayer alloc] initWithFileName:@"bubble-popping"];
     self.cannonSoundPlayer = [[AVSoundPlayer alloc] initWithFileName:@"cannon"];
@@ -215,6 +219,10 @@
 
 - (void)fireBubble
 {
+    if (self.numberOfShotsLeft == 0) {
+        [self gameOver];
+        return ;
+    }
     [self getFiringDirectionAndAnimate];
 }
 
@@ -249,6 +257,8 @@
 - (void)stopCannonAndFireUpBubble
 {
     [self.cannonPart stopAnimating];
+    self.numberOfShotsLeft--;
+    [self.shotsLeftSlider setValue:self.numberOfShotsLeft animated:NO];
     [self.gameEngine fireGameBubbleInDirection:self.firingDirection withColorType:self.currentFiringType];
 }
 
@@ -279,6 +289,8 @@
 
 - (void)removeCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType
 {
+    self.totalScore += kNumberOfScoreForRemovingBubble;
+    self.scoreGained.text = [NSString stringWithFormat:@"%d", (int)self.totalScore];
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
     GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
     CGRect newFrame = CGRectMake(cell.backgroundView.frame.origin.x - kExpandingRate,
@@ -303,6 +315,8 @@
 
 - (void)dropCellAtItem:(NSInteger)item
 {
+    self.totalScore += kNumberOfScoreForDroppingBubble;
+    self.scoreGained.text = [NSString stringWithFormat:@"%d", (int)self.totalScore];
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
     GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
     CGPoint dropCenter = CGPointMake(cell.backgroundView.center.x, cell.backgroundView.center.y + kDropingDistance);
