@@ -239,7 +239,10 @@
                                  cell.backgroundView.frame.origin.y - kExpandingRate,
                                  cell.backgroundView.frame.size.width + kExpandingRate * 2,
                                  cell.backgroundView.frame.size.height + kExpandingRate * 2);
-    SoundPlayer *player = [[SoundPlayer alloc] initWithFileName:@"bubble-popping"];
+    NSError *soundError;
+    NSString *path  = [[NSBundle mainBundle] pathForResource:@"bg-music-2" ofType:@"mp3"];
+    NSURL *pathURL = [NSURL fileURLWithPath:path];
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:pathURL error:&soundError];
     [player play];
     
     [UIView animateWithDuration:kAnimationDuration animations:^{
@@ -248,7 +251,6 @@
     } completion:^(BOOL finished){
             if (finished) {
                 cell.backgroundView = nil;
-                [player stopPlaying];
             }
         }];
 }

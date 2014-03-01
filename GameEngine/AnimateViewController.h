@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "GameEngine.h"
-#import "SoundPlayer.h"
+#import "AVSoundPlayer.h"
 #import "GameResourcesManager.h"
 
 static const CGFloat kOriginXOfNextFiringBubble = 25;

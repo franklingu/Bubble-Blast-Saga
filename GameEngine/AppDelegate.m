@@ -13,10 +13,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    // self.bgSoundPlayer = [[SoundPlayer alloc] initWithFileName:@"bg-music"];
-    // [self.bgSoundPlayer playInLoop];
-    //self.bgPlayer = [[AVSoundPlayer alloc] initWithFileName:@"bg-music-1"];
-    //[self.bgPlayer playInLoop];
+    self.bgPlayer = [[AVSoundPlayer alloc] initWithFileName:@"bg-music-1"];
+    [self.bgPlayer playInLoop];
     
     return YES;
 }

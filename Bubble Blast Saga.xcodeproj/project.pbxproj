@@ -39,7 +39,6 @@
 		B1C9868F18A92A5400B9BF50 /* PhysicsSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9868E18A92A5400B9BF50 /* PhysicsSpace.m */; };
 		B1C9C1BD18ABB1EA0069A5B2 /* GameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */; };
 		B1CCB5C318C0685400DE08A4 /* AVSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CCB5C218C0685400DE08A4 /* AVSoundPlayer.m */; };
-		B1CCB5C618C0A2A400DE08A4 /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1CCB5C518C0A2A400DE08A4 /* SoundPlayer.m */; };
 		B1CCB5CC18C0A40400DE08A4 /* bg-music-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5C718C0A40400DE08A4 /* bg-music-1.mp3 */; };
 		B1CCB5CD18C0A40400DE08A4 /* bg-music-2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5C818C0A40400DE08A4 /* bg-music-2.mp3 */; };
 		B1CCB5CE18C0A40400DE08A4 /* bubble-popping.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B1CCB5C918C0A40400DE08A4 /* bubble-popping.mp3 */; };
@@ -135,8 +134,6 @@
 		B1CAEF9F18AD14EA00A96057 /* GameEngineDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameEngineDelegate.h; sourceTree = "<group>"; };
 		B1CCB5C118C0685400DE08A4 /* AVSoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSoundPlayer.h; sourceTree = "<group>"; };
 		B1CCB5C218C0685400DE08A4 /* AVSoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSoundPlayer.m; sourceTree = "<group>"; };
-		B1CCB5C418C0A2A400DE08A4 /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
-		B1CCB5C518C0A2A400DE08A4 /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		B1CCB5C718C0A40400DE08A4 /* bg-music-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music-1.mp3"; path = "music/bg-music-1.mp3"; sourceTree = SOURCE_ROOT; };
 		B1CCB5C818C0A40400DE08A4 /* bg-music-2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bg-music-2.mp3"; path = "music/bg-music-2.mp3"; sourceTree = SOURCE_ROOT; };
 		B1CCB5C918C0A40400DE08A4 /* bubble-popping.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "bubble-popping.mp3"; path = "music/bubble-popping.mp3"; sourceTree = SOURCE_ROOT; };
@@ -307,7 +304,7 @@
 		B1C9867E18A918B200B9BF50 /* ps4 */ = {
 			isa = PBXGroup;
 			children = (
-				B1C9868618A91CFF00B9BF50 /* Graph */,
+				B1C9868618A91CFF00B9BF50 /* Game Engine */,
 				B1C9868518A91CEE00B9BF50 /* Physics Engine */,
 				B1C9868318A91CC400B9BF50 /* View and Controllers */,
 			);
@@ -349,14 +346,14 @@
 			name = "Physics Engine";
 			sourceTree = "<group>";
 		};
-		B1C9868618A91CFF00B9BF50 /* Graph */ = {
+		B1C9868618A91CFF00B9BF50 /* Game Engine */ = {
 			isa = PBXGroup;
 			children = (
-				B1CAEF9E18AD14C800A96057 /* Graph Delegate */,
+				B1CAEF9E18AD14C800A96057 /* Engine Delegate */,
 				B1C9C1BB18ABB1EA0069A5B2 /* GameEngine.h */,
 				B1C9C1BC18ABB1EA0069A5B2 /* GameEngine.m */,
 			);
-			name = Graph;
+			name = "Game Engine";
 			sourceTree = "<group>";
 		};
 		B1CAEF9A18ACDE2900A96057 /* Model */ = {
@@ -404,12 +401,12 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		B1CAEF9E18AD14C800A96057 /* Graph Delegate */ = {
+		B1CAEF9E18AD14C800A96057 /* Engine Delegate */ = {
 			isa = PBXGroup;
 			children = (
 				B1CAEF9F18AD14EA00A96057 /* GameEngineDelegate.h */,
 			);
-			name = "Graph Delegate";
+			name = "Engine Delegate";
 			sourceTree = "<group>";
 		};
 		B1CCB5DB18C0D20A00DE08A4 /* game recources */ = {
@@ -454,8 +451,6 @@
 		B1DB39E118BE331D007405D2 /* sound player */ = {
 			isa = PBXGroup;
 			children = (
-				B1CCB5C418C0A2A400DE08A4 /* SoundPlayer.h */,
-				B1CCB5C518C0A2A400DE08A4 /* SoundPlayer.m */,
 				B1CCB5C118C0685400DE08A4 /* AVSoundPlayer.h */,
 				B1CCB5C218C0685400DE08A4 /* AVSoundPlayer.m */,
 			);
@@ -660,7 +655,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1CCB5C618C0A2A400DE08A4 /* SoundPlayer.m in Sources */,
 				B1D1C48F18AE6F730000AC43 /* Queue.m in Sources */,
 				B1CCB5C318C0685400DE08A4 /* AVSoundPlayer.m in Sources */,
 				B1CCB5DF18C0D3A200DE08A4 /* GameResourcesManager.m in Sources */,
