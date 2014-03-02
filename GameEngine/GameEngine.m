@@ -86,8 +86,8 @@
 {
     CircleShape *circle = [self.physicsSpace circleShapeWithIdentifier:[NSString stringWithFormat:@"%d",(int)bubble.item]];
     [self.physicsSpace destroyCircleShape:circle];
+    [self.delegate dropCellAtItem:bubble.item withColorType:bubble.colorType];
     bubble.colorType = kNoDisplayColorType;
-    [self.delegate dropCellAtItem:bubble.item];
 }
 
 - (void)update

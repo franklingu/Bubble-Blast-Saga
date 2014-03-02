@@ -16,6 +16,8 @@ static NSString *kStarImageName = @"bubble-star.png";
 static NSString *kBombImageName = @"bubble-bomb.png";
 static NSString *kLightningImageName = @"bubble-lightning.png";
 static NSString *kIndestructibleImageName = @"bubble-indestructible.png";
+static NSString *kCandyRedImageName = @"bubble-candy-red.png";
+static NSString *kCandyGreenImageName = @"bubble-candy-green.png";
 
 static NSString *kTmpFileName = @"tmp";
 static NSString *kEmptyString = @"";
@@ -45,3 +47,4 @@ static const CGFloat kShakingConstant = 3;
 static const NSInteger kNumberOfShootsAllowed = 40;
 static const NSInteger kNumberOfScoreForRemovingBubble = 1;
 static const NSInteger kNumberOfScoreForDroppingBubble = 2;
+static const NSInteger kNumberOfScoreForCandyGreen = 5;

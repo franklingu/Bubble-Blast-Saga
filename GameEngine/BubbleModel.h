@@ -19,10 +19,12 @@ typedef enum {
     kStarColorType,
     kBombColorType,
     kLightningColorType,
-    kIndesturctibleColorType
+    kIndesturctibleColorType,
+    kCandyRedColorType,
+    kCandyGreenColorType
 } GameBubbleColorType;
 
-static const NSInteger kNumberOfBubbleModelKinds = 9;
+static const NSInteger kNumberOfBubbleModelKinds = 11;
 static const NSInteger kNumberOfBubbleModelKindsCanBeFired = 4;
 static const NSString *kKeyItem = @"Item";
 static const NSString *kKeyColorType = @"Color Type";

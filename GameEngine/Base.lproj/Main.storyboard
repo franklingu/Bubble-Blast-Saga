@@ -109,6 +109,26 @@
                                             <action selector="colorSelectorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sOC-F8-fPK"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coU-xe-hQd">
+                                        <rect key="frame" x="438" y="5" width="40" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="bubble-candy-green.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="colorSelectorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0T9-rX-3xI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBN-Si-IxV">
+                                        <rect key="frame" x="390" y="5" width="40" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="bubble-candy-red.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="colorSelectorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YJg-3k-har"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9f-zd-ecO">
                                         <rect key="frame" x="294" y="5" width="40" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -204,6 +224,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Design" id="KZu-LR-ehq"/>
                     <connections>
+                        <outlet property="bottomBar" destination="SAt-wU-Zfx" id="SSc-i9-67P"/>
                         <outlet property="bubblesGridArea" destination="Uli-jN-IVD" id="n8Q-6U-PgS"/>
                         <outlet property="loadButton" destination="fXS-7b-bDP" id="Cw5-hP-5K4"/>
                         <outlet property="palette" destination="EMN-rd-Pnh" id="7Qx-oo-Hlc"/>
@@ -417,6 +438,8 @@
     <resources>
         <image name="bubble-blue.png" width="160" height="160"/>
         <image name="bubble-bomb.png" width="160" height="160"/>
+        <image name="bubble-candy-green.png" width="212" height="212"/>
+        <image name="bubble-candy-red.png" width="212" height="212"/>
         <image name="bubble-colorful.png" width="546" height="547"/>
         <image name="bubble-green.png" width="160" height="160"/>
         <image name="bubble-indestructible.png" width="160" height="160"/>
@@ -433,6 +456,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="U5M-D8-HVc"/>
+        <segue reference="cUc-S9-gDW"/>
     </inferredMetricsTieBreakers>
 </document>

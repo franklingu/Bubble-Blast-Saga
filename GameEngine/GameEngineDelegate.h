@@ -14,7 +14,7 @@
 - (void)removeCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType;
 
 // drop the display in cell
-- (void)dropCellAtItem:(NSInteger)item;
+- (void)dropCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType;
 
 // add display to cell based on given colorType
 - (void)addCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType;

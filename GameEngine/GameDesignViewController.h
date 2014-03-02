@@ -16,6 +16,7 @@
 @interface GameDesignViewController : UIViewController <UIPopoverControllerDelegate, PopOverDelegate,
 UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *palette;
+@property (strong, nonatomic) IBOutlet UIView *bottomBar;
 @property (strong, nonatomic) IBOutlet UICollectionView *bubblesGridArea;
 @property (strong, nonatomic) IBOutlet UIButton *loadButton;
 

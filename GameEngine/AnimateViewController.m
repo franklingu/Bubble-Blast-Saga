@@ -289,8 +289,13 @@
 
 - (void)removeCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType
 {
-    self.totalScore += kNumberOfScoreForRemovingBubble;
+    if (colorType == kCandyGreenColorType) {
+        self.totalScore += kNumberOfScoreForCandyGreen;
+    } else if (colorType != kNoDisplayColorType) {
+        self.totalScore += kNumberOfScoreForRemovingBubble;
+    }
     self.scoreGained.text = [NSString stringWithFormat:@"%d", (int)self.totalScore];
+    
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
     GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
     CGRect newFrame = CGRectMake(cell.backgroundView.frame.origin.x - kExpandingRate,
@@ -313,10 +318,15 @@
         }];
 }
 
-- (void)dropCellAtItem:(NSInteger)item
+- (void)dropCellAtItem:(NSInteger)item withColorType:(NSInteger)colorType
 {
-    self.totalScore += kNumberOfScoreForDroppingBubble;
+    if (colorType == kCandyGreenColorType) {
+        self.totalScore += kNumberOfScoreForCandyGreen;
+    } else if (colorType != kNoDisplayColorType) {
+        self.totalScore += kNumberOfScoreForDroppingBubble;
+    }
     self.scoreGained.text = [NSString stringWithFormat:@"%d", (int)self.totalScore];
+    
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:0];
     GameBubbleCell *cell= (GameBubbleCell *)[self.bubbleGridArea cellForItemAtIndexPath:indexPath];
     CGPoint dropCenter = CGPointMake(cell.backgroundView.center.x, cell.backgroundView.center.y + kDropingDistance);

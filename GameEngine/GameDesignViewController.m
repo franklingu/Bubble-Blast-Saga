@@ -77,7 +77,7 @@
 
 - (void)fadeAllColorSelector
 {
-    for (int i=1; i<kNumberOfBubbleModelKinds; i++) {
+    for (int i=1; i < kNumberOfBubbleModelKinds; i++) {
         UIButton* button = (UIButton*)[self.palette viewWithTag:i];
         button.alpha = 0.5;
     }
@@ -113,6 +113,10 @@
     background.frame = CGRectMake(0, 0, gameViewWidth, gameViewHeight);
     [self.view addSubview:background];
     [self.view sendSubviewToBack:background];
+    
+    self.palette.layer.zPosition = 1;
+    self.bottomBar.layer.zPosition = 1;
+    
     UIAlertView* saveAlert= [[UIAlertView alloc] initWithTitle:@"Saving file"
                                                  message:@"Enter a name for the current level"
                                                  delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save", nil];

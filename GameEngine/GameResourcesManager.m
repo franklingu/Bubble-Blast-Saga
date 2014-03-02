@@ -123,6 +123,12 @@
         case kIndesturctibleColorType:
             imageName = kIndestructibleImageName;
             break;
+        case kCandyRedColorType:
+            imageName = kCandyRedImageName;
+            break;
+        case kCandyGreenColorType:
+            imageName = kCandyGreenImageName;
+            break;
         default:
             imageName = nil;
             break;

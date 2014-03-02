@@ -155,9 +155,17 @@
     NSArray *neighborsOfStartingModel = [self neighborsWithModelAtItem:startingModel.item];
     
     for (BubbleModel *bubble in neighborsOfStartingModel) {
-        if (bubble.colorType == startingModel.colorType && ![visited containsObject:bubble]) {
+        if ((bubble.colorType == startingModel.colorType || bubble.colorType == kCandyRedColorType)
+            && ![visited containsObject:bubble]) {
+            // special rule: same color + candy red
+            // candy red is considered to be of the same color as the starting bubble when they are direct neighbors
+            // that is to say, candy red is of any colorTpe--so it is enqueued
             [queue enqueue:bubble];
             [connectedBubblesWithSameColor addObject:bubble];
+        } else if (bubble.colorType == kCandyGreenColorType) {
+            // candy green will be removed by direct contact and the starting bubble will be removed too
+            [toBeRemovedBubbles addObject:bubble];
+            [toBeRemovedBubbles addObject:startingModel];
         } else if (bubble.colorType == kLightningColorType) {
             [toBeRemovedBubbles addObject:bubble];
             [toBeRemovedBubbles addObjectsFromArray:[self toBeRemovedBubblesWithLightningBubble:bubble]];
@@ -177,7 +185,8 @@
         BubbleModel *model = [queue dequeue];
         NSArray *neighbors = [self neighborsWithModelAtItem:model.item];
         for (BubbleModel *neighbor in neighbors) {
-            if (neighbor.colorType == startingModel.colorType && ![visited containsObject:neighbor]) {
+            if (neighbor.colorType == startingModel.colorType
+                && ![visited containsObject:neighbor]) {
                 [queue enqueue:neighbor];
                 [connectedBubblesWithSameColor addObject:neighbor];
                 [visited addObject:neighbor];
