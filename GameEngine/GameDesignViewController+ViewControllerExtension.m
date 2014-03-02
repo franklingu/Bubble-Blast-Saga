@@ -77,17 +77,14 @@
 
 - (BOOL)isFileNameSuitable:(NSString*)fileName
 {
-    static int maximumLengthOfString = 20;
-    static int minimumLengthOfString = 4;
-    
     if (!fileName) {
         return NO;
-    } else if (fileName.length < minimumLengthOfString || fileName.length > maximumLengthOfString) {
+    } else if (fileName.length < kMinimumLengthOfLevelName || fileName.length > kMaximumLengthOfLevelName) {
         return NO;
     } else if ([fileName rangeOfString:kDotString].location != NSNotFound) {
         return NO;
-    } else if (fileName.length > minimumLengthOfString &&
-               [[fileName substringWithRange:NSMakeRange(0, minimumLengthOfString + 1)] isEqualToString:kPredefinePrefix]) {
+    } else if (fileName.length > kMinimumLengthOfLevelName &&
+               [[fileName substringWithRange:NSMakeRange(0, kMinimumLengthOfLevelName + 1)] isEqualToString:kPredefinePrefix]) {
         return NO;
     }else {
         return YES;
@@ -99,7 +96,9 @@
     PopOverTableViewController *controller = (PopOverTableViewController*)self.loadPopOverController.contentViewController;
     controller.fileNames = [self.resourceManager fileNamesForLevelInAppDocumentDirectory];
     [controller.tableView reloadData];
-    [self.loadPopOverController presentPopoverFromRect:self.loadButton.bounds inView:self.loadButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.loadPopOverController presentPopoverFromRect:self.loadButton.bounds
+                                                inView:self.loadButton permittedArrowDirections:UIPopoverArrowDirectionAny
+                                              animated:YES];
 }
 
 - (void)reset

@@ -24,6 +24,9 @@ static NSString *kEmptyString = @"";
 static NSString *kDotString = @".";
 static NSString *kPredefinePrefix = @"Level";
 
+static const NSInteger kMaximumLengthOfLevelName = 20;
+static const NSInteger kMinimumLengthOfLevelName = 4;
+
 static const NSInteger kNumberOfItemsInOddRow = 12;
 static const NSInteger kNumberOfItemsInEvenRow = 11;
 static const NSInteger kNumberOfRows = 13;

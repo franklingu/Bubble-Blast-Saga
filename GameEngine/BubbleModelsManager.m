@@ -165,7 +165,9 @@
         } else if (bubble.colorType == kCandyGreenColorType) {
             // candy green will be removed by direct contact and the starting bubble will be removed too
             [toBeRemovedBubbles addObject:bubble];
-            [toBeRemovedBubbles addObject:startingModel];
+            if (![toBeRemovedBubbles containsObject:startingModel]) {
+                [toBeRemovedBubbles addObject:startingModel];
+            }
         } else if (bubble.colorType == kLightningColorType) {
             [toBeRemovedBubbles addObject:bubble];
             [toBeRemovedBubbles addObjectsFromArray:[self toBeRemovedBubblesWithLightningBubble:bubble]];

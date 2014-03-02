@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UISlider *shotsLeftSlider;
 
 - (void)configureLoadingFilePath:(NSString *)filePath;
+
 - (IBAction)backButtonPressed:(UIButton *)sender;
 
 @end

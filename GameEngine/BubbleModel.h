@@ -41,13 +41,9 @@ static const NSString *kKeyRadius = @"radius";
 
 - (id)initWithIndexPathItem:(NSInteger)item colorType:(NSInteger)colorType center:(CGPoint)center
                      radius:(CGFloat)radius;
-// EFFECTS: init a bubbleModel based on given indexPathItem and colorType
 
 + (id)bubbleModelFromDic:(NSDictionary*)dic;
-// REQUIRES: the given dic should be in correct format
-// EFFECTS: factory method and init a bubbleModel with give dic
 
 - (NSDictionary*)modelData;
-// EFFECTS: export the modelData in the form of dictionary
 
 @end

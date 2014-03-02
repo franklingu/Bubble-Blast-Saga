@@ -63,7 +63,8 @@
     if ([segue.identifier isEqualToString:@"playSceneSegue"]) {
         AnimateViewController *playViewController = segue.destinationViewController;
         NSString *filePath = nil;
-        if (self.selectedFileName.length > 4 && [[self.selectedFileName substringWithRange:NSMakeRange(0, 5)] isEqualToString:@"Level"]) {
+        if (self.selectedFileName.length > kMinimumLengthOfLevelName
+            && [[self.selectedFileName substringWithRange:NSMakeRange(0, kMinimumLengthOfLevelName + 1)] isEqualToString:kPredefinePrefix]) {
             filePath = [self.resourceManager pathForPredifinedLevel:self.selectedFileName];
         } else {
             filePath = [self.resourceManager pathForUserDefinedLevel:self.selectedFileName];
@@ -128,7 +129,8 @@
     self.selectedFileName = selectedFileName;
     UIView *previousSelectedView = self.selecteLevelView;
     UIImage* levelImage;
-    if (self.selectedFileName.length > 4 && [[self.selectedFileName substringWithRange:NSMakeRange(0, 5)] isEqualToString:@"Level"]) {
+    if (self.selectedFileName.length > kMinimumLengthOfLevelName
+        && [[self.selectedFileName substringWithRange:NSMakeRange(0, kMinimumLengthOfLevelName + 1)] isEqualToString:kPredefinePrefix]) {
         levelImage = [UIImage imageWithContentsOfFile:[self.resourceManager pathForPredifinedLevelImage:selectedFileName]];
     } else {
         levelImage = [UIImage imageWithContentsOfFile:[self.resourceManager pathForUserDefinedLevelImage:selectedFileName]];
